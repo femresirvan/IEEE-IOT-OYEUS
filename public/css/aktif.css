@@ -158,3 +158,10 @@ svg{
 	stroke-dashoffset: calc(440 - (440 * 24) / 100);
 	stroke: #ff04f7;
 }
+.degisen{
+	background-color: white;
+	
+}
+.degisen1{
+	background: linear-gradient(0deg,#fff,#fff,#fff);
+}
