@@ -1,11 +1,606 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>GEÇMİS VERİLER SAYFASI</h1>
-</body>
+
+    <head>
+
+		<!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title>GEÇMİŞ VERİLER</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="../public/css/jquery.mCustomScrollbar.min.css">
+        <link rel="stylesheet" href="../public/css/animate.css">
+        <link rel="stylesheet" href="../public/css/style.css">
+        <link rel="stylesheet" href="../public/css/media-queries.css">
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="../public/ico/iotbb.PNG">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.js"></script>
+		<script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+		<script src="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		
+		<style>
+			.nav-item:hover{
+				background-color:#1e3f4e;
+			}
+	   
+		</style>
+	
+	
+
+    </head>
+
+    <body >
+
+
+
+		<nav class=" navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #04505f;color: white;">
+			<div class="container-fluid ">
+			  
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ">
+				  <li class="nav-item">
+					<a  class="nav-link active " aria-current="page" style="color: white;" href="http://localhost:3000/">Ana sayfa</a>
+				  </li>
+				  <li class="nav-item">
+                    <a class="nav-link" style="color: white;" href="http://localhost:3000/aktif-veriler">Aktif Veriler</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link"  style="color: white;" href="http://localhost:3000/gecmis-veriler"> Geçmiş Veriler</a>
+				  </li>
+				  <li class="nav-item dropdown">
+					<a href="#" class="nav-link dropdown-toggle"style="color: white;" data-bs-toggle="dropdown">Sections</a>
+					<div class="dropdown-menu" style="background:#1e3f4e;">
+					  <a href="#"  style="color: white;" class="dropdown-item">Section 1</a>
+					  <a href="#"  style="color: white;"  class="dropdown-item">Section 2</a>
+					  <a href="#"   style="color: white;" class="dropdown-item">Section 3</a>
+					</div>
+				</li>
+				</ul>
+			  </div>
+			</div>
+		  </nav>
+	
+
+		
+
+
+
+		<div class=" bg d-flex  align-items-center justify-content-center p-5 " >
+
+			<a href="https://www.ieeeiuc.com/sb/tr/projeler/iot"> <img  id="logO" src="../public/img/ieeiücbeyaz.png"  alt="ieeeiuc"></a>
+		</div>
+		<div class="d-flex  align-items-center justify-content-center p-5">
+			<h1>GEÇMİŞ VERİLER</h1>
+		</div>
+	
+		<!-- Wrapper -->
+    	<div class="wrapper">
+
+			<!-- Sidebar -->
+			<nav class="sidebar">
+				
+				<!-- close sidebar menu -->
+				<div class="dismiss">
+					<i class="fas fa-arrow-left"></i>
+				</div>
+				<div class="logo ;">
+					<h3><a href="index.html" ></a></h3>
+				</div>
+				 
+				<ul class="list-unstyled menu-elements">
+					<li>
+						<a class="scroll-link" href="http://localhost:3000/"><i class="fas fa-home"></i> Anasayfa</a>
+					</li>
+					<li class="active"> 
+						<a class="scroll-link" href="http://localhost:3000/aktif-veriler"><i class="fas fa-cog"></i> Aktif Veriler</a>
+					</li>
+					<li>
+						<a class="scroll-link" href="http://localhost:3000/gecmis-veriler"><i class="fas fa-user"></i> Geçmiş Veriler</a>
+					</li>
+					
+					<li>
+						<a class="scroll-link" href="http://localhost:3000/iletisim"><i class="fas fa-envelope"></i> İletişim</a>
+					</li>
+				<div class="to-top">
+					<a class="btn btn-primary btn-customized-3" href="#" role="button">
+	                    <i class="fas fa-arrow-up"></i> Top
+	                </a>
+				</div>
+				
+				<div id="knapp" class="dark-light-buttons">
+					<a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
+					<a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
+				</div>
+			
+			</nav>
+			<!-- End sidebar -->
+			
+			<!-- Dark overlay -->
+    		<div class="overlay"></div>
+
+			<!-- Content -->
+			<div class="content">
+			
+				<!-- open sidebar menu -->
+				<a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+                    <i class="fas fa-align-left"></i> <span>Menu</span>
+                </a>
+			
+		        <!-- Top content -->
+		        <div class="top-content section-container" id="top-content">
+			        <div class="container">
+			            <div class="row">
+			                
+			            </div>
+			        </div>
+		        </div>
+		
+				<div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+    
+
+
+
+				<div style="text-align: center;">
+					<h1>TABLE</h1>
+				</div>
+			 
+				<table class="tablesorter-bootstrap tablesorter tablesorterac34c62616ea5 table table-bordered table-striped hasFilters" role="grid">
+					<thead style="background-color:#2F4038">
+						<tr role="row" style="color:white" class="tablesorter-headerRow">
+							<th data-column="0" class="tablesorter-header tablesorter-headerAsc bootstrap-header primary" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Id: Ascending sort applied, activate to apply a descending sort" data-sortedby="sorton" style="user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Id <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+							<th data-column="1" class="tablesorter-header tablesorter-headerAsc bootstrap-header secondary" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Voltage: Ascending sort applied, activate to apply a descending sort" data-sortedby="sorton" style="user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Voltage <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+							
+							<th data-column="2" class="tablesorter-header tablesorter-headerAsc bootstrap-header tertiary" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="ascending" aria-label="Flame: Ascending sort applied, activate to apply a descending sort" data-sortedby="sorton" style="user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Flame <i class="tablesorter-icon glyphicon glyphicon-chevron-up"></i></div></div></th>
+							<th data-column="3" class="tablesorter-header tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Location: No sort applied, activate to apply an ascending sort" style="user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Location <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+							<th data-column="4" class="tablesorter-header tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Co2: No sort applied, activate to apply an ascending sort" style="user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Co2 <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th>
+							<th data-column="5" class="tablesorter-header tablesorter-headerUnSorted bootstrap-header" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Date: No sort applied, activate to apply an ascending sort" style="user-select: none;"><div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%"><div class="tablesorter-header-inner">Date <i class="tablesorter-icon bootstrap-icon-unsorted"></i></div></div></th></tr>
+					</thead>
+					<tfoot style="background-color:#61867E">
+						<tr role="row">
+							</tr>
+							<tr role="row" style="color:white">
+								<th data-column="0" class="tablesorter-headerAsc primary" aria-sort="ascending">ID</th>
+								<th data-column="1" class="tablesorter-headerAsc secondary" aria-sort="ascending">VOLTAGE</th>
+							  <th data-column="2" class="tablesorter-headerAsc tertiary" aria-sort="ascending">FLAME</th>
+								<th data-column="3">LOCATİON</th>
+								<th data-column="4">CO2</th>
+								<th data-column="5">DATE</th>
+							</tr>
+						
+					</tfoot>
+					<tbody aria-live="polite" aria-relevant="all">
+						
+						
+						
+						
+					  
+					<tr role="row" class="odd"><td class="primary">ID01</td><td class="secondary">65</td><td class="tertiary">100</td><td>AKSARAY</td><td>70</td><td>2021/05/08</td></tr><tr role="row" class="even"><td class="primary">ID02</td><td class="secondary">64</td><td class="tertiary">99</td>
+						<td>ESKİŞEHİR</td><td>88</td><td>2021/08/03</td><td></td></tr><tr role="row" class="odd"><td class="primary">ID03</td><td class="secondary">63</td><td class="tertiary">98</td><td>GİRESUN</td><td>95</td><td>2021/03/25</td></tr><tr role="row" class="even"><td class="primary">ID04</td><td class="secondary">62</td><td class="tertiary">97</td><td>İSTANBUL</td><td>55</td><td>2021/01/01</td></tr>
+					
+						 
+			,
+					</tbody>
+				</table>
+				  
+				
+			
+			
+				<script>
+			
+			
+					var $table = $('table'),
+						process = false;
+					
+					$('.error').click(function(){
+					  $.tablesorter.showError( $table, 'This is the error row');
+					});
+					
+					$('.process').click(function(){
+					  process = !process;
+					  $.tablesorter.isProcessing( $table, process );
+					});
+					
+					$('.sortable').click(function(){
+					  $table
+						.find('.tablesorter-header:last').toggleClass('sorter-false')
+						.trigger('update');
+					});
+					
+					$table.tablesorter({
+					  theme: 'bootstrap',
+					  headerTemplate: '{content} {icon}',
+					  sortList: [ [0,0], [1,0], [2,0] ],
+					  widgets : [ 'zebra', 'columns', 'filter', 'uitheme' ]
+					});
+					
+					 </script>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			  
+				
+			<div style="text-align: center;">
+				<h1>ID1</h1>
+			</div>
+			
+			
+				
+				<canvas id="lineChart" class="mx-auto chartjs-render-monitor" style="max-width: 1000px; display: block; height: 248px; width: 496px;" width="992" height="496"></canvas>
+			<script>//line
+				var ctxL = document.getElementById("lineChart").getContext('2d');
+				var myLineChart = new Chart(ctxL, {
+				type: 'line',
+				data: {
+				labels: ["PAZARTESİ", "SALI", "ÇARŞAMBA", "PERŞEMBE", "CUMA", "CUMARTESİ", "PAZAR"],
+				
+				
+				datasets: [{
+				label: "VOLTAGE",
+				
+				data: [65, 59, 80, 81, 56, 55, 40],
+				borderColor: [
+				'red',
+				],
+				borderWidth: 2
+				},
+			
+			
+			
+				{
+				label: "FLAME",
+				data: [45, 79, 60, 31, 56, 25, 30],
+				borderColor: [
+				'blue',
+				],
+				borderWidth: 2
+				},
+			
+				
+				
+				]
+				},
+				options: {
+				responsive: true
+				}
+				});
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</script>
+			
+			<div style="text-align: center;">
+				<h1>ID1</h1>
+			</div>
+			
+			
+			<canvas id="horizontalBar" class="mx-auto chartjs-render-monitor" style="max-width: 1000px; display: block; height: 248px; width: 496px;" width="992" height="496"></canvas>
+			
+			<script>
+				new Chart(document.getElementById("horizontalBar"), {
+			type: "horizontalBar",
+			data: {
+			labels: ["VOLTAGE ", "FLAME"],
+			
+			datasets: [{
+			
+			label: "PAZARTESİ",
+			data: [65, 45, ],
+			fill: false,
+			backgroundColor: ["#5F9EA0","#5F9EA0"
+			
+			],
+			
+			},
+			{
+			label: "SALI",
+			data: [59, 79, ],
+			fill: false,
+			backgroundColor: ["#869B75","#869B75"
+			
+			],
+			
+			},
+			{
+			label: "ÇARŞAMBA",
+			data: [80, 60, ],
+			fill: false,
+			backgroundColor: ["#8F8E81","#8F8E81",
+			
+			],
+			
+			},
+			{
+			label: "PERŞEMBE",
+			data: [81, 31, ],
+			fill: false,
+			backgroundColor: ["#E79D22","#E79D22"
+			],
+			
+			},
+			{
+			label: "CUMA",
+			data: [56, 56, ],
+			fill: false,
+			backgroundColor: ["#2B3138","#2B3138"
+			],
+			
+			},
+			{
+			label: "CUMARTESİ",
+			data: [55, 25, ],
+			fill: false,
+			backgroundColor: ["#3E57E2","#3E57E2"
+			],
+			
+			},
+			{
+			label: "PAZAR",
+			data: [40, 30, ],
+			fill: false,
+			backgroundColor: ["#9A724C","#9A724C"
+			],
+			
+			}
+			]
+			},
+			"options": {
+			"scales": {
+			"xAxes": [{
+			"ticks": {
+			"beginAtZero": true
+			}
+			}]
+			}
+			}
+			});
+			</script>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<!-- Code injected by live-server -->
+			<script type="text/javascript">
+				// <![CDATA[  <-- For SVG support
+				if ('WebSocket' in window) {
+					(function () {
+						function refreshCSS() {
+							var sheets = [].slice.call(document.getElementsByTagName("link"));
+							var head = document.getElementsByTagName("head")[0];
+							for (var i = 0; i < sheets.length; ++i) {
+								var elem = sheets[i];
+								var parent = elem.parentElement || head;
+								parent.removeChild(elem);
+								var rel = elem.rel;
+								if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+									var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+									elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+								}
+								parent.appendChild(elem);
+							}
+						}
+						var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+						var address = protocol + window.location.host + window.location.pathname + '/ws';
+						var socket = new WebSocket(address);
+						socket.onmessage = function (msg) {
+							if (msg.data == 'reload') window.location.reload();
+							else if (msg.data == 'refreshcss') refreshCSS();
+						};
+						if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+							console.log('Live reload enabled.');
+							sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+						}
+					})();
+				}
+				else {
+					console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+				}
+				// ]]>
+			
+			
+			
+			
+			
+			
+			
+			
+				
+			</script>
+			
+			<!-- Footer -->
+			<footer style="background-color: #04505f;
+			" class="page-footer  font-small stylish-color-dark pt-4">
+			
+				<!-- Footer Links -->
+				<div class="container text-center text-md-left" style="background-color: #04505f;
+				color:white">
+			  
+				  <!-- Grid row -->
+				  <div class="row">
+			  
+					<!-- Grid column -->
+					<div class="col-md-6 mx-auto d-flex   flex-row  align-items-center ">
+			  
+					  <!-- Content -->
+					 
+					  <div class=" col-xs-12 about-company ">
+			
+						<div class=" align-items-center"  >
+			<img src="../public/img/ieeiücbeyaz.png"  class=" mw-100 ">
+			</div>
+			</div>
+			
+					</div>
+					<!-- Grid column -->
+			  
+					<hr class="clearfix w-100 d-md-none">
+			  
+					<!-- Grid column -->
+					<div class="col-lg-3 col-xs-12 location ;">
+			  
+					  <!-- Links -->
+					  <h4 class="mt-lg-0 mt-sm-4 pt-2">Bilgilendirme</h4>
+			  
+					  <ul class="list-unstyled pt-2">
+						<li >
+						  <a href="https://www.ieeeiuc.com/sb/tr">Anasayfa</a>
+						</li>
+						<li class="pt-1">
+						  <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
+						</li>
+						<li class="pt-1">
+						  <a href="#!">Ekip</a>
+						</li >
+						<li class="pt-1">
+						  <a href="https://www.ieeeiuc.com/sb/tr/sikca-sorulan-sorular">S.S.S</a>
+						</li>
+						<li class="pt-1">
+							<a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
+						  </li>
+					  </ul>
+			  
+					</div>
+					<!-- Grid column -->
+			  
+					<div class="col-lg-3 col-xs-12 location">
+						<h4 class="mt-lg-0 mt-sm-4 pt-2">İletişim</h4>
+			
+											<p class="pt-2">İstanbul Üniversitesi Cerrahpaşa Avcılar Kampüsü Mühendislik Fakültesi</p>
+						<p>34320 Avcılar/ İstanbul TR</p>
+			
+						<p class="mb-0"><i class=""></i>
+							</p>
+						<p>
+							
+							ieeeiüciot@gmail.com
+						
+					</div>
+			  
+				  
+					<!-- Grid column -->
+			  
+				  </div>
+				  <!-- Grid row -->
+			  
+				</div>
+				<!-- Footer Links -->
+			  
+				
+			  
+			   
+			  
+			<!-- sosyal medya -->
+			
+			
+			<div class="page-content page-container text-center text-left  py-3 " id="page-content"style="background-color:#04505f; ">
+				<div  class="d-flex justify-content-center  ">
+					<div  class="row     ">
+						<div  class="col-6-center grid-margin stretch-card  ">
+							<div class="card align-self-center" >
+								<div class="card-body  " style="background:#04505f; ">
+									<div class="template-demo"> 
+										 <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';" class="btn btn-social-icon btn-outline-facebook">   <i class="fa fa-facebook"></i>    </button>
+										 <button type="button" onclick="window.location.href='https://www.youtube.com/channel/UCeyBtBFEsycQNxCpvC5lzPA';" class="btn btn-social-icon btn-outline-youtube">  <i class="fa fa-youtube"></i>    </button> 
+										 <button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"class="btn btn-social-icon btn-outline-twitter">  <i class="fa fa-twitter"></i>   </button> 
+										 <button type="button" onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"class="btn btn-social-icon btn-outline-linkedin">   <i class="fa fa-linkedin"></i>   </button>
+										 <button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"class="btn btn-social-icon btn-outline-instagram">   <i class="fa fa-instagram"></i>    </button> 
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- sosyal medya -->
+			
+			
+			
+			
+			
+				
+			
+				<!-- Copyright -->
+				<div class="footer-copyright text-center py-3" style="background-color:#062e36; color:white">© 2021 Copyright:
+				  <a href="https://www.ieeeiuc.com/sb/tr"> IEEEIUC.com</a>
+				</div>
+				<!-- Copyright -->
+			  
+			  </footer>
+			  <!-- Footer -->
+		       
+		
+		        
+		
+		        
+	        </div>
+	        <!-- End content -->
+        
+        </div>
+        <!-- End wrapper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+        <!-- Javascript -->
+		<script src="../public/js/jquery-3.3.1.min.js"></script>
+		<script src="../public/js/jquery-migrate-3.0.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="../public/js/jquery.backstretch.min.js"></script>
+        <script src="../public/js/wow.min.js"></script>
+        <script src="../public/js/jquery.waypoints.min.js"></script>
+        <script src="../public/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="../public/js/scripts.js"></script>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+		crossorigin="anonymous">
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		 crossorigin="anonymous">
+		</script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+		crossorigin="anonymous"></script>
+    </body>
+
 </html>
