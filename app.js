@@ -5,7 +5,7 @@ const body_parser = require("body-parser");
 const path = require("path");
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
-const io = require('./controller/realtimeDataController');
+const io = require('./controller/socketioController');
 const jwt = require('jsonwebtoken');
 
 app.use(body_parser.urlencoded({'extended': 'true'}));
@@ -31,3 +31,4 @@ mongoose.connect('mongodb+srv://admin:158183@ieeeiot.ebk0k.mongodb.net/ieeeiot?r
     .catch((err)=>{
         console.log("mongo baglanti hatasi");
     });
+require('./controller/mqttController')
