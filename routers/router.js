@@ -7,14 +7,15 @@ const historyController = require('../controller/gecmisVerilerController');
 const apiController = require('../controller/apiController');
 const jwtController = require('../controller/jwtController');
 const aktifVeriler = require('../controller/aktifVerilerController');
-  
+const iletisimController = require('../controller/iletisimController');
+
 router.get('/', indexController.renderIndex);
 router.get('/aktif-veriler',aktifVeriler.aktifVeriler);
 router.get('/gecmis-veriler', historyController.renderHistory);
 router.get('/api/data/limit/:limit?',apiController.getData);
 router.get('/api/data/limit/:limit/field/:field/:danger?',apiController.getDataByField);
 router.get('/api/data/limit/:limit/field/:field/id/:id/:danger?',apiController.getDatabyId);
-
+router.get('/iletisim',iletisimController.renderIletisim);
 
 //JWT
 // router.get('/api/send-data' , jwtController.checkAuth,apiController.createData);
