@@ -1,7 +1,7 @@
 const mqtt = require('mqtt');
 const mongoose = require('mongoose');
 const sensor = require('../model/sensor');
-
+const io = require('./socketioController').getIO();
 const client = mqtt.connect('mqtt://broker.hivemq.com', options);
 
 const topicgelenler = "gelenler/sensor1";
@@ -78,5 +78,5 @@ client.on('message', (topicgelenler, message, packet) => {
         });
     };
     ahmet(msg);
-    io.emit(msg.sensor_id, msg);
+    io.emit('veriler', msg);
 });

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const sensor = require('../model/sensor.js');
 
 module.exports.getData = (req, res, next) => {
-    sensor.find().limit(Number(req.params.limit)).sort('-date')
+    sensor.find().skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date')
         .then((docs) => {
             res.json(docs);
         })
@@ -22,7 +22,7 @@ module.exports.getDatabyId = (req, res, next) => {
             voltage: {
                 $gt: 10
             }
-        }).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
             res.json(docs);
         }).catch((err) => {
             res.json(err);
@@ -36,7 +36,7 @@ module.exports.getDatabyId = (req, res, next) => {
             flame: {
                 $lt: 40
             }
-        }).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
             res.json(docs);
         }).catch((err) => {
             res.json(err);
@@ -50,7 +50,7 @@ module.exports.getDatabyId = (req, res, next) => {
             voltage: {
                 $lte: 10
             }
-        }).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
             res.json(docs);
         }).catch((err) => {
             res.json(err);
@@ -58,7 +58,7 @@ module.exports.getDatabyId = (req, res, next) => {
     } else {
         sensor.find({
             sensor_id: 'sensor_' + req.params.field + req.params.id
-        }).limit(10).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(10).limit(Number(req.params.limit)).sort('-date').then((docs) => {
             res.json(docs);
         }).catch((err) => {
             res.json(err);
@@ -83,7 +83,7 @@ module.exports.getDataByField = (req, res, next) => {
                 $gt: 10
             }
 
-        }).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
             res.json(docs);
         }).catch((err) => {
             res.json(err);
@@ -103,7 +103,7 @@ module.exports.getDataByField = (req, res, next) => {
             voltage: {
                 $lte: 10
             }
-        }).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
             res.json(docs);
         }).catch((err) => {
             res.json(err);
@@ -123,7 +123,7 @@ module.exports.getDataByField = (req, res, next) => {
             voltage: {
                 $lte: 10
             }
-        }).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
             res.json(docs);
         }).catch((err) => {
             res.json(err);
@@ -137,7 +137,7 @@ module.exports.getDataByField = (req, res, next) => {
                     'sensor_' + req.params.field + '3'
                 ]
             }
-        }).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
             res.json(docs);
         }).catch((err) => {
             res.json(err);
