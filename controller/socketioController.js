@@ -1,7 +1,7 @@
 const socketio = require('socket.io');
 
 module.exports.listen = function(app){
-    io = socketio.listen(app);
+    io = socketio(app);
     io.on('connection', (socket) => {
         console.log('yeni baglanti');
         socket.on('send message', (data) => {
@@ -18,3 +18,4 @@ module.exports.getIO = () => {
     }
     return io;
 }
+

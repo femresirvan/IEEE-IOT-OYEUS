@@ -12,10 +12,12 @@ const iletisimController = require('../controller/iletisimController');
 router.get('/', indexController.renderIndex);
 router.get('/aktif-veriler',aktifVeriler.aktifVeriler);
 router.get('/gecmis-veriler', historyController.renderHistory);
-router.get('/api/data/limit/:limit?',apiController.getData);
-router.get('/api/data/limit/:limit/field/:field/:danger?',apiController.getDataByField);
-router.get('/api/data/limit/:limit/field/:field/id/:id/:danger?',apiController.getDatabyId);
 router.get('/iletisim',iletisimController.renderIletisim);
+router.get('/api/data/limit/:limit?/page-number/:pagenumber?',apiController.getData);
+router.get('/api/data/limit/:limit?/page-number/:pagenumber?/:danger?',apiController.getData);
+router.get('/api/data/limit/:limit/field/:field/page-number/:pagenumber/:danger?',apiController.getDataByField);
+router.get('/api/data/limit/:limit/field/:field/id/:id/page-number/:pagenumber/:danger?',apiController.getDatabyId);
+
 
 //JWT
 // router.get('/api/send-data' , jwtController.checkAuth,apiController.createData);
