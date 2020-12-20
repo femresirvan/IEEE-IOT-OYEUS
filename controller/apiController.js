@@ -2,78 +2,195 @@ const mongoose = require('mongoose');
 const sensor = require('../model/sensor.js');
 
 module.exports.getData = (req, res, next) => {
-    sensor.find().skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date')
-        .then((docs) => {
-            res.json(docs);
-        })
-        .catch(() => {
-            res.json(docs);
-        })
-};
-
-
-module.exports.getDatabyId = (req, res, next) => {
     if (req.params.danger == 'yangin') {
-        sensor.find({
-            sensor_id: 'sensor_' + req.params.field + req.params.id,
+        sensor.countDocuments({
             flame: {
                 $gte: 40
             },
             voltage: {
                 $gt: 10
             }
-        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
-            res.json(docs);
-        }).catch((err) => {
-            res.json(err);
+        }, (err, result) => {
+            sensor.find({
+                    flame: {
+                        $gte: 40
+                    },
+                    voltage: {
+                        $gt: 10
+                    }
+                }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date')
+                .then((docs) => {
+                    docs.push(result)
+                    res.json(docs);
+                })
+                .catch(() => {
+                    res.json(docs);
+                })
         })
     } else if (req.params.danger == 'pil') {
-        sensor.find({
-            sensor_id: 'sensor_' + req.params.field + req.params.id,
+        sensor.countDocuments({
             voltage: {
                 $lte: 10
             },
             flame: {
                 $lt: 40
             }
-        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
-            res.json(docs);
-        }).catch((err) => {
-            res.json(err);
+        }, (err, result) => {
+            sensor.find({
+                    voltage: {
+                        $lte: 10
+                    },
+                    flame: {
+                        $lt: 40
+                    }
+                }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date')
+                .then((docs) => {
+                    docs.push(result)
+                    res.json(docs);
+                })
+                .catch(() => {
+                    res.json(docs);
+                })
         })
     } else if (req.params.danger == 'yangin+pil' || req.params.danger == 'pil+yangin') {
-        sensor.find({
-            sensor_id: 'sensor_' + req.params.field + req.params.id,
+        sensor.countDocuments({
             flame: {
                 $gte: 40
             },
             voltage: {
                 $lte: 10
             }
-        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
-            res.json(docs);
-        }).catch((err) => {
-            res.json(err);
+        }, (err, result) => {
+            sensor.find({
+                    flame: {
+                        $gte: 40
+                    },
+                    voltage: {
+                        $lte: 10
+                    }
+                }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date')
+                .then((docs) => {
+                    docs.push(result)
+                    res.json(docs);
+                })
+                .catch(() => {
+                    res.json(docs);
+                })
         })
     } else {
-        sensor.find({
-            sensor_id: 'sensor_' + req.params.field + req.params.id
-        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(10).limit(Number(req.params.limit)).sort('-date').then((docs) => {
-            res.json(docs);
-        }).catch((err) => {
-            res.json(err);
+        sensor.countDocuments({}, (err, result) => {
+            sensor.find().skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date')
+                .then((docs) => {
+                    docs.push(result)
+                    res.json(docs);
+                })
+                .catch(() => {
+                    res.json(docs);
+                })
+        })
+    }
+}; //yangin+pil eklencek
+
+module.exports.getDatabyId = (req, res, next) => {
+    if (req.params.danger == 'yangin') {
+        sensor.countDocuments({
+            sensor_id: req.params.field + req.params.id,
+            flame: {
+                $gte: 40
+            },
+            voltage: {
+                $gt: 10
+            }
+        }, (err, result) => {
+            sensor.find({
+                sensor_id: req.params.field + req.params.id,
+                flame: {
+                    $gte: 40
+                },
+                voltage: {
+                    $gt: 10
+                }
+            }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+                docs.push(result)
+                res.json(docs);
+            }).catch((err) => {
+                res.json(err);
+            })
+        })
+    } else if (req.params.danger == 'pil') {
+        sensor.countDocuments({
+            sensor_id: req.params.field + req.params.id,
+            voltage: {
+                $lte: 10
+            },
+            flame: {
+                $lt: 40
+            }
+        }, (err, result) => {
+            sensor.find({
+                sensor_id: req.params.field + req.params.id,
+                voltage: {
+                    $lte: 10
+                },
+                flame: {
+                    $lt: 40
+                }
+            }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+                docs.push(result)
+                res.json(docs);
+            }).catch((err) => {
+                res.json(err);
+            })
+        })
+    } else if (req.params.danger == 'yangin+pil' || req.params.danger == 'pil+yangin') {
+        sensor.countDocuments({
+            sensor_id: req.params.field + req.params.id,
+            flame: {
+                $gte: 40
+            },
+            voltage: {
+                $lte: 10
+            }
+        }, (err, result) => {
+            sensor.find({
+                sensor_id: req.params.field + req.params.id,
+                flame: {
+                    $gte: 40
+                },
+                voltage: {
+                    $lte: 10
+                }
+            }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+                docs.push(result)
+                res.json(docs);
+            }).catch((err) => {
+                res.json(err);
+            })
+        })
+    } else {
+        sensor.countDocuments({
+            sensor_id: req.params.field + req.params.id
+        }, (err, result) => {
+            sensor.find({
+                sensor_id: req.params.field + req.params.id
+            }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(10).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+                docs.push(result)
+                res.json(docs);
+            }).catch((err) => {
+                res.json(err);
+            })
         })
     }
 }
 
 module.exports.getDataByField = (req, res, next) => {
     if (req.params.danger == 'yangin') {
-        sensor.find({
+        sensor.countDocuments({
             sensor_id: {
                 $in: [
-                    'sensor_' + req.params.field + '1',
-                    'sensor_' + req.params.field + '2',
-                    'sensor_' + req.params.field + '3'
+                    req.params.field + '1',
+                    req.params.field + '2',
+                    req.params.field + '3'
                 ]
             },
             flame: {
@@ -82,19 +199,36 @@ module.exports.getDataByField = (req, res, next) => {
             voltage: {
                 $gt: 10
             }
+        }, (err, result) => {
+            sensor.find({
+                sensor_id: {
+                    $in: [
+                        req.params.field + '1',
+                        req.params.field + '2',
+                        req.params.field + '3'
+                    ]
+                },
+                flame: {
+                    $gte: 40
+                },
+                voltage: {
+                    $gt: 10
+                }
 
-        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
-            res.json(docs);
-        }).catch((err) => {
-            res.json(err);
+            }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+                docs.push(result)
+                res.json(docs);
+            }).catch((err) => {
+                res.json(err);
+            })
         })
     } else if (req.params.danger == 'pil') {
-        sensor.find({
+        sensor.countDocuments({
             sensor_id: {
                 $in: [
-                    'sensor_' + req.params.field + '1',
-                    'sensor_' + req.params.field + '2',
-                    'sensor_' + req.params.field + '3'
+                    req.params.field + '1',
+                    req.params.field + '2',
+                    req.params.field + '3'
                 ]
             },
             flame: {
@@ -103,18 +237,35 @@ module.exports.getDataByField = (req, res, next) => {
             voltage: {
                 $lte: 10
             }
-        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
-            res.json(docs);
-        }).catch((err) => {
-            res.json(err);
+        }, (err, result) => {
+            sensor.find({
+                sensor_id: {
+                    $in: [
+                        req.params.field + '1',
+                        req.params.field + '2',
+                        req.params.field + '3'
+                    ]
+                },
+                flame: {
+                    $lt: 40
+                },
+                voltage: {
+                    $lte: 10
+                }
+            }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+                docs.push(result)
+                res.json(docs);
+            }).catch((err) => {
+                res.json(err);
+            })
         })
     } else if (req.params.danger == 'yangin+pil' || req.params.danger == 'pil+yangin') {
-        sensor.find({
+        sensor.countDocuments({
             sensor_id: {
                 $in: [
-                    'sensor_' + req.params.field + '1',
-                    'sensor_' + req.params.field + '2',
-                    'sensor_' + req.params.field + '3'
+                    req.params.field + '1',
+                    req.params.field + '2',
+                    req.params.field + '3'
                 ]
             },
             flame: {
@@ -123,24 +274,52 @@ module.exports.getDataByField = (req, res, next) => {
             voltage: {
                 $lte: 10
             }
-        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
-            res.json(docs);
-        }).catch((err) => {
-            res.json(err);
+        }, (err, result) => {
+            sensor.find({
+                sensor_id: {
+                    $in: [
+                        req.params.field + '1',
+                        req.params.field + '2',
+                        req.params.field + '3'
+                    ]
+                },
+                flame: {
+                    $gte: 40
+                },
+                voltage: {
+                    $lte: 10
+                }
+            }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+                docs.push(result)
+                res.json(docs);
+            }).catch((err) => {
+                res.json(err);
+            })
         })
     } else {
-        sensor.find({
+        sensor.countDocuments({
             sensor_id: {
                 $in: [
-                    'sensor_' + req.params.field + '1',
-                    'sensor_' + req.params.field + '2',
-                    'sensor_' + req.params.field + '3'
+                    req.params.field + '1',
+                    req.params.field + '2',
+                    req.params.field + '3'
                 ]
             }
-        }).skip(Number(req.params.pagenumber)*Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
-            res.json(docs);
-        }).catch((err) => {
-            res.json(err);
+        }, (err, result) => {
+            sensor.find({
+                sensor_id: {
+                    $in: [
+                        req.params.field + '1',
+                        req.params.field + '2',
+                        req.params.field + '3'
+                    ]
+                }
+            }).skip(Number(req.params.pagenumber) * Number(req.params.limit)).limit(Number(req.params.limit)).sort('-date').then((docs) => {
+                docs.push(result)
+                res.json(docs);
+            }).catch((err) => {
+                res.json(err);
+            })
         })
     }
 }

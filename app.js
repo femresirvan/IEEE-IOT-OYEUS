@@ -21,7 +21,7 @@ const server = app.listen(port, () => {
 });
 
 io.listen(server);
-mongoose.connect('mongodb+srv://admin:158183@ieeeiot.ebk0k.mongodb.net/ieeeiot?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://femresirvan:147852369Fee@cluster0.4ubsi.mongodb.net/ieeeiot?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
