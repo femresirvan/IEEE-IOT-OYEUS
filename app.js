@@ -7,7 +7,9 @@ const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const io = require('./controller/socketioController');
 const jwt = require('jsonwebtoken');
+var cors = require('cors');
 
+app.use(cors());
 app.use(body_parser.urlencoded({'extended': 'true'}));
 app.use(body_parser.json());
 app.set('view engine', 'ejs');
