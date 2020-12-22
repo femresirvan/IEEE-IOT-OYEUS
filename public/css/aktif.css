@@ -56,10 +56,13 @@
 	border-radius: 50%;
 }
 .percent.number h2{
-	color: #777;
+	color: #fff;
 	font-weight: 700;
 	font-size: 40px;
 	transition: 0.5s;
+}
+.number h2{
+	color: #fff;
 }
 .card:hover .percent .number h2{
 	color: #fff;
@@ -75,7 +78,7 @@
 }
 .text{
 	position: relative;
-	color: #777;
+	color: #fff;
 	margin-top:20px; 
 	font-weight: 700;
 	font-size: 18px;
@@ -157,4 +160,15 @@ svg{
 {
 	stroke-dashoffset: calc(440 - (440 * 24) / 100);
 	stroke: #ff04f7;
+}
+.degisen{
+	background: white;
+	color:white;
+	
+}
+.degisen1{
+	background: linear-gradient(0deg,#fff,#fff,#fff);
+}
+#ida{
+	background: white;
 }
