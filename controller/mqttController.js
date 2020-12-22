@@ -72,7 +72,7 @@ client.on('message', (topicgelenler, message, packet) => {
             voltage: msg.voltage,
             flame: msg.flame,
         }).save().then(() => {
-            console.log("Kayit Edildi.");
+            // console.log("Kayit Edildi.");
         }).catch(() => {
             console.log("Kayit Hatasi");
         });
