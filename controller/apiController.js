@@ -1,6 +1,16 @@
 const mongoose = require('mongoose');
 const sensor = require('../model/sensor.js');
 
+module.exports.filtresizData = (req,res,next) => {
+    sensor.find().sort('-date')
+    .then((docs) => {
+        res.json(docs);
+    })
+    .catch((err) => {
+        res.json(err);
+    })
+};
+
 module.exports.getData = (req, res, next) => {
     if (req.params.danger == 'yangin') {
         sensor.countDocuments({
