@@ -195,7 +195,7 @@ $(document).ready(function(){
 				<h2 class="text" id="a1">Voltage</h2>
 			</div>
 		</div>
-			<div class="card"id="id2">
+			<div class="card"id="id2";> <!-- style="width: fit-content; height: fit-content;-->
 			<div class="box">
 				<div class="percent">
 					<svg>
@@ -304,7 +304,7 @@ margin-left: -50px;" >
 						<circle id="circlea" cx="70" cy="70" r="70"></circle> <!--circle'lar için harf vermeye başladım-->
 					</svg>
 					<div class="number">
-						<h2 id="h2id1">90<span>%</span></h2>
+						<h2 id="h2idb1">90<span>%</span></h2>
 					</div>
 				</div>
 				<h2 class="text" id="a1">Voltage</h2>
@@ -318,7 +318,7 @@ margin-left: -50px;" >
 						<circle id="circleb" cx="70" cy="70" r="70"></circle>
 					</svg>
 					<div class="number">
-						<h2 id="h2id2">85<span>%</span></h2>
+						<h2 id="h2idb2">85<span>%</span></h2>
 					</div>
 				</div>
 				<h2 class="text" id="a2">Flame</h2>
@@ -344,7 +344,7 @@ margin-left: 700px;" >
 				<circle id="circlec" cx="70" cy="70" r="70"></circle>
 			</svg>
 			<div class="number">
-				<h2 id="h2id4">50<span>%</span></h2>
+				<h2 id="h2idb4">50<span>%</span></h2>
 			</div>
 		</div>
 		<h2 class="text" id="a4">Voltage</h2>
@@ -358,7 +358,7 @@ margin-left: 700px;" >
 				<circle id="circled" cx="70" cy="70" r="70"></circle>
 			</svg>
 			<div class="number">
-				<h2 id="h2id5">45<span>%</span></h2>
+				<h2 id="h2idb5">45<span>%</span></h2>
 			</div>
 		</div>
 		<h2 class="text" id="a5">Flame</h2>
@@ -384,7 +384,7 @@ margin-left:700px;" >
 			<circle id="circlee" cx="70" cy="70" r="70"></circle>
 		</svg>
 		<div class="number">
-			<h2 id="h2id7">35<span>%</span></h2>
+			<h2 id="h2idb7">35<span>%</span></h2>
 		</div>
 	</div>
 	<h2 class="text" id="a7">Voltage</h2>
@@ -398,7 +398,7 @@ margin-left:700px;" >
 			<circle id="circlef" cx="70" cy="70" r="70"></circle>
 		</svg>
 		<div class="number">
-			<h2 id="h2id8">22<span>%</span></h2>
+			<h2 id="h2idb8">22<span>%</span></h2>
 		</div>
 	</div>
 	<h2 class="text" id="a8">Flame</h2>
@@ -648,8 +648,45 @@ crossorigin="anonymous"></script>
 		if(msg.sensor_id=='a1'){
 			document.getElementById("h2id1").innerHTML = msg.voltage;
 		document.getElementById("circle1").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
+
+			document.getElementById("h2id2").innerHTML = msg.flame;
+		document.getElementById("circle2").style.strokeDashoffset = ( 440 - ( 440 * msg.flame ) / 100);
 		}
+		else if(msg.sensor_id=='a2'){
+			document.getElementById("h2id4").innerHTML = msg.voltage;
+		document.getElementById("circle4").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
 		
+			document.getElementById("h2id5").innerHTML = msg.flame;
+		document.getElementById("circle5").style.strokeDashoffset = ( 440 - ( 440 * msg.flame ) / 100);
+		}
+		else if(msg.sensor_id=='a3'){
+			document.getElementById("h2id7").innerHTML = msg.voltage;
+		document.getElementById("circle7").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
+		
+			document.getElementById("h2id8").innerHTML = msg.flame;
+		document.getElementById("circle8").style.strokeDashoffset = ( 440 - ( 440 * msg.flame ) / 100);
+		}
+		else if(msg.sensor_id=='b1'){
+			document.getElementById("h2idb1").innerHTML = msg.voltage;
+		document.getElementById("circlea").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
+		
+			document.getElementById("h2idb2").innerHTML = msg.flame;
+		document.getElementById("circleb").style.strokeDashoffset = ( 440 - ( 440 * msg.flame ) / 100);
+		}
+		else if(msg.sensor_id=='b2'){
+			document.getElementById("h2idb4").innerHTML = msg.voltage;
+		document.getElementById("circlec").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
+	
+			document.getElementById("h2idb5").innerHTML = msg.flame;
+		document.getElementById("circled").style.strokeDashoffset = ( 440 - ( 440 * msg.vflame ) / 100);
+		}
+		else if(msg.sensor_id=='b3'){
+			document.getElementById("h2idb7").innerHTML = msg.voltage;
+		document.getElementById("circlee").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
+		
+			document.getElementById("h2idb8").innerHTML = msg.flame;
+		document.getElementById("circlef").style.strokeDashoffset = ( 440 - ( 440 * msg.flame ) / 100);
+		}
 	});
 </script>
 

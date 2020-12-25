@@ -1,5 +1,9 @@
 
-
+body {
+	overflow: -moz-scrollbars-vertical;
+	overflow-x: hidden;
+	overflow-y: auto;
+	}
 .container{
 	position: relative;
 	width: 900px;
