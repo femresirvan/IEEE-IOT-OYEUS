@@ -39,7 +39,12 @@
         }
     </style>
 
-
+<style>
+	.form-group {
+		float: right;
+	}
+	.input-group{	float: right;}
+</style>
 
 
 		<style>
@@ -162,134 +167,189 @@
           
 
 
-            <div class="container">
-                        <table id="example">
-						
-							<thead>
-						
-								<tr class="bg-info">
-									<th>Field</th>
-									<th>ID</th>
-									<th>Voltage</th>
-									<th>Flame</th>
-									<th>Fire</th>
-									<th>Battery</th>
-									<th>Date</th>
-								  </tr>
-							  </thead>
-                        <thead>
-						
-							<tr class="bg-info">
-								<th>Field</th>
-								<th>ID</th>
-								<th>Voltage</th>
-								<th>Flame</th>
-								<th>Fire</th>
-								<th>Battery</th>
-								<th>Date</th>
-							  </tr>
-						  </thead>
-						  <tfoot>
-							<tr class="bg-info">
-								<th>Field</th>
-								<th>ID</th>
-								<th>Voltage</th>
-								<th>Flame</th>
-								<th>Fire</th>
-								<th>Battery</th>
-								<th>Date</th>
-							  </tr>
-						  </tfoot>
-						  
-						  <tbody id="myTables">
-						
-						  </tbody>
-					
-                    </table>
+            <!-- filtreleme button + input -->
+    <div class="input-group mb-3">
+        <input type="text" class="form-control col-2  " id="input-text" placeholder="Filtrele" aria-label="Recipient's username"
+            aria-describedby="basic-addon2" value="">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" id="filter-button" type="button">Button</button>
+        </div>
+    </div>
+    <!-- tablo başlangıç -->
+    <div class="table-responsive-sm">
+        <table class="table">
+            <thead style="background-color: rgb(27, 61, 90);color:white">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Bölge</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Duman Yüzdesi</th>
+                    <th scope="col">Pil Durumu</th>
+                    <th scope="col">Tarih</th>
+                </tr>
+            </thead>
+            <tbody id="tablogov">
+            </tbody>
+        </table>
+        <div class="container">
+            <div class="form-group col-2">
+                <label for="sel1">Sayfa Sayısı</label>
+                <select class="form-control" id="sel1" name="sellist1">
 
-                </div>
-            
-            <script>
-				  
-                var myArray = [
-                            {'field':'A', 'id':'1','voltage':'60','flame':'90','fire':'no','battery':'85' ,'date':'12/10/1989'},
-                            {'field':'A', 'id':'2','voltage':'55','flame':'91','fire':'no','battery':'95' ,'date':'11/10/1990'},
-                            {'field':'A', 'id':'3','voltage':'80','flame':'92','fire':'no','battery':'77' ,'date':'11/10/2020'},
-                            {'field':'B', 'id':'1','voltage':'70','flame':'93','fire':'yes','battery':'78' ,'date':'11/10/2021'},
-                            {'field':'B', 'id':'2','voltage':'50','flame':'93','fire':'yes','battery':'80' ,'date':'11/10/1965'},
-                            {'field':'B', 'id':'3','voltage':'40','flame':'95','fire':'yes','battery':'85' ,'date':'11/10/1984'},
-                            {'field':'A', 'id':'4','voltage':'60','flame':'90','fire':'no','battery':'85' ,'date':'12/10/1989'},
-                            {'field':'A', 'id':'5','voltage':'55','flame':'91','fire':'no','battery':'95' ,'date':'11/10/1990'},
-                            {'field':'A', 'id':'6','voltage':'80','flame':'92','fire':'no','battery':'77' ,'date':'11/10/2020'},
-                            {'field':'B', 'id':'1','voltage':'70','flame':'93','fire':'yes','battery':'78' ,'date':'11/10/2021'},
-                            {'field':'B', 'id':'2','voltage':'50','flame':'93','fire':'yes','battery':'80' ,'date':'11/10/1965'},
-                            {'field':'B', 'id':'3','voltage':'40','flame':'95','fire':'yes','battery':'85' ,'date':'11/10/1984'},
-                            {'field':'A', 'id':'7','voltage':'60','flame':'90','fire':'yes','battery':'85' ,'date':'12/10/1989'},
-                            {'field':'A', 'id':'8','voltage':'55','flame':'91','fire':'yes','battery':'95' ,'date':'11/10/1990'},
-                            {'field':'A', 'id':'9','voltage':'80','flame':'92','fire':'yes','battery':'77' ,'date':'11/10/2020'},
-                            {'field':'B', 'id':'1','voltage':'70','flame':'93','fire':'yes','battery':'78' ,'date':'11/10/2021'},
-                            {'field':'B', 'id':'2','voltage':'50','flame':'93','fire':'yes','battery':'80' ,'date':'11/10/1965'},
-                            {'field':'B', 'id':'3','voltage':'40','flame':'95','fire':'yes','battery':'85' ,'date':'11/10/1984'},
-                            {'field':'A', 'id':'10','voltage':'60','flame':'90','fire':'no','battery':'85' ,'date':'12/10/1989'},
-                            {'field':'A', 'id':'11','voltage':'55','flame':'91','fire':'no','battery':'95' ,'date':'11/10/1990'},
-                            {'field':'A', 'id':'12','voltage':'80','flame':'92','fire':'no','battery':'77' ,'date':'11/10/2020'},
-                            {'field':'B', 'id':'1','voltage':'70','flame':'93','fire':'yes','battery':'78' ,'date':'11/10/2021'},
-                            {'field':'B', 'id':'2','voltage':'50','flame':'93','fire':'yes','battery':'80' ,'date':'11/10/1965'},
-                            {'field':'B', 'id':'3','voltage':'40','flame':'95','fire':'yes','battery':'85' ,'date':'11/10/1984'},
-                        ]
-                        
-                        buildTable(myArray)
-                    
-                    
-                    
-                        function buildTable(data){
-                            var table = document.getElementById('myTables')
-                    
-                            for (var i = 0; i < data.length; i++){
-                                var row = `<tr>
-                                                <td>${data[i].field}</td>
-                                                <td>${data[i].id}</td>
-                                                <td>${data[i].voltage}</td>
-                                                <td>${data[i].flame}</td>
-                                                <td>${data[i].fire}</td>
-                                                <td>${data[i].battery}</td>
-                                                <td>${data[i].date}</td>
-                                          </tr>`
-                                table.innerHTML += row
-                    
-                    
-                            }
+                </select>
+                </form>
+            </div>
+        </div>
+        
+        
+        <script>
+            const verileriBastir = (sonuc) => {
+                console.log(sonuc);
+                table = document.querySelector(".table");
+
+                let satirlarisilme = document.querySelectorAll(
+                    ".satir"); //satirların hepsini alma
+                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
+                    .remove(); // satirlari silme
+                for (let i = 0; i < sonuc.length - 1; i++) {
+                    let tr = document.createElement('tr'); // satır ekleme
+if(sonuc[i].flame>40){tr.className="bg-danger";tr.style.color="white"}
+if(sonuc[i].voltage<=10){tr.className="bg-dark";tr.style.color="white"}
+                    let th = document.createElement('th'); // numaralandırma ekleme
+                    tbody = document.getElementById('tablogov');
+                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
+                    tr.appendChild(th);
+                    th.innerHTML = i + 1;
+                    let td = document.createElement('td'); // satıra eleman ekleme
+                    tr.appendChild(td);
+                    let td1 = document.createElement('td');
+                    tr.appendChild(td1);
+                    let td2 = document.createElement('td');
+                    tr.appendChild(td2);
+                    let td3 = document.createElement('td');
+                    tr.appendChild(td3);
+                    let td4 = document.createElement('td');
+                    tr.appendChild(td4);
+                    // classlarını bir dahakinde silmek için belirliyoruz
+                    th.className = "satir";
+                    td.className = "satir";
+                    td1.className = "satir";
+                    td2.className = "satir";
+                    td3.className = "satir";
+                    td4.className = "satir";
+                    // verileri bastırma
+                    td.innerHTML = sonuc[i].sensor_id[0].toUpperCase() + ' Bölgesi';
+                    td1.innerHTML = sonuc[i].sensor_id[1]+ '. Sensör';
+                    td2.innerHTML = '%'+sonuc[i].flame;
+                    td3.innerHTML = '%'+sonuc[i].voltage;
+                    sonuc[i].date = new Date(sonuc[i].date)
+                    // sonuc[i].date.setHours(sonuc[i].date.getHours()+1); duruma göre 1 saat ileri alma veya daha farklı miktarda saat değiştirme
+                    td4.innerHTML = sonuc[i].date.getFullYear()+'/'+sonuc[i].date.getMonth()+'/'+sonuc[i].date.getDate()+' '+sonuc[i].date.getHours()+':'+sonuc[i].date.getMinutes()+':'+sonuc[i].date.getSeconds();
+                }
+            }
+            const listeyiGetirme = (sonuc) => {
+                //önceki listeyi silme
+                const eskiListe = document.querySelectorAll('.liste');
+                for (let i = 0; i < eskiListe.length; i++) {
+                    eskiListe[i].remove();
+                }
+                //yeni listeyi bastirma
+                const temp = sonuc[sonuc.length - 1];
+                for (let i = 0; i < temp / 10; i++) {
+                    const yeniAttribute = document.createElement('option');
+                    const selPN = document.getElementById('sel1');
+                    selPN.appendChild(yeniAttribute);
+                    yeniAttribute.innerHTML = i;
+                    yeniAttribute.id = '1';
+                    yeniAttribute.className = 'liste';
+                }
+            }
+            // router.get('/api/data/limit/:limit?/page-number/:pagenumber?/:danger?',apiController.getData);
+            // router.get('/api/data/limit/:limit/field/:field/page-number/:pagenumber/:danger?',apiController.getDataByField);
+            // router.get('/api/data/limit/:limit/field/:field/id/:id/page-number/:pagenumber/:danger?',apiController.getDatabyId);
+
+            const getText = (e) => {
+                let secilenListe;
+                e.preventDefault();
+                let x = document.getElementById("sel1");
+                for (let i = 0; i < x.options.length; i++) {
+                    if (x.options[i].selected == true) {
+                        secilenListe = x.options[i].value;
+                    }
+                }
+                let inputText = document.getElementById('input-text').value;
+                inputText = inputText.split("@");
+                console.log(inputText);
+                if (inputText[0]) {
+                    if (inputText[0].length == 1) {
+                        if(inputText[1]){
+                            fetch('http://localhost:3000/api/data/limit/10/field/'+inputText[0]+'/page-number/' + secilenListe+'/'+inputText[1])
+                            .then(response => response.json())
+                            .then(sonuc => {
+                                listeyiGetirme(sonuc);
+                                verileriBastir(sonuc)
+                            })
                         }
-                        
+                        else{
+                            fetch('http://localhost:3000/api/data/limit/10/field/'+inputText[0]+'/page-number/' + secilenListe)
+                            .then(response => response.json())
+                            .then(sonuc => {
+                                listeyiGetirme(sonuc);
+                                verileriBastir(sonuc)
+                            })
+                        }
+                    } else if (inputText[0].length == 2) {
+                        if(inputText[1]){
+                            fetch('http://localhost:3000/api/data/limit/10/field/'+inputText[0][0] +'/id/'+inputText[0][1]+'/page-number/' + secilenListe+'/'+inputText[1])
+                            .then(response => response.json())
+                            .then(sonuc => {
+                                listeyiGetirme(sonuc);
+                                verileriBastir(sonuc)
+                            })
+                        }
+                        else{
+                            fetch('http://localhost:3000/api/data/limit/10/field/'+inputText[0][0] +'/id/'+inputText[0][1]+'/page-number/' + secilenListe)
+                            .then(response => response.json())
+                            .then(sonuc => {
+                                listeyiGetirme(sonuc);
+                                verileriBastir(sonuc)
+                            })
+                        }
+                    } else if (inputText[0] == 'yangin' || inputText[0] == 'pil' || inputText[0] == 'yangin+pil' ||inputText[0] =='pil+yangin') {
+                        fetch('http://localhost:3000/api/data/limit/10/page-number/' + secilenListe + '/' +
+                                inputText[0])
+                            .then(response => response.json())
+                            .then(sonuc => {
+                                listeyiGetirme(sonuc);
+                                verileriBastir(sonuc)
+                            })
+                    }
+                } else {
+                    fetch('http://localhost:3000/api/data/limit/10/page-number/' + secilenListe)
+                        .then(response => response.json())
+                        .then(sonuc => {
+                            listeyiGetirme(sonuc);
+                            verileriBastir(sonuc)
+                        })
+                }
+            }
 
-                </script>
-           
+            const ilkAcilis = () => {
+                fetch('http://localhost:3000/api/data/limit/10/page-number/0')
+                    .then(response => response.json())
+                    .then((sonuc) => {
+                        listeyiGetirme(sonuc);
+                        verileriBastir(sonuc)
+                    })
+            }
 
-		   <script>    $(document).ready(function() {
-			$('#example').DataTable( {
-				initComplete: function () {
-					this.api().columns().every( function () {
-						var column = this;
-						var select = $('<select><option value=""></option></select>')
-							.appendTo( $(column.header(1)).empty() )
-							.on( 'change', function () {
-								var val = $.fn.dataTable.util.escapeRegex(
-									$(this).val()
-								);
-		 
-								column
-									.search( val ? '^'+val+'$' : '', true, false )
-									.draw();
-							} );
-		 
-						column.data().unique().sort().each( function ( d, j ) {
-							select.append( '<option value="'+d+'">'+d+'</option>' )
-						} );
-					} );
-				}
-			} );
-		} );</script>
-	
+
+            ilkAcilis();
+
+            const btnTextGetir = document.getElementById('filter-button');
+            btnTextGetir.addEventListener('click', getText);
+        </script>
+			
 
 
 
