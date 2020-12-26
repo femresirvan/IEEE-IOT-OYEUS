@@ -168,11 +168,11 @@
 
 
             <!-- filtreleme button + input -->
-    <div class="input-group mb-3">
-        <input type="text" class="form-control col-2  " id="input-text" placeholder="Filtrele" aria-label="Recipient's username"
+    <div class=" d-flex justify-content-end input-group mb-3 ">
+        <input type="text" class="form-control col-2  " id="input-text" placeholder="örn:a1@yangin" aria-label="Recipient's username"
             aria-describedby="basic-addon2" value="">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" id="filter-button" type="button">Button</button>
+        <div class="input-group-append ">
+            <button class="btn btn-outline-secondary "  id="filter-button" type="button">Arama</button>
         </div>
     </div>
     <!-- tablo başlangıç -->
@@ -180,7 +180,7 @@
         <table class="table">
             <thead style="background-color: rgb(27, 61, 90);color:white">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Sıra</th>
                     <th scope="col">Bölge</th>
                     <th scope="col">ID</th>
                     <th scope="col">Duman Yüzdesi</th>
@@ -193,8 +193,8 @@
         </table>
         <div class="container">
             <div class="form-group col-2">
-                <label for="sel1">Sayfa Sayısı</label>
-                <select class="form-control" id="sel1" name="sellist1">
+                <label for="sel1">Sayfa</label>
+                <select class="form-control p-1 col-6" id="sel1" name="sellist1">
 
                 </select>
                 </form>
@@ -219,7 +219,9 @@ if(sonuc[i].voltage<=10){tr.className="bg-dark";tr.style.color="white"}
                     tbody = document.getElementById('tablogov');
                     tbody.appendChild(tr); //parent child ilişkisi ayarlama
                     tr.appendChild(th);
-                    th.innerHTML = i + 1;
+                    if(secilenListe){
+                    th.innerHTML = (i+1)+10*Number(secilenListe) ;}
+                    else{ th.innerHTML = (i+1)}
                     let td = document.createElement('td'); // satıra eleman ekleme
                     tr.appendChild(td);
                     let td1 = document.createElement('td');
@@ -247,39 +249,27 @@ if(sonuc[i].voltage<=10){tr.className="bg-dark";tr.style.color="white"}
                     td4.innerHTML = sonuc[i].date.getFullYear()+'/'+sonuc[i].date.getMonth()+'/'+sonuc[i].date.getDate()+' '+sonuc[i].date.getHours()+':'+sonuc[i].date.getMinutes()+':'+sonuc[i].date.getSeconds();
                 }
             }
-            const listeyiGetirme = (sonuc) => {
-                //önceki listeyi silme
-                const eskiListe = document.querySelectorAll('.liste');
-                for (let i = 0; i < eskiListe.length; i++) {
-                    eskiListe[i].remove();
-                }
-                //yeni listeyi bastirma
-                const temp = sonuc[sonuc.length - 1];
-                for (let i = 0; i < temp / 10; i++) {
-                    const yeniAttribute = document.createElement('option');
-                    const selPN = document.getElementById('sel1');
-                    selPN.appendChild(yeniAttribute);
-                    yeniAttribute.innerHTML = i;
-                    yeniAttribute.id = '1';
-                    yeniAttribute.className = 'liste';
-                }
-            }
+            
             // router.get('/api/data/limit/:limit?/page-number/:pagenumber?/:danger?',apiController.getData);
             // router.get('/api/data/limit/:limit/field/:field/page-number/:pagenumber/:danger?',apiController.getDataByField);
             // router.get('/api/data/limit/:limit/field/:field/id/:id/page-number/:pagenumber/:danger?',apiController.getDatabyId);
-
+            let secilenListe;
             const getText = (e) => {
-                let secilenListe;
+                
                 e.preventDefault();
                 let x = document.getElementById("sel1");
                 for (let i = 0; i < x.options.length; i++) {
                     if (x.options[i].selected == true) {
                         secilenListe = x.options[i].value;
+                      
                     }
                 }
                 let inputText = document.getElementById('input-text').value;
                 inputText = inputText.split("@");
                 console.log(inputText);
+                
+                if(!secilenListe){secilenListe=0;}
+                
                 if (inputText[0]) {
                     if (inputText[0].length == 1) {
                         if(inputText[1]){
@@ -333,7 +323,25 @@ if(sonuc[i].voltage<=10){tr.className="bg-dark";tr.style.color="white"}
                         })
                 }
             }
-
+            const listeyiGetirme = (sonuc) => {
+                //önceki listeyi silme
+                
+                const eskiListe = document.querySelectorAll('.liste');
+                for (let i = 0; i < eskiListe.length; i++) {
+                    eskiListe[i].remove();
+                }
+                //yeni listeyi bastirma
+                const temp = sonuc[sonuc.length - 1];
+                for (let i = 0; i < temp / 10; i++) {
+                    const yeniAttribute = document.createElement('option');
+                    const selPN = document.getElementById('sel1');
+                    selPN.appendChild(yeniAttribute);
+                    yeniAttribute.innerHTML = i;
+                    yeniAttribute.id = '1';
+                    yeniAttribute.className = 'liste';
+                   sel1.value=secilenListe
+                }
+            }
             const ilkAcilis = () => {
                 fetch('http://localhost:3000/api/data/limit/10/page-number/0')
                     .then(response => response.json())
@@ -361,54 +369,7 @@ if(sonuc[i].voltage<=10){tr.className="bg-dark";tr.style.color="white"}
 
 
 
-           <div style="text-align: center;">
-            <h1>A-1</h1>
-        </div>
-        
-        
-            
-            <canvas id="lineChart" class="mx-auto chartjs-render-monitor" style="max-width: 1000px; display: block; height: 248px; width: 496px;" width="992" height="496"></canvas>
-        <script>//line
-            var ctxL = document.getElementById("lineChart").getContext('2d');
-            var myLineChart = new Chart(ctxL, {
-            type: 'line',
-            data: {
-            labels: ["PAZARTESİ", "SALI", "ÇARŞAMBA", "PERŞEMBE", "CUMA", "CUMARTESİ", "PAZAR"],
-            
-            
-            datasets: [{
-            label: "VOLTAGE",
-            
-            data: [65, 59, 80, 81, 56, 55, 40],
-            borderColor: [
-            'red',
-            ],
-            borderWidth: 2
-            },
-        
-        
-        
-            {
-            label: "FLAME",
-            data: [45, 79, 60, 31, 56, 25, 30],
-            borderColor: [
-            'blue',
-            ],
-            borderWidth: 2
-            },
-        
-            
-            
-            ]
-            },
-            options: {
-            responsive: true
-            }
-            });
-            
-            </script>
-
-
+         
 
 			
 				
