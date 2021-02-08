@@ -1,7 +1,7 @@
 
 body {
 	overflow: -moz-scrollbars-vertical;
-	overflow-x: hidden;
+	overflow-x: auto;
 	overflow-y: auto;
 	}
 .container{
@@ -12,21 +12,29 @@ body {
 }
 .container .card{
 	position: relative;
-	width: 250px;
+	width: auto;
 	background: linear-gradient(0deg,#1b1b1b,#222,#1b1b1b);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 300px;
+	height: auto;
 	border-radius: 4px;
 	text-align: center;
 	overflow: hidden;
 	transition: 0.5s; 
+	
 }
+@media screen and (min-width:140px) and (max-width:333px) /*media ile screen olayını yaptım*/
+{.container{
+	display: block;
+	/* display: flex; 
+	flex-direction: column;  */
+}}
  .container .card:hover
 {
 	transform: translate(-10px);
 	box-shadow: 0 15px 35px rgba(0,0,0,.5);
+	z-index: 1001; /*responsive yapıda absürt olmaması için z-index arttırdım*/
 }
  .container .card:before{
 	content:'';
@@ -41,7 +49,7 @@ body {
 }
 .percent{
 	position: relative;
-	width: 150px;
+	width: 150p;
 	height: 150px;
 	border-radius: 50%;
 	box-shadow: inset 0 0 50px #000;
@@ -95,7 +103,7 @@ body {
 }
 svg{
 	position: relative;
-	width: 150px;
+	width: 150px; /**/
 	height: 150px;
 	z-index: 1000;
 
