@@ -480,10 +480,12 @@ crossorigin="anonymous">-->
 
 	<script>
 		// var socket = io('');
-		var socket = io('ws://40.89.138.206:80');
-		console.log(msg.voltage);
+		const socket = io('ws://40.89.138.206:80',() => {
+			console.log('baglanti saglandi');
+		});
+		
 		socket.on('veriler', function (msg) {
-					
+			console.log(msg.voltage);		
 					// document.getElementById("h2id2").innerHTML = msg.voltage;
 					// document.getElementById("circle2").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
 					const bolgeler = ['a', 'b', 'c'];
@@ -521,7 +523,8 @@ crossorigin="anonymous">-->
 							document.getElementById(contents[i].c2).style.strokeDashoffset = (440 - (440 * msg.flame) / 100);
 						}
 					}
-				}
+				});
+
 
 	</script>
 
