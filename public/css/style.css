@@ -308,3 +308,8 @@ a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
 .section-3-box h3 { margin-top: 0; padding: 0 0 10px 0; }
 
 
+@media only screen and (max-width: 600px) {
+    #sayfa{
+      float:left;
+    }
+  }

@@ -1,178 +1,97 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<title>GEÇMİŞ VERİLER</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEÇMİŞ VERİLER</title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <link rel="stylesheet" href="../public/css/jquery.mCustomScrollbar.min.css">
-        <link rel="stylesheet" href="../public/css/animate.css">
-        <link rel="stylesheet" href="../public/css/style.css">
-        <link rel="stylesheet" href="../public/css/media-queries.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="../public/css/animate.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/media-queries.css">
 
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="../public/ico/iotbb.PNG">
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="../public/ico/iotbb.PNG">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
-    
-		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	
-		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-	
-	
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-        
-        
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-            <!-- Need to use datatables.net -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
-    
+
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Need to use datatables.net -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+
     <!-- Mini-extra style to be apply to tables with the dataTable plugin  -->
+
     <style>
         .dataTable table tr {
             border: solid 1px black;
         }
+
+        .form-group {
+            float: right;
+        }
+
+        .input-group {
+            float: right;
+        }
     </style>
 
-<style>
-	.form-group {
-		float: right;
-	}
-	.input-group{	float: right;}
-</style>
-
-
-		<style>
-			.nav-item:hover{
-				background-color:#1e3f4e;
-	}
 
 
 
 
-	   
-		</style>
-	   
-   
-   
+
 </head>
-<body >
+
+<body>
 
 
-	<nav class=" navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #04505f;color: white;">
-		<div class="container-fluid ">
-		  
-		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav ">
-			  <li class="nav-item">
-				<a  class="nav-link active " aria-current="page" style="color: white;" href="http://www.ieeeiot.live">Ana sayfa</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link" style="color: white;" href="http://www.ieeeiot.live/aktif-veriler">Aktif Veriler</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link"  style="color: white;" href="http://www.ieeeiot.live/gecmis-veriler"> Geçmiş Veriler</a>
-			  </li>
-			  <li class="nav-item dropdown">
-				<a href="#" class="nav-link dropdown-toggle"style="color: white;" data-bs-toggle="dropdown">Sections</a>
-				<div class="dropdown-menu" style="background:#1e3f4e;">
-				  <a href="#"  style="color: white;" class="dropdown-item">Section 1</a>
-				  <a href="#"  style="color: white;"  class="dropdown-item">Section 2</a>
-				  <a href="#"   style="color: white;" class="dropdown-item">Section 3</a>
-				</div>
-			</li>
-			</ul>
-		  </div>
-		</div>
-	  </nav>
-	  <div class=" bg d-flex  align-items-center justify-content-center p-5 " >
-
-		<a href="https://www.ieeeiuc.com/sb/tr/projeler/iot"> <img  id="logO" src="../public/img/ieeiücbeyaz.png"  alt="ieeeiuc"></a>
-	</div>
-	
-	<!-- Wrapper -->
-	<div class="wrapper">
-
-		<!-- Sidebar -->
-		<nav class="sidebar">
-			
-			<!-- close sidebar menu -->
-			<div class="dismiss">
-				<i class="fas fa-arrow-left"></i>
-			</div>
-			<div class="logo ;">
-				<h3><a href="index.html" ></a></h3>
-			</div>
-			 
-			<ul class="list-unstyled menu-elements">
-				<li>
-					<a class="scroll-link" href="http://www.ieeeiot.live/"><i class="fas fa-home"></i> Anasayfa</a>
-				</li>
-				<li class="active"> 
-					<a class="scroll-link" href="http://www.ieeeiot.live/aktif-veriler"><i class="fas fa-cog"></i> Aktif Veriler</a>
-				</li>
-				<li>
-					<a class="scroll-link" href="http://www.ieeeiot.live/gecmis-veriler"><i class="fas fa-user"></i> Geçmiş Veriler</a>
-				</li>
-				
-				<li>
-					<a class="scroll-link" href="http://www.ieeeiot.live/iletisim"><i class="fas fa-envelope"></i> İletişim</a>
-				</li>
-			
-			<div class="to-top">
-				<a class="btn btn-primary btn-customized-3" href="#" role="button">
-					<i class="fas fa-arrow-up"></i> Top
-				</a>
-			</div>
-			
-			<div id="knapp" class="dark-light-buttons">
-				<a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
-				<a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
-			</div>
-		
-		</nav>
-		<!-- End sidebar -->
-		
-		<!-- Dark overlay -->
-		<div class="overlay"></div>
-
-		<!-- Content -->
-		<div class="content">
-		
-			<!-- open sidebar menu -->
-			<a class="btn btn-primary btn-customized open-menu" href="#" role="button">
-				<i class="fas fa-align-left"></i> <span>Menu</span>
-			</a>
-		
-			<!-- Top content -->
-			<div class="top-content section-container" id="top-content">
-				<div class="container">
-					<div class="row">
-						
-					</div>
-				</div>
-			</div>
-	
-			<div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-
-           
-          
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="http://www.ieeeiot.live/">IEEE IUC IOT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="http://www.ieeeiot.live/">Ana Sayfa <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://www.ieeeiot.live/gecmis-veriler">Geçmiş Veriler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hakkımızda</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                Bize ulaşın
+            </span>
+        </div>
+    </nav>
 
 
-            <!-- filtreleme button + input -->
-    <div class="input-group mb-3">
-        <input type="text" class="form-control col-2  " id="input-text" placeholder="Filtrele" aria-label="Recipient's username"
-            aria-describedby="basic-addon2" value="">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" id="filter-button" type="button">Button</button>
+
+    <br>
+
+    <!-- Filtreleme button + input -->
+    <div class=" d-flex justify-content-center input-group mb-3 ">
+        <input type="text" class="form-control" id="input-text" placeholder="örn:a1@yangin"
+            aria-label="Recipient's username" aria-describedby="basic-addon2" value="">
+        <div class="input-group-append ">
+            <button class="btn btn-outline-secondary " id="filter-button" type="button">Arama</button>
         </div>
     </div>
     <!-- tablo başlangıç -->
@@ -180,9 +99,8 @@
         <table class="table">
             <thead style="background-color: rgb(27, 61, 90);color:white">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Sıra</th>
                     <th scope="col">Bölge</th>
-                    <th scope="col">ID</th>
                     <th scope="col">Duman Yüzdesi</th>
                     <th scope="col">Pil Durumu</th>
                     <th scope="col">Tarih</th>
@@ -191,415 +109,370 @@
             <tbody id="tablogov">
             </tbody>
         </table>
-        <div class="container">
-            <div class="form-group col-2">
-                <label for="sel1">Sayfa Sayısı</label>
-                <select class="form-control" id="sel1" name="sellist1">
+    </div>
+    <!-- End content -->
 
-                </select>
-                </form>
-            </div>
-        </div>
-        
-        
-        <script>
-            const verileriBastir = (sonuc) => {
-                console.log(sonuc);
-                table = document.querySelector(".table");
+    </div>
+    <div class="form-group col-2" id="sayfa">
+        <h3 for="sel1">Sayfa </h3>
+        <select class="form-control  col-6" id="sel1" name="sellist1">
 
-                let satirlarisilme = document.querySelectorAll(
-                    ".satir"); //satirların hepsini alma
-                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
-                    .remove(); // satirlari silme
-                for (let i = 0; i < sonuc.length - 1; i++) {
-                    let tr = document.createElement('tr'); // satır ekleme
-if(sonuc[i].flame>40){tr.className="bg-danger";tr.style.color="white"}
-if(sonuc[i].voltage<=10){tr.className="bg-dark";tr.style.color="white"}
-                    let th = document.createElement('th'); // numaralandırma ekleme
-                    tbody = document.getElementById('tablogov');
-                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
-                    tr.appendChild(th);
-                    th.innerHTML = i + 1;
-                    let td = document.createElement('td'); // satıra eleman ekleme
-                    tr.appendChild(td);
-                    let td1 = document.createElement('td');
-                    tr.appendChild(td1);
-                    let td2 = document.createElement('td');
-                    tr.appendChild(td2);
-                    let td3 = document.createElement('td');
-                    tr.appendChild(td3);
-                    let td4 = document.createElement('td');
-                    tr.appendChild(td4);
-                    // classlarını bir dahakinde silmek için belirliyoruz
-                    th.className = "satir";
-                    td.className = "satir";
-                    td1.className = "satir";
-                    td2.className = "satir";
-                    td3.className = "satir";
-                    td4.className = "satir";
-                    // verileri bastırma
-                    td.innerHTML = sonuc[i].sensor_id[0].toUpperCase() + ' Bölgesi';
-                    td1.innerHTML = sonuc[i].sensor_id[1]+ '. Sensör';
-                    td2.innerHTML = '%'+sonuc[i].flame;
-                    td3.innerHTML = '%'+sonuc[i].voltage;
-                    sonuc[i].date = new Date(sonuc[i].date)
-                    // sonuc[i].date.setHours(sonuc[i].date.getHours()+1); duruma göre 1 saat ileri alma veya daha farklı miktarda saat değiştirme
-                    td4.innerHTML = sonuc[i].date.getFullYear()+'/'+sonuc[i].date.getMonth()+'/'+sonuc[i].date.getDate()+' '+sonuc[i].date.getHours()+':'+sonuc[i].date.getMinutes()+':'+sonuc[i].date.getSeconds();
-                }
-            }
-            const listeyiGetirme = (sonuc) => {
-                //önceki listeyi silme
-                const eskiListe = document.querySelectorAll('.liste');
-                for (let i = 0; i < eskiListe.length; i++) {
-                    eskiListe[i].remove();
-                }
-                //yeni listeyi bastirma
-                const temp = sonuc[sonuc.length - 1];
-                for (let i = 0; i < temp / 10; i++) {
-                    const yeniAttribute = document.createElement('option');
-                    const selPN = document.getElementById('sel1');
-                    selPN.appendChild(yeniAttribute);
-                    yeniAttribute.innerHTML = i;
-                    yeniAttribute.id = '1';
-                    yeniAttribute.className = 'liste';
-                }
-            }
-            // router.get('/api/data/limit/:limit?/page-number/:pagenumber?/:danger?',apiController.getData);
-            // router.get('/api/data/limit/:limit/field/:field/page-number/:pagenumber/:danger?',apiController.getDataByField);
-            // router.get('/api/data/limit/:limit/field/:field/id/:id/page-number/:pagenumber/:danger?',apiController.getDatabyId);
+        </select>
+        </form>
+    </div>
 
-            const getText = (e) => {
-                let secilenListe;
-                e.preventDefault();
-                let x = document.getElementById("sel1");
-                for (let i = 0; i < x.options.length; i++) {
-                    if (x.options[i].selected == true) {
-                        secilenListe = x.options[i].value;
-                    }
+
+
+
+    <!-- SCRİPT -->
+    <script>
+        const verileriBastir = (sonuc) => {
+            console.log(sonuc);
+            table = document.querySelector(".table");
+
+            let satirlarisilme = document.querySelectorAll(
+                ".satir"); //satirların hepsini alma
+            for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
+                .remove(); // satirlari silme
+            for (let i = 0; i < sonuc.length - 1; i++) {
+                let tr = document.createElement('tr'); // satır ekleme
+                if (sonuc[i].flame >= 40) {
+                    tr.className = "bg-danger";
+                    tr.style.color = "white"
                 }
-                let inputText = document.getElementById('input-text').value;
-                inputText = inputText.split("@");
-                console.log(inputText);
-                if (inputText[0]) {
-                    if (inputText[0].length == 1) {
-                        if(inputText[1]){
-                            fetch('http://40.89.138.206:80/api/data/limit/10/field/'+inputText[0]+'/page-number/' + secilenListe+'/'+inputText[1])
-                            .then(response => response.json())
-                            .then(sonuc => {
-                                listeyiGetirme(sonuc);
-                                verileriBastir(sonuc)
-                            })
-                        }
-                        else{
-                            fetch('http://40.89.138.206:80/api/data/limit/10/field/'+inputText[0]+'/page-number/' + secilenListe)
-                            .then(response => response.json())
-                            .then(sonuc => {
-                                listeyiGetirme(sonuc);
-                                verileriBastir(sonuc)
-                            })
-                        }
-                    } else if (inputText[0].length == 2) {
-                        if(inputText[1]){
-                            fetch('http://40.89.138.206:80/api/data/limit/10/field/'+inputText[0][0] +'/id/'+inputText[0][1]+'/page-number/' + secilenListe+'/'+inputText[1])
-                            .then(response => response.json())
-                            .then(sonuc => {
-                                listeyiGetirme(sonuc);
-                                verileriBastir(sonuc)
-                            })
-                        }
-                        else{
-                            fetch('http://40.89.138.206:80/api/data/limit/10/field/'+inputText[0][0] +'/id/'+inputText[0][1]+'/page-number/' + secilenListe)
-                            .then(response => response.json())
-                            .then(sonuc => {
-                                listeyiGetirme(sonuc);
-                                verileriBastir(sonuc)
-                            })
-                        }
-                    } else if (inputText[0] == 'yangin' || inputText[0] == 'pil' || inputText[0] == 'yangin+pil' ||inputText[0] =='pil+yangin') {
-                        fetch('http://40.89.138.206:80/api/data/limit/10/page-number/' + secilenListe + '/' +
-                                inputText[0])
-                            .then(response => response.json())
-                            .then(sonuc => {
-                                listeyiGetirme(sonuc);
-                                verileriBastir(sonuc)
-                            })
-                    }
+                if (sonuc[i].voltage <= 10) {
+                    tr.className = "bg-dark";
+                    tr.style.color = "white"
+                }
+                let th = document.createElement('th'); // numaralandırma ekleme
+                tbody = document.getElementById('tablogov');
+                tbody.appendChild(tr); //parent child ilişkisi ayarlama
+                tr.appendChild(th);
+                if (secilenListe) {
+                    th.innerHTML = (i + 1) + 10 * Number(secilenListe);
                 } else {
-                    fetch('http://40.89.138.206:80/api/data/limit/10/page-number/' + secilenListe)
+                    th.innerHTML = (i + 1)
+                }
+                let td = document.createElement('td'); // satıra eleman ekleme
+                tr.appendChild(td);
+                
+                let td2 = document.createElement('td');
+                tr.appendChild(td2);
+                let td3 = document.createElement('td');
+                tr.appendChild(td3);
+                let td4 = document.createElement('td');
+                tr.appendChild(td4);
+                // classlarını bir dahakinde silmek için belirliyoruz
+                th.className = "satir";
+                td.className = "satir";
+                
+                td2.className = "satir";
+                td3.className = "satir";
+                td4.className = "satir";
+                // verileri bastırma
+                td.innerHTML = sonuc[i].sensor_id[0].toUpperCase() + ' Bölgesi';
+                
+                td2.innerHTML = '%' + sonuc[i].flame;
+                td3.innerHTML = '%' + sonuc[i].voltage;
+                sonuc[i].date = new Date(sonuc[i].date)
+                // sonuc[i].date.setHours(sonuc[i].date.getHours()+1); duruma göre 1 saat ileri alma veya daha farklı miktarda saat değiştirme
+                td4.innerHTML = sonuc[i].date.getFullYear() + '/' + sonuc[i].date.getMonth() + '/' + sonuc[i].date
+                    .getDate() + ' ' + sonuc[i].date.getHours() + ':' + sonuc[i].date.getMinutes() + ':' + sonuc[i]
+                    .date.getSeconds();
+            }
+        }
+
+        // router.get('/api/data/limit/:limit?/page-number/:pagenumber?/:danger?',apiController.getData);
+        // router.get('/api/data/limit/:limit/field/:field/page-number/:pagenumber/:danger?',apiController.getDataByField);
+        // router.get('/api/data/limit/:limit/field/:field/id/:id/page-number/:pagenumber/:danger?',apiController.getDatabyId);
+        let secilenListe;
+        const getText = (e) => {
+
+            e.preventDefault();
+            let x = document.getElementById("sel1");
+            for (let i = 0; i < x.options.length; i++) {
+                if (x.options[i].selected == true) {
+                    secilenListe = x.options[i].value;
+
+                }
+            }
+            let inputText = document.getElementById('input-text').value;
+            inputText = inputText.split("@");
+            console.log(inputText);
+
+            if (!secilenListe) {
+                secilenListe = 0;
+            }
+
+            if (inputText[0]) {
+                if (inputText[0].length == 1) {
+                    if (inputText[1]) {
+                        fetch('http://www.ieeeiot.live/api/data/limit/10/field/' + inputText[0] + '/page-number/' +
+                                secilenListe + '/' + inputText[1])
+                            .then(response => response.json())
+                            .then(sonuc => {
+                                listeyiGetirme(sonuc);
+                                verileriBastir(sonuc)
+                            })
+                    } else {
+                        fetch('http://www.ieeeiot.live/api/data/limit/10/field/' + inputText[0] + '/page-number/' +
+                                secilenListe)
+                            .then(response => response.json())
+                            .then(sonuc => {
+                                listeyiGetirme(sonuc);
+                                verileriBastir(sonuc)
+                            })
+                    }
+                } else if (inputText[0] == 'yangin' || inputText[0] == 'pil' || inputText[0] == 'yangin+pil' ||
+                    inputText[0] == 'pil+yangin') {
+                    fetch('http://www.ieeeiot.live/api/data/limit/10/page-number/' + secilenListe + '/' +
+                            inputText[0])
                         .then(response => response.json())
                         .then(sonuc => {
                             listeyiGetirme(sonuc);
                             verileriBastir(sonuc)
                         })
                 }
-            }
-
-            const ilkAcilis = () => {
-                fetch('http://40.89.138.206:80/api/data/limit/10/page-number/0')
+            } else {
+                fetch('http://www.ieeeiot.live/api/data/limit/10/page-number/' + secilenListe)
                     .then(response => response.json())
-                    .then((sonuc) => {
+                    .then(sonuc => {
                         listeyiGetirme(sonuc);
                         verileriBastir(sonuc)
                     })
             }
+        }
+        const listeyiGetirme = (sonuc) => {
+            //önceki listeyi silme
 
-
-            ilkAcilis();
-
-            const btnTextGetir = document.getElementById('filter-button');
-            btnTextGetir.addEventListener('click', getText);
-        </script>
-			
-
-
-
-
-
-
-
-
-
-
-
-           <div style="text-align: center;">
-            <h1>A-1</h1>
-        </div>
-        
-        
-            
-            <canvas id="lineChart" class="mx-auto chartjs-render-monitor" style="max-width: 1000px; display: block; height: 248px; width: 496px;" width="992" height="496"></canvas>
-        <script>//line
-            var ctxL = document.getElementById("lineChart").getContext('2d');
-            var myLineChart = new Chart(ctxL, {
-            type: 'line',
-            data: {
-            labels: ["PAZARTESİ", "SALI", "ÇARŞAMBA", "PERŞEMBE", "CUMA", "CUMARTESİ", "PAZAR"],
-            
-            
-            datasets: [{
-            label: "VOLTAGE",
-            
-            data: [65, 59, 80, 81, 56, 55, 40],
-            borderColor: [
-            'red',
-            ],
-            borderWidth: 2
-            },
-        
-        
-        
-            {
-            label: "FLAME",
-            data: [45, 79, 60, 31, 56, 25, 30],
-            borderColor: [
-            'blue',
-            ],
-            borderWidth: 2
-            },
-        
-            
-            
-            ]
-            },
-            options: {
-            responsive: true
+            const eskiListe = document.querySelectorAll('.liste');
+            for (let i = 0; i < eskiListe.length; i++) {
+                eskiListe[i].remove();
             }
-            });
-            
-            </script>
+            //yeni listeyi bastirma
+            const temp = sonuc[sonuc.length - 1];
+            for (let i = 0; i < temp / 10; i++) {
+                const yeniAttribute = document.createElement('option');
+                const selPN = document.getElementById('sel1');
+                selPN.appendChild(yeniAttribute);
+                yeniAttribute.innerHTML = i;
+                yeniAttribute.id = '1';
+                yeniAttribute.className = 'liste';
+                sel1.value = secilenListe
+            }
+        }
+        const ilkAcilis = () => {
+            fetch('http://www.ieeeiot.live/api/data/limit/10/page-number/0')
+                .then(response => response.json())
+                .then((sonuc) => {
+                    listeyiGetirme(sonuc);
+                    verileriBastir(sonuc)
+                })
+        }
 
 
+        ilkAcilis();
 
-			
-				
-			
+        const btnTextGetir = document.getElementById('filter-button');
+        btnTextGetir.addEventListener('click', getText);
+    </script>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Footer -->
-<footer style="background-color: #04505f;
+    <!-- Footer -->
+    <footer style="background-color: #04505f;
 " class="page-footer  font-small stylish-color-dark pt-4">
 
-	<!-- Footer Links -->
-	<div class="container text-center text-md-left" style="background-color: #04505f;
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left" style="background-color: #04505f;
 	color:white">
-  
-	  <!-- Grid row -->
-	  <div class="row">
-  
-		<!-- Grid column -->
-		<div class="col-md-6 mx-auto d-flex   flex-row  align-items-center ">
-  
-		  <!-- Content -->
-		 
-		  <div class=" col-xs-12 about-company ">
 
-			<div class=" align-items-center"  >
-<img src="../public/img/ieeiücbeyaz.png"  class=" mw-100 ">
-</div>
-</div>
+            <!-- Grid row -->
+            <div class="row">
 
-		</div>
-		<!-- Grid column -->
-  
-		<hr class="clearfix w-100 d-md-none">
-  
-		<!-- Grid column -->
-		<div class="col-lg-3 col-xs-12 location ;">
-  
-		  <!-- Links -->
-		  <h4 class="mt-lg-0 mt-sm-4 pt-2">Bilgilendirme</h4>
-  
-		  <ul class="list-unstyled pt-2">
-			<li >
-			  <a href="https://www.ieeeiuc.com/sb/tr">Anasayfa</a>
-			</li>
-			<li class="pt-1">
-			  <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
-			</li>
-			<li class="pt-1">
-			  <a href="#!">Ekip</a>
-			</li >
-			<li class="pt-1">
-			  <a href="https://www.ieeeiuc.com/sb/tr/sikca-sorulan-sorular">S.S.S</a>
-			</li>
-			<li class="pt-1">
-				<a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
-			  </li>
-		  </ul>
-  
-		</div>
-		<!-- Grid column -->
-  
-		<div class="col-lg-3 col-xs-12 location">
-			<h4 class="mt-lg-0 mt-sm-4 pt-2">İletişim</h4>
+                <!-- Grid column -->
+                <div class="col-md-6 mx-auto d-flex   flex-row  align-items-center ">
 
-								<p class="pt-2">İstanbul Üniversitesi Cerrahpaşa Avcılar Kampüsü Mühendislik Fakültesi</p>
-			<p>34320 Avcılar/ İstanbul TR</p>
+                    <!-- Content -->
 
-			<p class="mb-0"><i class=""></i>
-				</p>
-			<p>
-				
-				ieeeiüciot@gmail.com
-			
-		</div>
-  
-	  
-		<!-- Grid column -->
-  
-	  </div>
-	  <!-- Grid row -->
-  
-	</div>
-	<!-- Footer Links -->
-  
-	
-  
-   
-  
-<!-- sosyal medya -->
+                    <div class=" col-xs-12 about-company ">
+
+                        <div class=" align-items-center">
+                            <img src="../public/img/ieeiücbeyaz.png" class=" mw-100 ">
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-lg-3 col-xs-12 location ;">
+
+                    <!-- Links -->
+                    <h4 class="mt-lg-0 mt-sm-4 pt-2">Bilgilendirme</h4>
+
+                    <ul class="list-unstyled pt-2">
+                        <li>
+                            <a href="https://www.ieeeiuc.com/sb/tr">Anasayfa</a>
+                        </li>
+                        <li class="pt-1">
+                            <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
+                        </li>
+                        <li class="pt-1">
+                            <a href="#!">Ekip</a>
+                        </li>
+                        <li class="pt-1">
+                            <a href="https://www.ieeeiuc.com/sb/tr/sikca-sorulan-sorular">S.S.S</a>
+                        </li>
+                        <li class="pt-1">
+                            <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <div class="col-lg-3 col-xs-12 location">
+                    <h4 class="mt-lg-0 mt-sm-4 pt-2">İletişim</h4>
+
+                    <p class="pt-2">İstanbul Üniversitesi Cerrahpaşa Avcılar Kampüsü Mühendislik Fakültesi</p>
+                    <p>34320 Avcılar/ İstanbul TR</p>
+
+                    <p class="mb-0"><i class=""></i>
+                    </p>
+                    <p>
+
+                        ieeeiüciot@gmail.com
+
+                </div>
 
 
-<div class="page-content page-container text-center text-left  py-3 " id="page-content"style="background-color:#04505f; ">
-	<div  class="d-flex justify-content-center  ">
-		<div  class="row     ">
-			<div  class="col-6-center grid-margin stretch-card  ">
-				<div class="card align-self-center" >
-					<div class="card-body  " style="background:#04505f; ">
-						<div class="template-demo"> 
-							 <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';" class="btn btn-social-icon btn-outline-facebook">   <i class="fa fa-facebook"></i>    </button>
-							 <button type="button" onclick="window.location.href='https://www.youtube.com/channel/UCeyBtBFEsycQNxCpvC5lzPA';" class="btn btn-social-icon btn-outline-youtube">  <i class="fa fa-youtube"></i>    </button> 
-							 <button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"class="btn btn-social-icon btn-outline-twitter">  <i class="fa fa-twitter"></i>   </button> 
-							 <button type="button" onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"class="btn btn-social-icon btn-outline-linkedin">   <i class="fa fa-linkedin"></i>   </button>
-							 <button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"class="btn btn-social-icon btn-outline-instagram">   <i class="fa fa-instagram"></i>    </button> 
-							</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+                <!-- Grid column -->
 
-<!-- sosyal medya -->
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
 
 
 
 
 
-	
-
-	<!-- Copyright -->
-	<div class="footer-copyright text-center py-3" style="background-color:#062e36; color:white">© 2021 Copyright:
-	  <a href="https://www.ieeeiuc.com/sb/tr"> IEEEIUC.com</a>
-	</div>
-	<!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
-   
-
-	
-
-	
-</div>
-<!-- End content -->
-
-</div>
+        <!-- sosyal medya -->
 
 
+        <div class="page-content page-container text-center text-left  py-3 " id="page-content"
+            style="background-color:#04505f; ">
+            <div class="d-flex justify-content-center  ">
+                <div class="row     ">
+                    <div class="col-6-center grid-margin stretch-card  ">
+                        <div class="card align-self-center">
+                            <div class="card-body  " style="background:#04505f; ">
+                                <div class="template-demo">
+                                    <button type="button"
+                                        onclick="window.location.href='https://www.facebook.com/ieeeiu/';"
+                                        class="btn btn-social-icon btn-outline-facebook"> <i class="fa fa-facebook"></i>
+                                    </button>
+                                    <button type="button"
+                                        onclick="window.location.href='https://www.youtube.com/channel/UCeyBtBFEsycQNxCpvC5lzPA';"
+                                        class="btn btn-social-icon btn-outline-youtube"> <i class="fa fa-youtube"></i>
+                                    </button>
+                                    <button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"
+                                        class="btn btn-social-icon btn-outline-twitter"> <i class="fa fa-twitter"></i>
+                                    </button>
+                                    <button type="button"
+                                        onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"
+                                        class="btn btn-social-icon btn-outline-linkedin"> <i class="fa fa-linkedin"></i>
+                                    </button>
+                                    <button type="button"
+                                        onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"
+                                        class="btn btn-social-icon btn-outline-instagram"> <i
+                                            class="fa fa-instagram"></i> </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
- <!-- Need to use datatables.net -->
+        <!-- sosyal medya -->
 
-<!-- End wrapper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
-<!-- Javascript -->
-<script src="../public/js/jquery-3.3.1.min.js"></script>
-<script src="../public/js/jquery-migrate-3.0.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="../public/js/jquery.backstretch.min.js"></script>
-<script src="../public/js/wow.min.js"></script>
-<script src="../public/js/jquery.waypoints.min.js"></script>
-<script src="../public/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="../public/js/scripts.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+
+
+
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="background-color:#062e36; color:white">© 2021 Copyright:
+            <a href="https://www.ieeeiuc.com/sb/tr"> IEEEIUC.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+
+
+
+
+
+
+
+    <!-- Need to use datatables.net -->
+
+    <!-- End wrapper -->
+
+    <!-- Javascript -->
+    <script src="../public/js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="../public/js/jquery-migrate-3.0.0.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <!-- <script src="../public/js/jquery.backstretch.min.js"></script> -->
+    <script src="../public/js/wow.min.js"></script>
+    <!-- <script src="../public/js/jquery.waypoints.min.js"></script> -->
+    <!-- <script src="../public/js/jquery.mCustomScrollbar.concat.min.js"></script> -->
+    <script src="../public/js/scripts.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  
 integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
-crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
-integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-crossorigin="anonymous">
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
-integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
-crossorigin="anonymous"></script>
-<script src="../public/js/jquery.dataTables.min.js"></script>
-            
-<script>
-$(document).ready(function(){
-    
-    //Apply the datatables plugin to your table
-    $('#myTable').DataTable();
-    
-});
-</script>
+crossorigin="anonymous">-->
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            //Apply the datatables plugin to your table
+            $('#myTable').DataTable();
+
+        });
+    </script>
 
 
 
 </body>
-</html>
 
+</html>

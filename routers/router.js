@@ -10,8 +10,7 @@ const aktifVeriler = require('../controller/aktifVerilerController');
 const iletisimController = require('../controller/iletisimController');
 const denemeController = require('../controller/denemeController')
 
-router.get('/', indexController.renderIndex);
-router.get('/aktif-veriler',aktifVeriler.aktifVeriler);
+router.get('/',aktifVeriler.aktifVeriler);
 router.get('/gecmis-veriler', historyController.renderHistory);
 router.get('/iletisim',iletisimController.renderIletisim);
 router.get('/deneme',denemeController.renderDeneme);
