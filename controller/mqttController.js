@@ -119,7 +119,7 @@ client.on('message', (topicgelenler, message, packet) => {
             }
         }
     }
-    console.log(veriIntervali[0].count[0]);
+    console.log(msg);
 
     io.emit('veriler', msg);
 });
