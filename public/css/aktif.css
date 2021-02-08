@@ -206,3 +206,9 @@ svg{
 #ida{
 	background: white;
 }
+#modalcontent{
+	height: 350px;
+	
+		background-color: rgb(180, 12, 12);
+		color:white;
+	}
