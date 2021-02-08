@@ -71,8 +71,8 @@ img { max-width: 100%; }
 
 .medium-paragraph { font-size: 18px; line-height: 34px; }
 
-::-moz-selection { background: #f35b3f; color: #fff; text-shadow: none; }
-::selection { background: #f35b3f; color: #fff; text-shadow: none; }
+::-moz-selection { background: #1d568b; color: #fff; text-shadow: none; }
+::selection { background:#1d568b; color: #fff; text-shadow: none; }
 
 
 /***** Wrapper *****/
