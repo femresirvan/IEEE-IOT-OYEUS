@@ -24,6 +24,7 @@ body {
 	transition: 0.5s; 
 	
 }
+
 @media screen and (min-width:140px) and (max-width:333px) /*media ile screen olayını yaptım*/
 {.container{
 	display: block;
@@ -66,6 +67,13 @@ body {
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
+}
+
+#modalcontent{
+height: 350px;
+	
+	background-color: rgb(180, 12, 12);
+	color:white;
 }
 .percent.number h2{
 	color: #fff;
@@ -124,12 +132,12 @@ svg{
 #id1.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 90 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #id2.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 85 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 
@@ -138,12 +146,12 @@ svg{
 #id4.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 50 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #id5.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 45 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 
@@ -152,46 +160,46 @@ svg{
 #id7.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 35 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #id8.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 22 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 
 #id9.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 90 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #idb.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 85 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 #idc.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 50 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #idd.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 45 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 #ide.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 35 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #idf.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 22 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 

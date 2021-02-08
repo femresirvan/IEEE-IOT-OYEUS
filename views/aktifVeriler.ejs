@@ -38,7 +38,18 @@
 
 		
 
+<style>
+.yanipsonme{
+background-color: white;
+color:black;
 
+}
+.yanginyp{
+	background-color: white;
+color:red;
+}
+
+</style>
 
 	
 	
@@ -99,7 +110,7 @@
 						<circle id="circle1" cx="70" cy="70" r="70"></circle>
 					</svg>
 					<div class="number">
-						<h2 id="h2id1">90<span>%</span></h2>
+						<h2 id="h2id1">0<span>%</span></h2>
 					</div>
 				</div>
 				<h2 class="text" id="a1">Voltage</h2>
@@ -113,7 +124,7 @@
 						<circle id="circle2" cx="70" cy="70" r="70"></circle>
 					</svg>
 					<div class="number">
-						<h2 id="h2id2">85<span>%</span></h2>
+						<h2 id="h2id2">0<span>%</span></h2>
 					</div>
 				</div>
 				<h2 class="text" id="a2">Flame</h2>
@@ -138,7 +149,7 @@
 				<circle id="circle4" cx="70" cy="70" r="70"></circle>
 			</svg>
 			<div class="number">
-				<h2 id="h2id4">50<span>%</span></h2>
+				<h2 id="h2id4">0<span>%</span></h2>
 			</div>
 		</div>
 		<h2 class="text" id="a4">Voltage</h2>
@@ -152,7 +163,7 @@
 				<circle id="circle5" cx="70" cy="70" r="70"></circle>
 			</svg>
 			<div class="number">
-				<h2 id="h2id5">45<span>%</span></h2>
+				<h2 id="h2id5">0<span>%</span></h2>
 			</div>
 		</div>
 		<h2 class="text" id="a5">Flame</h2>
@@ -178,7 +189,7 @@
 			<circle id="circle7" cx="70" cy="70" r="70"></circle>
 		</svg>
 		<div class="number">
-			<h2 id="h2id7">35<span>%</span></h2>
+			<h2 id="h2id7">0<span>%</span></h2>
 		</div>
 	</div>
 	<h2 class="text" id="a7">Voltage</h2>
@@ -192,7 +203,7 @@
 			<circle id="circle8" cx="70" cy="70" r="70"></circle>
 		</svg>
 		<div class="number">
-			<h2 id="h2id8">22<span>%</span></h2>
+			<h2 id="h2id8">0<span>%</span></h2>
 		</div>
 	</div>
 	<h2 class="text" id="a8">Flame</h2>
@@ -391,17 +402,30 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
-	  <div class="modal-content justify-content-center">
+	  <div id="modalcontent" class="modal-content justify-content-center">
 		
-		<div class="modal-body text-center ">
+		<div id="yangin"style="font-size: 100px;"  class="modal-body text-center ">
 		  YANGIN
 		</div>
 		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-dismiss="modal">TAMAM</button>
+		  <button type="button"id="buton" class="btn btn-warning" data-dismiss="modal">TAMAM</button>
 		
 		</div>
 	  </div>
 	</div>
+	<script>
+		setInterval(function(){ 
+			// toggle the class every five second
+			$('#yangin').toggleClass('yanginyp');
+			setTimeout(function(){
+			  // toggle back after 1 second
+			  $('#yangin').toggleClass('yanginyp');
+			},500)
+	
+		 },1000);
+		
+	</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 <!-- Javascript -->
@@ -428,61 +452,61 @@ integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCm
 crossorigin="anonymous"></script>
 
 <script>
-	var socket = io();
-	
-	socket.on('veriler', function (msg) {
-		console.log(msg.voltage);
-		// document.getElementById("h2id2").innerHTML = msg.voltage;
-		// document.getElementById("circle2").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
-		if(msg.sensor_id=='a1'){
-			document.getElementById("h2id1").innerHTML = msg.voltage;
-		document.getElementById("circle1").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
+		var audio = new Audio('../public/img/alarm.mp3');
 
-			document.getElementById("h2id2").innerHTML = msg.flame;
-		document.getElementById("circle2").style.strokeDashoffset = ( 440 - ( 440 * msg.flame ) / 100);
-		}
-		else if(msg.sensor_id=='a2'){
-			document.getElementById("h2id4").innerHTML = msg.voltage;
-		document.getElementById("circle4").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
-		
-			document.getElementById("h2id5").innerHTML = msg.flame;
-		document.getElementById("circle5").style.strokeDashoffset = ( 440 - ( 440 * msg.flame ) / 100);
-		}
-		else if(msg.sensor_id=='a3'){
-			document.getElementById("h2id7").innerHTML = msg.voltage;
-		document.getElementById("circle7").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
-		
-			document.getElementById("h2id8").innerHTML = msg.flame;
-		document.getElementById("circle8").style.strokeDashoffset = ( 440 - ( 440 * msg.flame ) / 100);
-		}
-		else if(msg.sensor_id=='b1'){
-			document.getElementById("h2idb1").innerHTML = msg.voltage;
-		document.getElementById("circlea").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
-		
-			document.getElementById("h2idb2").innerHTML = msg.flame;
-		document.getElementById("circleb").style.strokeDashoffset = ( 440 - ( 440 * msg.flame ) / 100);
-		}
-		else if(msg.sensor_id=='b2'){
-			document.getElementById("h2idb4").innerHTML = msg.voltage;
-		document.getElementById("circlec").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
-	
-			document.getElementById("h2idb5").innerHTML = msg.flame;
-		document.getElementById("circled").style.strokeDashoffset = ( 440 - ( 440 * msg.vflame ) / 100);
-		}
-		else if(msg.sensor_id=='b3'){
-			document.getElementById("h2idb7").innerHTML = msg.voltage;
-		document.getElementById("circlee").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
-		
-			document.getElementById("h2idb8").innerHTML = msg.flame;
-		document.getElementById("circlef").style.strokeDashoffset = ( 440 - ( 440 * msg.flame ) / 100);
-		}
-	});
+	var socket = io('');
+const msg={sensor_id:"40",flame:50,voltage:5}
+				console.log(msg.voltage);
+				// document.getElementById("h2id2").innerHTML = msg.voltage;
+				// document.getElementById("circle2").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
+				const bolgeler = ['a', 'b', 'c'];
+				const contents = [{
+					h: 'h2id1',
+					c: 'circle1',
+					h2: 'h2id2',
+					c2: 'circle2'
+				}, {
+					h: 'h2id3',
+					c: 'circle3',
+					h2: 'h2id4',
+					c2: 'circle4'
+				}, {
+					h: 'h2id5',
+					c: 'circle5',
+					h2: 'h2id6',
+					c2: 'circle6'
+				}]
+				for (let i = 0; i < bolgeler.length; i++) {
+					if (msg.sensor_id == bolgeler[i]) {
+						if (msg.flame >= 40) {
+							$('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Yangın')
+							$('#exampleModalCenter').modal('show');
+							audio.play();
+						}
+						if (msg.voltage <= 10) {
+							$('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Düşük Pil')
+							$('#exampleModalCenter').modal('show');
+							audio.play();
+						}
+						document.getElementById(contents[i].h).innerHTML = msg.voltage;
+						document.getElementById(contents[i].c).style.strokeDashoffset = (440 - (440 * msg.voltage) /
+							100);
+
+						document.getElementById(contents[i].h2).innerHTML = msg.flame;
+						document.getElementById(contents[i].c2).style.strokeDashoffset = (440 - (440 * msg.flame) / 100);
+					}
+				}
+			
 </script>
 <script>
+	//var audio = new Audio('../public/img/alarm.mp3');
 	function buton(){
     $('#exampleModalCenter').modal('show');
+	
+	
 
 }
+//audio.play();
 buton();
 </script>
 
