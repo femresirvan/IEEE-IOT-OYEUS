@@ -55,12 +55,6 @@ color:red;
 	
 </head>
 <body >
-
-
-
-
-
-
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">IEEE IUC IOT</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,17 +63,21 @@ color:red;
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/aktif-veriler">Ana Sayfa <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Ana Sayfa <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/gecmis-veriler">Geçmiş Veriler</a>
+              <a class="nav-link" href="#">Geçmiş Veriler</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Hakkımızda</a>
             </li>
           </ul>
           <span class="navbar-text">
-            Bize ulaşın 
+            Bize ulaşın <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';" class="btn btn-social-icon btn-outline-facebook">   <i class="fa fa-facebook"></i>    </button>
+			<button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"class="btn btn-social-icon btn-outline-twitter">  <i class="fa fa-twitter"></i>   </button> 
+			<button type="button" onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"class="btn btn-social-icon btn-outline-linkedin">   <i class="fa fa-linkedin"></i>   </button>
+			<button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"class="btn btn-social-icon btn-outline-instagram">   <i class="fa fa-instagram"></i>    </button> 
+			
           </span>
         </div>
       </nav>
@@ -450,6 +448,8 @@ crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
 integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
 crossorigin="anonymous"></script>
+
+
 
 <script>
 		var audio = new Audio('../public/img/alarm.mp3');

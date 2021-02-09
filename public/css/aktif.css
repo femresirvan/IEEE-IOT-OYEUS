@@ -24,7 +24,6 @@ body {
 	transition: 0.5s; 
 	
 }
-
 @media screen and (min-width:140px) and (max-width:333px) /*media ile screen olayını yaptım*/
 {.container{
 	display: block;
