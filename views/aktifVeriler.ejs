@@ -40,14 +40,15 @@
 
 
     <style>
-        .yanipsonme {
-            background-color: white;
-            color: black;
-        }
-        
+   
         .yanginyp {
             background-color: white;
             color: red;
+        }
+    
+        .dusukpill {
+            background-color: rgb(255, 255, 255);
+            color: rgb(26, 25, 25);
         }
     </style>
 
@@ -68,19 +69,23 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/aktif-veriler">Ana Sayfa <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/gecmis-veriler">Geçmiş Veriler</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Hakkımızda</a>
-                </li>
-            </ul>
-            <span class="navbar-text">
-            Bize ulaşın 
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Ana Sayfa <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/gecmis-veriler">Geçmiş Veriler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/hakkimizda">Hakkımızda</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Bize ulaşın <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';" class="btn btn-social-icon btn-outline-facebook">   <i class="fa fa-facebook"></i>    </button>
+			<button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"class="btn btn-social-icon btn-outline-twitter">  <i class="fa fa-twitter"></i>   </button> 
+			<button type="button" onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"class="btn btn-social-icon btn-outline-linkedin">   <i class="fa fa-linkedin"></i>   </button>
+			<button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"class="btn btn-social-icon btn-outline-instagram">   <i class="fa fa-instagram"></i>    </button> 
+			
           </span>
         </div>
     </nav>
@@ -431,6 +436,21 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="modal fade" id="modalpil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div id="modalcontentpil" class="modal-content justify-content-center">
+
+                <div id="pill" style="font-size: 50px;" class="modal-body text-center ">
+                    DÜŞÜK PİL
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="buton" class="btn btn-warning" data-dismiss="modal">TAMAM</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
         <script>
             setInterval(function() {
                 // toggle the class every five second
@@ -438,6 +458,16 @@
                 setTimeout(function() {
                     // toggle back after 1 second
                     $('#yangin').toggleClass('yanginyp');
+                }, 500)
+
+            }, 1000);
+
+            setInterval(function() {
+                // toggle the class every five second
+                $('#pill').toggleClass('dusukpill');
+                setTimeout(function() {
+                    // toggle back after 1 second
+                    $('#pill').toggleClass('dusukpill');
                 }, 500)
 
             }, 1000);
@@ -468,8 +498,10 @@ crossorigin="anonymous">-->
             var audio = new Audio('../public/img/alarm.mp3');
 
             var socket = io('ws://40.89.138.206:80');
-socket.on('veriler',(msg) => {
-    console.log(msg.voltage);
+            socket.on('veriler',(msg) => {
+
+            
+            console.log(msg.voltage);
             // document.getElementById("h2id2").innerHTML = msg.voltage;
             // document.getElementById("circle2").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
             const bolgeler = ['a', 'b', 'c'];
@@ -492,7 +524,7 @@ socket.on('veriler',(msg) => {
             for (let i = 0; i < bolgeler.length; i++) {
                 if (msg.sensor_id == bolgeler[i]) {
                     if (msg.flame >= 40) {
-                        $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Yangın')
+                        $('#yangin').text(bolgeler[i].toLocaleUpperCase() + ' Bölgesinde Yangın')
                         $('#exampleModalCenter').modal('show');
                         audio.play();
                         $('#exampleModalCenter').on('hidden.bs.modal', () => {
@@ -500,10 +532,10 @@ socket.on('veriler',(msg) => {
                         })
                     }
                     if (msg.voltage <= 10) {
-                        $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Düşük Pil')
-                        $('#exampleModalCenter').modal('show');
+                        $('#pill').text(bolgeler[i].toLocaleUpperCase() + ' Bölgesinde Düşük Pil')
+                        $('#modalpil').modal('show');
                         audio.play();
-                        $('#exampleModalCenter').on('hidden.bs.modal', () => {
+                        $('#modalpil').on('hidden.bs.modal', () => {
                             audio.pause();
                         })
                     }
@@ -515,8 +547,7 @@ socket.on('veriler',(msg) => {
                     document.getElementById(contents[i].c2).style.strokeDashoffset = (440 - (440 * msg.flame) / 100);
                 }
             }
-})
-          
+        })
         </script>
 
 

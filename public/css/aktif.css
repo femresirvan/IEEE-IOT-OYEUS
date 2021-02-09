@@ -67,6 +67,19 @@ body {
 	align-items: center;
 	border-radius: 50%;
 }
+
+#modalcontent{
+height: 350px;
+	
+	background-color: rgb(180, 12, 12);
+	color:white;
+}
+#modalcontentpil{
+	height: 350px;
+		
+		background-color: rgb(26, 25, 25);
+		color:rgb(255, 255, 255);
+	}
 .percent.number h2{
 	color: #fff;
 	font-weight: 700;
@@ -124,12 +137,12 @@ svg{
 #id1.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 90 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #id2.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 85 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 
@@ -138,12 +151,12 @@ svg{
 #id4.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 50 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #id5.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 45 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 
@@ -152,46 +165,46 @@ svg{
 #id7.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 35 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #id8.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 22 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 
 #id9.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 90 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #idb.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 85 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 #idc.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 50 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #idd.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 45 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 #ide.card:nth-child(1) svg circle:nth-child(2)
 {
 	
-	stroke-dashoffset:calc( 440 - ( 440 * 35 ) / 100);
+	stroke-dashoffset:calc( 440 - ( 440 * 0 ) / 100);
 	stroke: #00ff43;
 }
 #idf.card:nth-child(2) svg circle:nth-child(2)
 {
-	stroke-dashoffset: calc(440 - ( 440 * 22 ) / 100);
+	stroke-dashoffset: calc(440 - ( 440 * 0 ) / 100);
 	stroke: #00a1ff;
 }
 
@@ -206,9 +219,3 @@ svg{
 #ida{
 	background: white;
 }
-#modalcontent{
-	height: 350px;
-	
-		background-color: rgb(180, 12, 12);
-		color:white;
-	}
