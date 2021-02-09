@@ -163,10 +163,10 @@
                 <div class="percent">
                     <svg>
 				<circle cx="70" cy="70" r="70"></circle>
-				<circle id="circle4" cx="70" cy="70" r="70"></circle>
+				<circle id="circle3" cx="70" cy="70" r="70"></circle>
 			</svg>
                     <div class="number">
-                        <h2 id="h2id4">0<span>%</span></h2>
+                        <h2 id="h2id3">0<span>%</span></h2>
                     </div>
                 </div>
                 <h2 class="text" id="a4">Voltage</h2>
@@ -177,10 +177,10 @@
                 <div class="percent">
                     <svg>
 				<circle cx="70" cy="70" r="70"></circle>
-				<circle id="circle5" cx="70" cy="70" r="70"></circle>
+				<circle id="circle4" cx="70" cy="70" r="70"></circle>
 			</svg>
                     <div class="number">
-                        <h2 id="h2id5">0<span>%</span></h2>
+                        <h2 id="h2id4">0<span>%</span></h2>
                     </div>
                 </div>
                 <h2 class="text" id="a5">Flame</h2>
@@ -203,10 +203,10 @@
                 <div class="percent">
                     <svg>
 			<circle cx="70" cy="70" r="70"></circle>
-			<circle id="circle7" cx="70" cy="70" r="70"></circle>
+			<circle id="circle5" cx="70" cy="70" r="70"></circle>
 		</svg>
                     <div class="number">
-                        <h2 id="h2id7">0<span>%</span></h2>
+                        <h2 id="h2id5">0<span>%</span></h2>
                     </div>
                 </div>
                 <h2 class="text" id="a7">Voltage</h2>
@@ -217,10 +217,10 @@
                 <div class="percent">
                     <svg>
 			<circle cx="70" cy="70" r="70"></circle>
-			<circle id="circle8" cx="70" cy="70" r="70"></circle>
+			<circle id="circle6" cx="70" cy="70" r="70"></circle>
 		</svg>
                     <div class="number">
-                        <h2 id="h2id8">0<span>%</span></h2>
+                        <h2 id="h2id6">0<span>%</span></h2>
                     </div>
                 </div>
                 <h2 class="text" id="a8">Flame</h2>
@@ -467,13 +467,9 @@ crossorigin="anonymous">-->
         <script>
             var audio = new Audio('../public/img/alarm.mp3');
 
-            var socket = io('');
-            const msg = {
-                sensor_id: "40",
-                flame: 50,
-                voltage: 5
-            }
-            console.log(msg.voltage);
+            var socket = io('ws://40.89.138.206:80');
+socket.on('veriler',(msg) => {
+    console.log(msg.voltage);
             // document.getElementById("h2id2").innerHTML = msg.voltage;
             // document.getElementById("circle2").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
             const bolgeler = ['a', 'b', 'c'];
@@ -499,11 +495,17 @@ crossorigin="anonymous">-->
                         $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Yangın')
                         $('#exampleModalCenter').modal('show');
                         audio.play();
+                        $('#exampleModalCenter').on('hidden.bs.modal', () => {
+                            audio.pause();
+                        })
                     }
                     if (msg.voltage <= 10) {
                         $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Düşük Pil')
                         $('#exampleModalCenter').modal('show');
                         audio.play();
+                        $('#exampleModalCenter').on('hidden.bs.modal', () => {
+                            audio.pause();
+                        })
                     }
                     document.getElementById(contents[i].h).innerHTML = msg.voltage;
                     document.getElementById(contents[i].c).style.strokeDashoffset = (440 - (440 * msg.voltage) /
@@ -513,20 +515,8 @@ crossorigin="anonymous">-->
                     document.getElementById(contents[i].c2).style.strokeDashoffset = (440 - (440 * msg.flame) / 100);
                 }
             }
-        </script>
-        <script>
-            var audio = new Audio('../public/img/alarm.mp3');
-
-            function buton() {
-                $('#exampleModalCenter').modal('show');
-
-                audio.play();
-
-                $('#exampleModalCenter').on('hidden.bs.modal', () => {
-                    audio.pause();
-                })
-            }
-            buton();
+})
+          
         </script>
 
 
