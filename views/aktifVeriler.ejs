@@ -468,55 +468,54 @@ crossorigin="anonymous">-->
             var audio = new Audio('../public/img/alarm.mp3');
 
             var socket = io('ws://40.89.138.206:80');
-socket.on('veriler',(msg) => {
-    console.log(msg.voltage);
-            // document.getElementById("h2id2").innerHTML = msg.voltage;
-            // document.getElementById("circle2").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
-            const bolgeler = ['a', 'b', 'c'];
-            const contents = [{
-                h: 'h2id1',
-                c: 'circle1',
-                h2: 'h2id2',
-                c2: 'circle2'
-            }, {
-                h: 'h2id3',
-                c: 'circle3',
-                h2: 'h2id4',
-                c2: 'circle4'
-            }, {
-                h: 'h2id5',
-                c: 'circle5',
-                h2: 'h2id6',
-                c2: 'circle6'
-            }]
-            for (let i = 0; i < bolgeler.length; i++) {
-                if (msg.sensor_id == bolgeler[i]) {
-                    if (msg.flame >= 40) {
-                        $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Yangın')
-                        $('#exampleModalCenter').modal('show');
-                        audio.play();
-                        $('#exampleModalCenter').on('hidden.bs.modal', () => {
-                            audio.pause();
-                        })
-                    }
-                    if (msg.voltage <= 10) {
-                        $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Düşük Pil')
-                        $('#exampleModalCenter').modal('show');
-                        audio.play();
-                        $('#exampleModalCenter').on('hidden.bs.modal', () => {
-                            audio.pause();
-                        })
-                    }
-                    document.getElementById(contents[i].h).innerHTML = msg.voltage;
-                    document.getElementById(contents[i].c).style.strokeDashoffset = (440 - (440 * msg.voltage) /
-                        100);
+            socket.on('veriler', (msg) => {
+                console.log(msg.voltage);
+                // document.getElementById("h2id2").innerHTML = msg.voltage;
+                // document.getElementById("circle2").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
+                const bolgeler = ['a', 'b', 'c'];
+                const contents = [{
+                    h: 'h2id1',
+                    c: 'circle1',
+                    h2: 'h2id2',
+                    c2: 'circle2'
+                }, {
+                    h: 'h2id3',
+                    c: 'circle3',
+                    h2: 'h2id4',
+                    c2: 'circle4'
+                }, {
+                    h: 'h2id5',
+                    c: 'circle5',
+                    h2: 'h2id6',
+                    c2: 'circle6'
+                }]
+                for (let i = 0; i < bolgeler.length; i++) {
+                    if (msg.sensor_id == bolgeler[i]) {
+                        if (msg.flame >= 40) {
+                            $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Yangın')
+                            $('#exampleModalCenter').modal('show');
+                            audio.play();
+                            $('#exampleModalCenter').on('hidden.bs.modal', () => {
+                                audio.pause();
+                            })
+                        }
+                        if (msg.voltage <= 10) {
+                            $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Düşük Pil')
+                            $('#exampleModalCenter').modal('show');
+                            audio.play();
+                            $('#exampleModalCenter').on('hidden.bs.modal', () => {
+                                audio.pause();
+                            })
+                        }
+                        document.getElementById(contents[i].h).innerHTML = msg.voltage;
+                        document.getElementById(contents[i].c).style.strokeDashoffset = (440 - (440 * msg.voltage) /
+                            100);
 
-                    document.getElementById(contents[i].h2).innerHTML = msg.flame;
-                    document.getElementById(contents[i].c2).style.strokeDashoffset = (440 - (440 * msg.flame) / 100);
+                        document.getElementById(contents[i].h2).innerHTML = msg.flame;
+                        document.getElementById(contents[i].c2).style.strokeDashoffset = (440 - (440 * msg.flame) / 100);
+                    }
                 }
-            }
-})
-          
+            })
         </script>
 
 
