@@ -499,11 +499,17 @@ crossorigin="anonymous">-->
                         $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Yangın')
                         $('#exampleModalCenter').modal('show');
                         audio.play();
+                        $('#exampleModalCenter').on('hidden.bs.modal', () => {
+                            audio.pause();
+                        })
                     }
                     if (msg.voltage <= 10) {
                         $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Düşük Pil')
                         $('#exampleModalCenter').modal('show');
                         audio.play();
+                        $('#exampleModalCenter').on('hidden.bs.modal', () => {
+                            audio.pause();
+                        })
                     }
                     document.getElementById(contents[i].h).innerHTML = msg.voltage;
                     document.getElementById(contents[i].c).style.strokeDashoffset = (440 - (440 * msg.voltage) /
@@ -513,20 +519,6 @@ crossorigin="anonymous">-->
                     document.getElementById(contents[i].c2).style.strokeDashoffset = (440 - (440 * msg.flame) / 100);
                 }
             }
-        </script>
-        <script>
-            var audio = new Audio('../public/img/alarm.mp3');
-
-            function buton() {
-                $('#exampleModalCenter').modal('show');
-
-                audio.play();
-
-                $('#exampleModalCenter').on('hidden.bs.modal', () => {
-                    audio.pause();
-                })
-            }
-            buton();
         </script>
 
 
