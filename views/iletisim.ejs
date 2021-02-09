@@ -33,53 +33,49 @@
 	<script src="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../public/css/aktif.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-	</script>
-	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
 
-	<style>
-		.resim {
-			border-radius: 900px;
-			width: 250px;
-			height: 250px;
-		}
+<style>
+	.resim{
+		border-radius: 300px;
 
-		@media screen and (max-width: 768px) {
-			.row {
-				display: block;
-				margin: 0 auto;
-			}
-		}
+		float: left;
+    width:  300px;
+    height: 300px;
+    object-fit: cover;
+	}
+	@media screen and (max-width: 768px) {
+    .row{
+    display: block;
+    margin: 0 auto;
+    }
+}
+.video-container {
+    overflow: hidden;
+    position: relative;
+    width:100%;
+}
 
-		.video-container {
-			overflow: hidden;
-			position: relative;
-			width: 100%;
-		}
+.video-container::after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+}
 
-		.video-container::after {
-			padding-top: 56.25%;
-			display: block;
-			content: '';
-		}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
 
-		.video-container iframe {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-	</style>
-
-
-
+	
+	
 </head>
 
 <body>
@@ -186,124 +182,123 @@
 					<br>
 					<h2 style="text-align: center;">PROJE ÖZETİ</h2>
 					<br>
-					<div class="video-container">
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/CI-0I45aEk4" frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen></iframe>
-					</div>
+					
 					<p>&ensp;IEEE IoT proje takımı İstanbul Üniversitesi Cerrahpaşa Mühendislik Fakültesi’nin farklı
 						bölümlerinde eğitimlerine devam etmekte olan öğrenciler tarafından oluşturulmuştur. Proje amacı
 						orman yangınlarının önüne geçmek adına, oluşabilecek afetler hakkında insan müdahalesine gerek
 						olmadan alarm verebilecek bir sistem geliştirmektir.
 						Bu kapsamda:
-						Orman içerisine yerleştirilen mekanizmalar sayesinde olası bir yangın tehlikesine karşı kurulan
-						duman sensörleri bölgedeki hava kalitesinin ve duman yoğunluğunun hakkında anlık olarak veri
-						alınımı gerçekleştirir. Ölçülen verilerde belirlenenin aksinde bir yükseklik söz konusu
-						olduğunda merkezi kontrol bilgisayarına ve sistemden sorumlu kişilere uyarı mesajı yollayarak
-						yangının başladığı noktayı bildirir ve hızlı bir müdahale ile duman yükselip dağılmadan sorun
-						çözmeye çalışılır.
-						<br>
-						<br>
+						Orman içerisine yerleştirilen mekanizmalar sayesinde olası bir yangın tehlikesine karşı  kurulan duman sensörleri bölgedeki hava kalitesinin ve duman yoğunluğunun hakkında  anlık olarak veri alınımı gerçekleştirir. Ölçülen verilerde  belirlenenin aksinde bir yükseklik söz konusu olduğunda  merkezi kontrol bilgisayarına ve sistemden  sorumlu kişilere uyarı mesajı yollayarak yangının başladığı noktayı bildirir ve  hızlı bir müdahale ile duman yükselip dağılmadan sorun çözmeye çalışılır.
+					<br>
+					<br>
+					<div class="video-container">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/CI-0I45aEk4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		
+					</div>
+					<br>
+					<br>
 					
-
-
-						<br> <br>
-						<h2 style="text-align: center;">Ekibimiz</h2><br>
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/Taha.jpg">
-									<br><br>
-									<p style="text-align: center;">Muhammet Taha Karaaslan</p>
-									<p style="text-align: center;">Proje Genel Sorumlusu-Elektronik Takım Kaptanı</p>
-								</div>
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/FıratEmre.jpg">
-									<br><br>
-									<p style="text-align: center;">Fırat Emre Şirvan</p>
-									<p style="text-align: center;">Proje Yazılım Takım Kaptanı</p>
-								</div>
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/gülben emanet.jpg"><br><br>
-									<p style="text-align: center;">Gülben Emanet</p>
-									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
-
-								</div>
-
-							</div>
-						</div>
-						<br><br>
-						<div class="container">
-							<div class="row">
-								
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/kardelen uçar.jpg"><br><br>
-									<p style="text-align: center;">Kardelen Uçar</p>
-									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
-								</div>
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/veli bayındır.jpg"><br><br>
-									<p style="text-align: center;">Veli Müçteba Bayındır</p>
-									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
-								</div>
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/alperenkilinc.JPG"><br><br>
-									<p style="text-align: center;">Alperen Kılınç</p>
-									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
-
-								</div>
-								
-							</div>
-						</div>
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/HüseyinEmre.jpg"><br><br>
-									<p style="text-align: center;">Hüseyin Emre Akgüç</p>
-									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-
-								</div>
-								<div class="col">
-									<img class="resim" src="../public/img/Altuğ hamsi.jpeg"><br><br>
-									<p style="text-align: center;">Altuğ</p>
-									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-								</div>
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/Selma.jpg"><br><br>
-									<p style="text-align: center;">Selma</p>
-									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-
-								</div>
-							</div>
-						</div>
-						<div class="container">
-							<div class="row">
-								
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/Sezgi.jpg"><br><br>
-									<p style="text-align: center;">Sezgi</p>
-									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-								</div>
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/FıratT.jpg"><br><br>
-									<p style="text-align: center;">Fırat Tiktaş</p>
-									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-								</div>
-
-							</div>
-						</div>
-						<div class="container">
-							<div class="row">
+					<h2 style="text-align: center;">Ekibimiz</h2><br>
+					<div class="container">
+						<div class="row">
+						  <div class="col ">
 							
-
-							</div>
+								<img class="resim " src="../sidenav/../public/img/baris.jpg">
+								<br><br>
+								<p style="text-align: center;">Barış Baran</p>
+								<p style="text-align: center;">Boş İşler Müdürü</p>
+							  </div>
+							  <div class="col">
+							<img class="resim " src="../sidenav/../public/img/Taha_1024x768.jpg">
+							<br><br>
+							<p style="text-align: center;">Muhammet Taha Karaaslan</p>
+							<p style="text-align: center;">Proje Takım Kaptanı</p>
+						  </div>
+						  <div class="col">
+							<img class="resim " src="../sidenav/../public/img/FıratEmre_1024x768.jpg">
+							<br><br>
+							<p style="text-align: center;">Fırat Emre Şirvan</p>
+							<p style="text-align: center;">Proje Yazılım Takım Kaptanı</p>
+						  </div>
+						  
+						
 						</div>
-						<div class="container">
-							<div class="row">
-
-								
-							</div>
+					</div>
+					<br><br>
+					<div class="container">
+						<div class="row">
+						  <div class="col">
+							<img class="resim " src="../sidenav/../public/img/gülben emanet.jpg"><br><br>
+							<p style="text-align: center;">Gülben Emanet</p>
+							<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
 						</div>
+							<div class="col">
+								<img class="resim " src="../sidenav/../public/img/veli bayındır_1024x1024.jpg"><br><br>
+								<p style="text-align: center;"> V.Müçteba Bayındır</p>
+								<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
+							  </div>
+
+						  <div class="col">
+							<img class="resim" src="../sidenav/../public/img/alperenkilinc_1024x682.jpg"><br><br>
+							<p style="text-align: center;">Alperen Kılınç</p>
+							<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
+							
+						  </div>
+						  
+							  
+						
+						</div>
+					  </div>
+					  
+					  <div class="container">
+						<div class="row">
+							<div class="col">
+								<img class="resim " src="../sidenav/../public/img/Sezgi_1024x1024.jpg"><br><br>
+								<p style="text-align: center;">Sezgi Hamsi </p>
+								<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+							  </div>
+						  <div class="col">
+							<img class="resim " src="../sidenav/../public/img/HüseyinEmre_1024x768.jpg"><br><br>
+							<p style="text-align: center;">Hüseyin Emre Akgüç</p>
+							<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+							
+						  </div>
+						 
+						  <div class="col ">
+							<img class="resim" src="../sidenav/../public/img/kardelen uçar_1024x1024.jpg"><br><br>
+							<p style="text-align: center;">Kardelen Uçar</p>
+							<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
+						  </div>
+						  
+						 
+						
+						
+						</div>
+					  </div>
+					  <div class="container">
+						<div class="row">
+						  <div class="col">
+							<img class="resim " src="../sidenav/../public/img/selma_687x1024.jpg"><br><br>
+							<p style="text-align: center;">Selma Gülnayın</p>
+							<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+							
+						  </div>
+						  <div class="col">
+							<img class="resim " src="../sidenav/../public/img/altuğ_768x1024.jpg"><br><br>
+							<p style="text-align: center;">Altuğ Hamsi</p>
+							<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+						  </div>
+						 
+						
+						<div class="col">
+							<img class="resim " src="../sidenav/../public/img/FıratT_1024x1024.jpg"><br><br>
+							<p style="text-align: center;">Fırat Tiktaş</p>
+							<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+						  </div>
+					  </div>
+					</div>
+				</div>
+				<!-- <div class="col-2 col-md-2"></div> -->
+			  </div>
 			</div>
 			<!-- <div class="col-2 col-md-2"></div> -->
 		</div>
