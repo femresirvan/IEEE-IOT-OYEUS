@@ -56,6 +56,26 @@
 				margin: 0 auto;
 			}
 		}
+
+		.video-container {
+			overflow: hidden;
+			position: relative;
+			width: 100%;
+		}
+
+		.video-container::after {
+			padding-top: 56.25%;
+			display: block;
+			content: '';
+		}
+
+		.video-container iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 	</style>
 
 
@@ -120,7 +140,7 @@
 				</div>
 			  </div> -->
 	<div class="container">
-		<div class=" row">
+		<div class="row justify-content-center">
 
 			<div style="background-color:rgb(214, 214, 241);" class="col">
 				<h2 style="text-align: center;">Biz Kimiz?</h2>
@@ -166,10 +186,11 @@
 					<br>
 					<h2 style="text-align: center;">PROJE ÖZETİ</h2>
 					<br>
-					<iframe style="text-align: center;" width="560" height="315"
-						src="https://www.youtube.com/embed/xl28wwcrm5s" frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen></iframe>
+					<div class="video-container">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/CI-0I45aEk4" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					</div>
 					<p>&ensp;IEEE IoT proje takımı İstanbul Üniversitesi Cerrahpaşa Mühendislik Fakültesi’nin farklı
 						bölümlerinde eğitimlerine devam etmekte olan öğrenciler tarafından oluşturulmuştur. Proje amacı
 						orman yangınlarının önüne geçmek adına, oluşabilecek afetler hakkında insan müdahalesine gerek
@@ -183,9 +204,9 @@
 						çözmeye çalışılır.
 						<br>
 						<br>
-						<img style="width:400px; height:250px; display: block;
-					margin-left: auto;
-					margin-right: auto;" src="../sidenav/../public/img/iot-resim.jpg">
+					
+
+
 						<br> <br>
 						<h2 style="text-align: center;">Ekibimiz</h2><br>
 						<div class="container">
@@ -202,29 +223,24 @@
 									<p style="text-align: center;">Fırat Emre Şirvan</p>
 									<p style="text-align: center;">Proje Yazılım Takım Kaptanı</p>
 								</div>
-
-
-							</div>
-						</div>
-						<br><br>
-						<div class="container">
-							<div class="row">
 								<div class="col">
 									<img class="resim" src="../sidenav/../public/img/gülben emanet.jpg"><br><br>
 									<p style="text-align: center;">Gülben Emanet</p>
 									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
 
 								</div>
+
+							</div>
+						</div>
+						<br><br>
+						<div class="container">
+							<div class="row">
+								
 								<div class="col">
 									<img class="resim" src="../sidenav/../public/img/kardelen uçar.jpg"><br><br>
 									<p style="text-align: center;">Kardelen Uçar</p>
 									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
 								</div>
-
-							</div>
-						</div>
-						<div class="container">
-							<div class="row">
 								<div class="col">
 									<img class="resim" src="../sidenav/../public/img/veli bayındır.jpg"><br><br>
 									<p style="text-align: center;">Veli Müçteba Bayındır</p>
@@ -236,7 +252,7 @@
 									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
 
 								</div>
-
+								
 							</div>
 						</div>
 						<div class="container">
@@ -252,20 +268,25 @@
 									<p style="text-align: center;">Altuğ</p>
 									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
 								</div>
-
-							</div>
-						</div>
-						<div class="container">
-							<div class="row">
 								<div class="col">
 									<img class="resim" src="../sidenav/../public/img/Selma.jpg"><br><br>
 									<p style="text-align: center;">Selma</p>
 									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
 
 								</div>
+							</div>
+						</div>
+						<div class="container">
+							<div class="row">
+								
 								<div class="col">
 									<img class="resim" src="../sidenav/../public/img/Sezgi.jpg"><br><br>
 									<p style="text-align: center;">Sezgi</p>
+									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+								</div>
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/FıratT.jpg"><br><br>
+									<p style="text-align: center;">Fırat Tiktaş</p>
 									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
 								</div>
 
@@ -273,13 +294,14 @@
 						</div>
 						<div class="container">
 							<div class="row">
+							
 
-								<div class="col">
-									<img class="resim" src="../sidenav/../public/img/FıratT.jpg"><br><br>
-									<p style="text-align: center;">Fırat Tiktaş</p>
-									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-								</div>
+							</div>
+						</div>
+						<div class="container">
+							<div class="row">
 
+								
 							</div>
 						</div>
 			</div>
