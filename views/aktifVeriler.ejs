@@ -497,12 +497,10 @@ crossorigin="anonymous">-->
         <script>
             var audio = new Audio('../public/img/alarm.mp3');
 
-            var socket = io('');
-            const msg = {
-                sensor_id: "40",
-                flame: 50,
-                voltage: 5
-            }
+            var socket = io('ws://40.89.138.206:80');
+            socket.on('veriler',(msg) => {
+
+            
             console.log(msg.voltage);
             // document.getElementById("h2id2").innerHTML = msg.voltage;
             // document.getElementById("circle2").style.strokeDashoffset = ( 440 - ( 440 * msg.voltage ) / 100);
@@ -549,7 +547,7 @@ crossorigin="anonymous">-->
                     document.getElementById(contents[i].c2).style.strokeDashoffset = (440 - (440 * msg.flame) / 100);
                 }
             }
-           
+        })
         </script>
 
 

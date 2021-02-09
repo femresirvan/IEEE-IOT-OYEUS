@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Hakkımızda</title>
-	
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link rel="stylesheet" href="../public/css/jquery.mCustomScrollbar.min.css">
 	<link rel="stylesheet" href="../public/css/animate.css">
 	<link rel="stylesheet" href="../public/css/style.css">
@@ -18,7 +21,7 @@
 	<!-- Favicon and touch icons -->
 	<link rel="shortcut icon" href="../public/ico/iotbb.PNG">
 
-	 
+
 
 	<!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
 
@@ -30,202 +33,281 @@
 	<script src="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../public/css/aktif.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+	</script>
+	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
 
-<style>
-	.resim{
-		border-radius: 900px;
-		width: 250px;
-		height:250px;
-	}
-	@media screen and (max-width: 768px) {
-    .row{
-    display: block;
-    margin: 0 auto;
-    }
-}
-</style>
+	<style>
+		.resim {
+			border-radius: 900px;
+			width: 250px;
+			height: 250px;
+		}
 
-	
-	
+		@media screen and (max-width: 768px) {
+			.row {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+
+		.video-container {
+			overflow: hidden;
+			position: relative;
+			width: 100%;
+		}
+
+		.video-container::after {
+			padding-top: 56.25%;
+			display: block;
+			content: '';
+		}
+
+		.video-container iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+
+
+
 </head>
-<body >
+
+<body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">IEEE IUC IOT</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Ana Sayfa <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="gecmis-veriler">Geçmiş Veriler</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/hakkimizda">Hakkımızda</a>
-            </li>
-          </ul>
-          <span class="navbar-text">
-            Bize ulaşın <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';" class="btn btn-social-icon btn-outline-facebook">   <i class="fa fa-facebook"></i>    </button>
-			<button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"class="btn btn-social-icon btn-outline-twitter">  <i class="fa fa-twitter"></i>   </button> 
-			<button type="button" onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"class="btn btn-social-icon btn-outline-linkedin">   <i class="fa fa-linkedin"></i>   </button>
-			<button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"class="btn btn-social-icon btn-outline-instagram">   <i class="fa fa-instagram"></i>    </button> 
-		   
-          </span>
-        </div>
-      </nav>
-	  <div class=" bg d-flex  align-items-center justify-content-center p-5 " >
+		<a class="navbar-brand" href="#">IEEE IUC IOT</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="/">Ana Sayfa <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="gecmis-veriler">Geçmiş Veriler</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/hakkimizda">Hakkımızda</a>
+				</li>
+			</ul>
+			<span class="navbar-text">
+				Bize ulaşın <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';"
+					class="btn btn-social-icon btn-outline-facebook"> <i class="fa fa-facebook"></i> </button>
+				<button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"
+					class="btn btn-social-icon btn-outline-twitter"> <i class="fa fa-twitter"></i> </button>
+				<button type="button"
+					onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"
+					class="btn btn-social-icon btn-outline-linkedin"> <i class="fa fa-linkedin"></i> </button>
+				<button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"
+					class="btn btn-social-icon btn-outline-instagram"> <i class="fa fa-instagram"></i> </button>
 
-		<a href="https://www.ieeeiuc.com/sb/tr/projeler/iot"> <img  id="logO" src="../public/img/ieeiücbeyaz.png"  alt="ieeeiuc"></a>
+			</span>
+		</div>
+	</nav>
+	<div class=" bg d-flex  align-items-center justify-content-center p-5 ">
+
+		<a href="https://www.ieeeiuc.com/sb/tr/projeler/iot"> <img id="logO" src="../public/img/ieeiücbeyaz.png"
+				alt="ieeeiuc"></a>
 	</div>
-	
-	
 
 
 
 
-		<br>
-		<br>
-		<br>
-			
-			
-				
-			<!-- <div  class="row" >
+
+
+	<br>
+	<br>
+	<br>
+
+
+
+	<!-- <div  class="row" >
 				<div style="background-color: rgb(214, 214, 241);" class="col-8 col-md-3">
 					<h2>Biz Kimiz?</h2><br>
 					<p> &ensp; IEEE İstanbul Üniversitesi-Cerrahpaşa Öğrenci kolu 2002 yılında kurulmuştur. Üniversitemizde etkinlikler, teknik projeler, workshoplar ve eğitimler düzenleyerek sektöre, teknolojiye ve bilime yönelik çalışmalar yürütmektedir. 400’den fazla aktif üye sayısı ile İstanbul Üniversitesi-Cerrahpaşa Mühendislik Fakültesinin en köklü kulübü olarak yer almaktadır. Kolumuz, Robotics and Automation Society, Computer Society, Education Society, Women in Engineering, Sponsorluk Komitesi, Tanıtım Tasarım Komitesi, KÖK(IEEE Türkiye Kardeş Öğrenci Kolları Projesi) ve Educational Activities Temsilciliği olmak üzere toplamda 6 Komite ve 2 temsilcilikten oluşmaktadır. Kulübümüz öğrencilerin mesleki açıdan gelişmesine ve desteklenmesine katkıda bulunmak, teknik olarak gelişmelerini, güncel kalmalarını ve bu çok geniş mesleki ağın farkına varıp çözüm ve gelişim amaçlı çalışmalar yürütmelerini hedeflemekteyiz. Komitelerimiz ve temsilciliklerimiz ile Türkiye’deki sektörlerin ihtiyaçlarını araştıran, buna göre öğrencileri yönlendirmeyi amaç edinen ve Türkiye’nin teknoloji üreten bir ülke olmasını arzulayan genç mühendis adaylarının amatör ruhlu ancak profesyonel işler ortaya çıkarmalarını amaç ediniyor ve olanak sağlıyoruz.</p>
 
 				</div>
 			  </div> -->
-<div class="container">
-			  <div class=" row">
-				
-				<div style="background-color:rgb(214, 214, 241);" class="col">
-					<h2 style="text-align: center;">Biz Kimiz?</h2>
-					<br>
-					<p> &ensp; IEEE İstanbul Üniversitesi-Cerrahpaşa Öğrenci kolu 2002 yılında kurulmuştur. Üniversitemizde etkinlikler, teknik projeler, workshoplar ve eğitimler düzenleyerek sektöre, teknolojiye ve bilime yönelik çalışmalar yürütmektedir. 400’den fazla aktif üye sayısı ile İstanbul Üniversitesi-Cerrahpaşa Mühendislik Fakültesinin en köklü kulübü olarak yer almaktadır. Kolumuz, Robotics and Automation Society, Computer Society, Education Society, Women in Engineering, Sponsorluk Komitesi, Tanıtım Tasarım Komitesi, KÖK(IEEE Türkiye Kardeş Öğrenci Kolları Projesi) ve Educational Activities Temsilciliği olmak üzere toplamda 6 Komite ve 2 temsilcilikten oluşmaktadır. Kulübümüz öğrencilerin mesleki açıdan gelişmesine ve desteklenmesine katkıda bulunmak, teknik olarak gelişmelerini, güncel kalmalarını ve bu çok geniş mesleki ağın farkına varıp çözüm ve gelişim amaçlı çalışmalar yürütmelerini hedeflemekteyiz. Komitelerimiz ve temsilciliklerimiz ile Türkiye’deki sektörlerin ihtiyaçlarını araştıran, buna göre öğrencileri yönlendirmeyi amaç edinen ve Türkiye’nin teknoloji üreten bir ülke olmasını arzulayan genç mühendis adaylarının amatör ruhlu ancak profesyonel işler ortaya çıkarmalarını amaç ediniyor ve olanak sağlıyoruz.</p>
+	<div class="container">
+		<div class="row justify-content-center">
+
+			<div style="background-color:rgb(214, 214, 241);" class="col">
+				<h2 style="text-align: center;">Biz Kimiz?</h2>
+				<br>
+				<p> &ensp; IEEE İstanbul Üniversitesi-Cerrahpaşa Öğrenci kolu 2002 yılında kurulmuştur. Üniversitemizde
+					etkinlikler, teknik projeler, workshoplar ve eğitimler düzenleyerek sektöre, teknolojiye ve bilime
+					yönelik çalışmalar yürütmektedir. 400’den fazla aktif üye sayısı ile İstanbul
+					Üniversitesi-Cerrahpaşa Mühendislik Fakültesinin en köklü kulübü olarak yer almaktadır. Kolumuz,
+					Robotics and Automation Society, Computer Society, Education Society, Women in Engineering,
+					Sponsorluk Komitesi, Tanıtım Tasarım Komitesi, KÖK(IEEE Türkiye Kardeş Öğrenci Kolları Projesi) ve
+					Educational Activities Temsilciliği olmak üzere toplamda 6 Komite ve 2 temsilcilikten oluşmaktadır.
+					Kulübümüz öğrencilerin mesleki açıdan gelişmesine ve desteklenmesine katkıda bulunmak, teknik olarak
+					gelişmelerini, güncel kalmalarını ve bu çok geniş mesleki ağın farkına varıp çözüm ve gelişim amaçlı
+					çalışmalar yürütmelerini hedeflemekteyiz. Komitelerimiz ve temsilciliklerimiz ile Türkiye’deki
+					sektörlerin ihtiyaçlarını araştıran, buna göre öğrencileri yönlendirmeyi amaç edinen ve Türkiye’nin
+					teknoloji üreten bir ülke olmasını arzulayan genç mühendis adaylarının amatör ruhlu ancak
+					profesyonel işler ortaya çıkarmalarını amaç ediniyor ve olanak sağlıyoruz.</p>
 				<br> <br>
 				<h2 style="text-align: center;">Iot Nedir?</h2>
 				<br>
-				<p>&ensp;IoT (Internet of Things) Nesnelerin İnterneti; insan müdahalesine ve herhangi bir verinin elle girişine gerek olmadan cihazların veya makinelerin kendi aralarında veri iletişimi yaptığı, bilgi topladığı ve toplanan bilgiler ile karar verdiği bir ağ yapısı teknolojisidir. Daha sonraki yıllarda gelişen teknolojiler sayesinde milyarlarca insanın bilgisayarlar ya da taşınabilir mobil araçlarla internete bağlanmaları sağlanmıştır. Komitemiz vizyonu gereği gelişmekte olan teknolojiyi ve tecrübeyi yakından takip etmek durumundadır. Bu bağlamda komitemiz içerisinde istekli ve azimli kişilerin bir araya gelerek oluşturduğu ekibimiz IoT altyapısında çeşitli projeler yapma amacıyla çalışmaktadır. Ekibin güncel olarak yapmayı hedeflemekte olduğu ilk projesi Orman Yangını Takip Sistemidir. Bu projede Orman Yangınlarından başlama anlarında haberdar olunması ve yüzlerce hektarlık ormanların yok oluşlarının önüne geçilmesi hedeflenmektedir. Bu hedef kapsamında korunması istenen arazilerde yangın, duman sensörleri vasıtasıyla algılanacaktır. Arazinin büyüklüğüne bağlı olarak belirli sayıda Sensör İstasyonu konuşlandırılacak. Bu istasyonlar gerekli sensörlerle donatılacaktır. İstasyonların enerji ihtiyaçları düşük seviyelerde olsa dahi enerjiyi her bir istasyona iletmenin ve kesintisiz hale getirmenin maliyeti yüksek olacaktır. Bundan dolayı her bir istasyon Güneş Panelleri kullanılarak enerji ihtiyaçlarını karşılayabilecek şekilde tasarlanmıştır. Panel vasıtasıyla elde edilen enerji yüksek kapasiteli bir Lityum Polimer bataryada depolanacak ve sistem elemanlarına dağıtılacaktır. Elde edilen sensör verileri, her bir istasyona ilişkin sağlık ve verimlilik verileri işlendikten sonra radyo frekans sinyalleri kullanılarak belirlenen bir merkez istasyona gönderilecektir. Merkez istasyon Gsm ağını kullanarak elde edilen tüm verileri gönderilmesi istenen yere gönderecektir. Oluşabilecek herhangi bir afet durumunda sistem kendini tetikleyerek alarm vererek yangına mümkün olan en kısa sürede müdahale edilmesi sağlanır. 
+				<p>&ensp;IoT (Internet of Things) Nesnelerin İnterneti; insan müdahalesine ve herhangi bir verinin elle
+					girişine gerek olmadan cihazların veya makinelerin kendi aralarında veri iletişimi yaptığı, bilgi
+					topladığı ve toplanan bilgiler ile karar verdiği bir ağ yapısı teknolojisidir. Daha sonraki yıllarda
+					gelişen teknolojiler sayesinde milyarlarca insanın bilgisayarlar ya da taşınabilir mobil araçlarla
+					internete bağlanmaları sağlanmıştır. Komitemiz vizyonu gereği gelişmekte olan teknolojiyi ve
+					tecrübeyi yakından takip etmek durumundadır. Bu bağlamda komitemiz içerisinde istekli ve azimli
+					kişilerin bir araya gelerek oluşturduğu ekibimiz IoT altyapısında çeşitli projeler yapma amacıyla
+					çalışmaktadır. Ekibin güncel olarak yapmayı hedeflemekte olduğu ilk projesi Orman Yangını Takip
+					Sistemidir. Bu projede Orman Yangınlarından başlama anlarında haberdar olunması ve yüzlerce
+					hektarlık ormanların yok oluşlarının önüne geçilmesi hedeflenmektedir. Bu hedef kapsamında korunması
+					istenen arazilerde yangın, duman sensörleri vasıtasıyla algılanacaktır. Arazinin büyüklüğüne bağlı
+					olarak belirli sayıda Sensör İstasyonu konuşlandırılacak. Bu istasyonlar gerekli sensörlerle
+					donatılacaktır. İstasyonların enerji ihtiyaçları düşük seviyelerde olsa dahi enerjiyi her bir
+					istasyona iletmenin ve kesintisiz hale getirmenin maliyeti yüksek olacaktır. Bundan dolayı her bir
+					istasyon Güneş Panelleri kullanılarak enerji ihtiyaçlarını karşılayabilecek şekilde tasarlanmıştır.
+					Panel vasıtasıyla elde edilen enerji yüksek kapasiteli bir Lityum Polimer bataryada depolanacak ve
+					sistem elemanlarına dağıtılacaktır. Elde edilen sensör verileri, her bir istasyona ilişkin sağlık ve
+					verimlilik verileri işlendikten sonra radyo frekans sinyalleri kullanılarak belirlenen bir merkez
+					istasyona gönderilecektir. Merkez istasyon Gsm ağını kullanarak elde edilen tüm verileri
+					gönderilmesi istenen yere gönderecektir. Oluşabilecek herhangi bir afet durumunda sistem kendini
+					tetikleyerek alarm vererek yangına mümkün olan en kısa sürede müdahale edilmesi sağlanır.
 					<br>
 					<br>
 					<h2 style="text-align: center;">PROJE ÖZETİ</h2>
 					<br>
-					<p>&ensp;IEEE IoT proje takımı İstanbul Üniversitesi Cerrahpaşa Mühendislik Fakültesi’nin farklı bölümlerinde eğitimlerine devam etmekte olan öğrenciler tarafından oluşturulmuştur. Proje amacı orman yangınlarının önüne geçmek adına, oluşabilecek afetler hakkında insan müdahalesine gerek olmadan alarm verebilecek bir sistem geliştirmektir. 
-						Bu kapsamda:
-						Orman içerisine yerleştirilen mekanizmalar sayesinde olası bir yangın tehlikesine karşı  kurulan duman sensörleri bölgedeki hava kalitesinin ve duman yoğunluğunun hakkında  anlık olarak veri alınımı gerçekleştirir. Ölçülen verilerde  belirlenenin aksinde bir yükseklik söz konusu olduğunda  merkezi kontrol bilgisayarına ve sistemden  sorumlu kişilere uyarı mesajı yollayarak yangının başladığı noktayı bildirir ve  hızlı bir müdahale ile duman yükselip dağılmadan sorun çözmeye çalışılır.
-					<br>
-					<br>
-					<img style="width:400px; height:250px; display: block;
-					margin-left: auto;
-					margin-right: auto;" src="../sidenav/../public/img/iot-resim.jpg">
-					<br> <br>
-					<h2 style="text-align: center;">Ekibimiz</h2><br>
-					<div class="container">
-						<div class="row">
-						  <div class="col">
-							<img class="resim" src="../sidenav/../public/img/Taha.jpg">
-							<br><br>
-							<p style="text-align: center;">Muhammet Taha Karaaslan</p>
-							<p style="text-align: center;">Proje Genel Sorumlusu-Elektronik Takım Kaptanı</p>
-						  </div>
-						  <div class="col">
-							<img class="resim" src="../sidenav/../public/img/FıratEmre.jpg">
-							<br><br>
-							<p style="text-align: center;">Fırat Emre Şirvan</p>
-							<p style="text-align: center;">Proje Yazılım Takım Kaptanı</p>
-						  </div>
-						  
-						
-						</div>
+					<div class="video-container">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/CI-0I45aEk4" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
 					</div>
-					<br><br>
-					<div class="container">
-						<div class="row">
-						  <div class="col">
-							<img class="resim" src="../sidenav/../public/img/gülben emanet.jpg"><br><br>
-							<p style="text-align: center;">Gülben Emanet</p>
-							<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
-							
-						  </div>
-						  <div class="col">
-							<img class="resim" src="../sidenav/../public/img/kardelen uçar.jpg"><br><br>
-							<p style="text-align: center;">Kardelen Uçar</p>
-							<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
-						  </div>
-						  
+					<p>&ensp;IEEE IoT proje takımı İstanbul Üniversitesi Cerrahpaşa Mühendislik Fakültesi’nin farklı
+						bölümlerinde eğitimlerine devam etmekte olan öğrenciler tarafından oluşturulmuştur. Proje amacı
+						orman yangınlarının önüne geçmek adına, oluşabilecek afetler hakkında insan müdahalesine gerek
+						olmadan alarm verebilecek bir sistem geliştirmektir.
+						Bu kapsamda:
+						Orman içerisine yerleştirilen mekanizmalar sayesinde olası bir yangın tehlikesine karşı kurulan
+						duman sensörleri bölgedeki hava kalitesinin ve duman yoğunluğunun hakkında anlık olarak veri
+						alınımı gerçekleştirir. Ölçülen verilerde belirlenenin aksinde bir yükseklik söz konusu
+						olduğunda merkezi kontrol bilgisayarına ve sistemden sorumlu kişilere uyarı mesajı yollayarak
+						yangının başladığı noktayı bildirir ve hızlı bir müdahale ile duman yükselip dağılmadan sorun
+						çözmeye çalışılır.
+						<br>
+						<br>
+					
+
+
+						<br> <br>
+						<h2 style="text-align: center;">Ekibimiz</h2><br>
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/Taha.jpg">
+									<br><br>
+									<p style="text-align: center;">Muhammet Taha Karaaslan</p>
+									<p style="text-align: center;">Proje Genel Sorumlusu-Elektronik Takım Kaptanı</p>
+								</div>
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/FıratEmre.jpg">
+									<br><br>
+									<p style="text-align: center;">Fırat Emre Şirvan</p>
+									<p style="text-align: center;">Proje Yazılım Takım Kaptanı</p>
+								</div>
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/gülben emanet.jpg"><br><br>
+									<p style="text-align: center;">Gülben Emanet</p>
+									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
+
+								</div>
+
+							</div>
 						</div>
-					  </div>
-					  <div class="container">
-						<div class="row">
-							<div class="col">
-								<img class="resim" src="../sidenav/../public/img/veli bayındır.jpg"><br><br>
-								<p style="text-align: center;">Veli Müçteba Bayındır</p>
-								<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
-							  </div>
-						  <div class="col">
-							<img class="resim" src="../sidenav/../public/img/alperenkilinc.JPG"><br><br>
-							<p style="text-align: center;">Alperen Kılınç</p>
-							<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
-							
-						  </div>
-						  
+						<br><br>
+						<div class="container">
+							<div class="row">
+								
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/kardelen uçar.jpg"><br><br>
+									<p style="text-align: center;">Kardelen Uçar</p>
+									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
+								</div>
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/veli bayındır.jpg"><br><br>
+									<p style="text-align: center;">Veli Müçteba Bayındır</p>
+									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
+								</div>
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/alperenkilinc.JPG"><br><br>
+									<p style="text-align: center;">Alperen Kılınç</p>
+									<p style="text-align: center;">Proje Yazılım Takım Üyesi</p>
+
+								</div>
+								
+							</div>
 						</div>
-					  </div>
-					  <div class="container">
-						<div class="row">
-						  <div class="col">
-							<img class="resim" src="../sidenav/../public/img/HüseyinEmre.jpg"><br><br>
-							<p style="text-align: center;">Hüseyin Emre Akgüç</p>
-							<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-							
-						  </div>
-						  <div class="col">
-							<img class="resim" src="../sidenav/../public/img/Altug.jpg"><br><br>
-							<p style="text-align: center;">Altuğ</p>
-							<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-						  </div>
-						 
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/HüseyinEmre.jpg"><br><br>
+									<p style="text-align: center;">Hüseyin Emre Akgüç</p>
+									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+
+								</div>
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/Altug.jpg"><br><br>
+									<p style="text-align: center;">Altuğ</p>
+									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+								</div>
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/Selma.jpg"><br><br>
+									<p style="text-align: center;">Selma</p>
+									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+
+								</div>
+							</div>
 						</div>
-					  </div>
-					  <div class="container">
-						<div class="row">
-						  <div class="col">
-							<img class="resim" src="../sidenav/../public/img/Selma.jpg"><br><br>
-							<p style="text-align: center;">Selma</p>
-							<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-							
-						  </div>
-						  <div class="col">
-							<img class="resim" src="../sidenav/../public/img/Sezgi.jpg"><br><br>
-							<p style="text-align: center;">Sezgi</p>
-							<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-						  </div>
-						 
+						<div class="container">
+							<div class="row">
+								
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/Sezgi.jpg"><br><br>
+									<p style="text-align: center;">Sezgi</p>
+									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+								</div>
+								<div class="col">
+									<img class="resim" src="../sidenav/../public/img/FıratT.jpg"><br><br>
+									<p style="text-align: center;">Fırat Tiktaş</p>
+									<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
+								</div>
+
+							</div>
 						</div>
-					  </div>
-					  <div class="container">
-						<div class="row">
+						<div class="container">
+							<div class="row">
 							
-							  <div class="col">
-								<img class="resim" src="../sidenav/../public/img/FıratT.jpg"><br><br>
-								<p style="text-align: center;">Fırat Tiktaş</p>
-								<p style="text-align: center;">Proje Elektronik Takım Üyesi</p>
-							  </div>
-						 
+
+							</div>
 						</div>
-					  </div>
-				</div>
-				<!-- <div class="col-2 col-md-2"></div> -->
-			  </div>
+						<div class="container">
+							<div class="row">
+
+								
+							</div>
+						</div>
 			</div>
-			  
+			<!-- <div class="col-2 col-md-2"></div> -->
+		</div>
+	</div>
 
 
 
@@ -246,134 +328,156 @@
 
 
 
-			<!-- Footer -->
-<footer style="background-color: #04505f;
+
+	<!-- Footer -->
+	<footer style="background-color: #04505f;
 " class="page-footer  font-small stylish-color-dark pt-4">
 
-	<!-- Footer Links -->
-	<div class="container text-center text-md-left" style="background-color: #04505f;
+		<!-- Footer Links -->
+		<div class="container text-center text-md-left" style="background-color: #04505f;
 	color:white">
-  
-	  <!-- Grid row -->
-	  <div class="row">
-  
-		<!-- Grid column -->
-		<div class="col-md-6 mx-auto d-flex   flex-row  align-items-center ">
-  
-		  <!-- Content -->
-		 
-		  <div class=" col-xs-12 about-company ">
 
-			<div class=" align-items-center"  >
-<img src="../public/img/ieeiücbeyaz.png"  class=" mw-100 ">
-</div>
-</div>
+			<!-- Grid row -->
+			<div class="row">
+
+				<!-- Grid column -->
+				<div class="col-md-6 mx-auto d-flex   flex-row  align-items-center ">
+
+					<!-- Content -->
+
+					<div class=" col-xs-12 about-company ">
+
+						<div class=" align-items-center">
+							<img src="../public/img/ieeiücbeyaz.png" class=" mw-100 ">
+						</div>
+					</div>
+
+				</div>
+				<!-- Grid column -->
+
+				<hr class="clearfix w-100 d-md-none">
+
+				<!-- Grid column -->
+				<div class="col-lg-3 col-xs-12 location ;">
+
+					<!-- Links -->
+					<h4 class="mt-lg-0 mt-sm-4 pt-2">Bilgilendirme</h4>
+
+					<ul class="list-unstyled pt-2">
+						<li>
+							<a href="https://www.ieeeiuc.com/sb/tr">Anasayfa</a>
+						</li>
+						<li class="pt-1">
+							<a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
+						</li>
+						<li class="pt-1">
+							<a href="#!">Ekip</a>
+						</li>
+						<li class="pt-1">
+							<a href="https://www.ieeeiuc.com/sb/tr/sikca-sorulan-sorular">S.S.S</a>
+						</li>
+						<li class="pt-1">
+							<a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
+						</li>
+					</ul>
+
+				</div>
+				<!-- Grid column -->
+
+				<div class="col-lg-3 col-xs-12 location">
+					<h4 class="mt-lg-0 mt-sm-4 pt-2">İletişim</h4>
+
+					<p class="pt-2">İstanbul Üniversitesi Cerrahpaşa Avcılar Kampüsü Mühendislik Fakültesi</p>
+					<p>34320 Avcılar/ İstanbul TR</p>
+
+					<p class="mb-0"><i class=""></i>
+					</p>
+					<p>
+
+						ieeeiüciot@gmail.com
+
+				</div>
+
+
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row -->
 
 		</div>
-		<!-- Grid column -->
-  
-		<hr class="clearfix w-100 d-md-none">
-  
-		<!-- Grid column -->
-		<div class="col-lg-3 col-xs-12 location ;">
-  
-		  <!-- Links -->
-		  <h4 class="mt-lg-0 mt-sm-4 pt-2">Bilgilendirme</h4>
-  
-		  <ul class="list-unstyled pt-2">
-			<li >
-			  <a href="https://www.ieeeiuc.com/sb/tr">Anasayfa</a>
-			</li>
-			<li class="pt-1">
-			  <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
-			</li>
-			<li class="pt-1">
-			  <a href="#!">Ekip</a>
-			</li >
-			<li class="pt-1">
-			  <a href="https://www.ieeeiuc.com/sb/tr/sikca-sorulan-sorular">S.S.S</a>
-			</li>
-			<li class="pt-1">
-				<a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
-			  </li>
-		  </ul>
-  
-		</div>
-		<!-- Grid column -->
-  
-		<div class="col-lg-3 col-xs-12 location">
-			<h4 class="mt-lg-0 mt-sm-4 pt-2">İletişim</h4>
-
-								<p class="pt-2">İstanbul Üniversitesi Cerrahpaşa Avcılar Kampüsü Mühendislik Fakültesi</p>
-			<p>34320 Avcılar/ İstanbul TR</p>
-
-			<p class="mb-0"><i class=""></i>
-				</p>
-			<p>
-				
-				ieeeiüciot@gmail.com
-			
-		</div>
-  
-	  
-		<!-- Grid column -->
-  
-	  </div>
-	  <!-- Grid row -->
-  
-	</div>
-	<!-- Footer Links -->
-  
-	
-  
-   
-  
-<!-- sosyal medya -->
+		<!-- Footer Links -->
 
 
-<div class="page-content page-container text-center text-left  py-3 " id="page-content"style="background-color:#04505f; ">
-	<div  class="d-flex justify-content-center  ">
-		<div  class="row     ">
-			<div  class="col-6-center grid-margin stretch-card  ">
-				<div class="card align-self-center" >
-					<div class="card-body  " style="background:#04505f; ">
-						<div class="template-demo"> 
-							 <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';" class="btn btn-social-icon btn-outline-facebook">   <i class="fa fa-facebook"></i>    </button>
-							 <button type="button" onclick="window.location.href='https://www.youtube.com/channel/UCeyBtBFEsycQNxCpvC5lzPA';" class="btn btn-social-icon btn-outline-youtube">  <i class="fa fa-youtube"></i>    </button> 
-							 <button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"class="btn btn-social-icon btn-outline-twitter">  <i class="fa fa-twitter"></i>   </button> 
-							 <button type="button" onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"class="btn btn-social-icon btn-outline-linkedin">   <i class="fa fa-linkedin"></i>   </button>
-							 <button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"class="btn btn-social-icon btn-outline-instagram">   <i class="fa fa-instagram"></i>    </button> 
+
+
+
+		<!-- sosyal medya -->
+
+
+		<div class="page-content page-container text-center text-left  py-3 " id="page-content"
+			style="background-color:#04505f; ">
+			<div class="d-flex justify-content-center  ">
+				<div class="row     ">
+					<div class="col-6-center grid-margin stretch-card  ">
+						<div class="card align-self-center">
+							<div class="card-body  " style="background:#04505f; ">
+								<div class="template-demo">
+									<button type="button"
+										onclick="window.location.href='https://www.facebook.com/ieeeiu/';"
+										class="btn btn-social-icon btn-outline-facebook"> <i class="fa fa-facebook"></i>
+									</button>
+									<button type="button"
+										onclick="window.location.href='https://www.youtube.com/channel/UCeyBtBFEsycQNxCpvC5lzPA';"
+										class="btn btn-social-icon btn-outline-youtube"> <i class="fa fa-youtube"></i>
+									</button>
+									<button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"
+										class="btn btn-social-icon btn-outline-twitter"> <i class="fa fa-twitter"></i>
+									</button>
+									<button type="button"
+										onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"
+										class="btn btn-social-icon btn-outline-linkedin"> <i class="fa fa-linkedin"></i>
+									</button>
+									<button type="button"
+										onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"
+										class="btn btn-social-icon btn-outline-instagram"> <i
+											class="fa fa-instagram"></i> </button>
+								</div>
 							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
 
-<!-- sosyal medya -->
+		<!-- sosyal medya -->
 
 
 
 
 
-	
 
-	<!-- Copyright -->
-	<div class="footer-copyright text-center py-3" style="background-color:#062e36; color:white">© 2021 Copyright:
-	  <a href="https://www.ieeeiuc.com/sb/tr"> IEEEIUC.com</a>
-	</div>
-	<!-- Copyright -->
-  
-  </footer>
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3" style="background-color:#062e36; color:white">© 2021 Copyright:
+			<a href="https://www.ieeeiuc.com/sb/tr"> IEEEIUC.com</a>
+		</div>
+		<!-- Copyright -->
+
+	</footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+</script>
 
 <!-- Javascript -->
 <script src="../public/js/jquery-3.3.1.min.js"></script>
 <!-- <script src="../public/js/jquery-migrate-3.0.0.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
 <!-- <script src="../public/js/jquery.backstretch.min.js"></script> -->
 <script src="../public/js/wow.min.js"></script>
 <!-- <script src="../public/js/jquery.waypoints.min.js"></script> -->
@@ -384,11 +488,11 @@
 integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
 crossorigin="anonymous">-->
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
-integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
 </script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
-integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
-crossorigin="anonymous"></script>
-  </html>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+
+</html>

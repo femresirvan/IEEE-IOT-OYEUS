@@ -12,8 +12,12 @@
 
     <title>Hello, world!</title>
     <style>
-        .form-group {
+        .pagination {
             float: right;
+        }
+
+        .table {
+            text-align: center;
         }
     </style>
 </head>
@@ -30,7 +34,7 @@
     <!-- tablo başlangıç -->
     <div class="table-responsive-sm">
         <table class="table">
-            <thead style="background-color: rgb(27, 61, 90);color:white">
+            <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Bölge</th>
@@ -43,259 +47,424 @@
             <tbody id="tablogov">
             </tbody>
         </table>
-        <div class="container">
-            <div class="form-group col-2">
-                <label for="sel1">Sayfa Sayısı</label>
-                <select class="form-control" id="sel1" name="sellist1">
+    </div>
+    <!-- sayfalama -->
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" id="1">1</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="2">2</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="3">3</a></li>
+        </ul>
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+    <script>
+        // router.get('/api/data/limit/:limit/field/:field/page-number/:pagenumber/:danger?',apiController.getDataByField);
+        // router.get('/api/data/limit/:limit/field/:field/id/:id/page-number/:pagenumber/:danger?',apiController.getDatabyId);
+        const getText = (e) => {
+            e.preventDefault();
+            let inputText = document.getElementById('input-text').value;
+            inputText = inputText.split("@");
+            console.log(inputText);
+            if (inputText[2]) {
+                if (inputText[1] == 'yangin' || inputText[1] == 'pil' || inputText[1] == 'yangin+pil' || inputText[
+                        1] ==
+                    'pil+yangin') {
+                    // let danger = inputText[1].split("+");
+                    if (inputText[0][1]) {
+                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] + '/id/' +
+                                inputText[0][1] +
+                                '/page-number/'+inputText[2]+'/' + inputText[1])
+                            .then(response => response.json())
+                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
+                                console.log(sonuc);
+                                table = document.querySelector(".table");
 
-                </select>
-                </form>
-            </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-        </script>
-        <script>
-            const verileriBastir = (sonuc) => {
-                console.log(sonuc);
-                table = document.querySelector(".table");
+                                let satirlarisilme = document.querySelectorAll(
+                                    ".satir"); //satirların hepsini alma
+                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
+                                    .remove(); // satirlari silme
+                                for (let i = 0; i < sonuc.length - 1; i++) {
+                                    let tr = document.createElement('tr'); // satır ekleme
+                                    let th = document.createElement('th'); // numaralandırma ekleme
+                                    tbody = document.getElementById('tablogov');
+                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
+                                    tr.appendChild(th);
+                                    th.innerHTML = i + 1;
+                                    let td = document.createElement('td'); // satıra eleman ekleme
+                                    tr.appendChild(td);
+                                    let td1 = document.createElement('td');
+                                    tr.appendChild(td1);
+                                    let td2 = document.createElement('td');
+                                    tr.appendChild(td2);
+                                    let td3 = document.createElement('td');
+                                    tr.appendChild(td3);
+                                    let td4 = document.createElement('td');
+                                    tr.appendChild(td4);
+                                    // classlarını bir dahakinde silmek için belirliyoruz
+                                    th.className = "satir";
+                                    td.className = "satir";
+                                    td1.className = "satir";
+                                    td2.className = "satir";
+                                    td3.className = "satir";
+                                    td4.className = "satir";
+                                    // verileri bastırma
+                                    td.innerHTML = sonuc[i].sensor_id[0];
+                                    td1.innerHTML = sonuc[i].sensor_id[1];
+                                    td2.innerHTML = sonuc[i].flame;
+                                    td3.innerHTML = sonuc[i].voltage;
+                                    td4.innerHTML = sonuc[i].date;
+                                }
 
-                let satirlarisilme = document.querySelectorAll(
-                    ".satir"); //satirların hepsini alma
-                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
-                    .remove(); // satirlari silme
-                for (let i = 0; i < sonuc.length - 1; i++) {
-                    let tr = document.createElement('tr'); // satır ekleme
-if(sonuc[i].flame>40){tr.className="bg-danger";tr.style.color="white"}
-if(sonuc[i].voltage<=10){tr.className="bg-dark";tr.style.color="white"}
-                    let th = document.createElement('th'); // numaralandırma ekleme
-                    tbody = document.getElementById('tablogov');
-                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
-                    tr.appendChild(th);
-                    th.innerHTML = i + 1;
-                    let td = document.createElement('td'); // satıra eleman ekleme
-                    tr.appendChild(td);
-                    let td1 = document.createElement('td');
-                    tr.appendChild(td1);
-                    let td2 = document.createElement('td');
-                    tr.appendChild(td2);
-                    let td3 = document.createElement('td');
-                    tr.appendChild(td3);
-                    let td4 = document.createElement('td');
-                    tr.appendChild(td4);
-                    // classlarını bir dahakinde silmek için belirliyoruz
-                    th.className = "satir";
-                    td.className = "satir";
-                    td1.className = "satir";
-                    td2.className = "satir";
-                    td3.className = "satir";
-                    td4.className = "satir";
-                    // verileri bastırma
-                    td.innerHTML = sonuc[i].sensor_id[0].toUpperCase() + ' Bölgesi';
-                    td1.innerHTML = sonuc[i].sensor_id[1]+ '. Sensör';
-                    td2.innerHTML = '%'+sonuc[i].flame;
-                    td3.innerHTML = '%'+sonuc[i].voltage;
-                    sonuc[i].date = new Date(sonuc[i].date)
-                    // sonuc[i].date.setHours(sonuc[i].date.getHours()+1); duruma göre 1 saat ileri alma veya daha farklı miktarda saat değiştirme
-                    td4.innerHTML = sonuc[i].date.getFullYear()+'/'+sonuc[i].date.getMonth()+'/'+sonuc[i].date.getDate()+' '+sonuc[i].date.getHours()+':'+sonuc[i].date.getMinutes()+':'+sonuc[i].date.getSeconds();
-                }
-            }
-            const listeyiGetirme = (sonuc) => {
-                //önceki listeyi silme
-                const eskiListe = document.querySelectorAll('.liste');
-                for (let i = 0; i < eskiListe.length; i++) {
-                    eskiListe[i].remove();
-                }
-                //yeni listeyi bastirma
-                const temp = sonuc[sonuc.length - 1];
-                for (let i = 0; i < temp / 10; i++) {
-                    const yeniAttribute = document.createElement('option');
-                    const selPN = document.getElementById('sel1');
-                    selPN.appendChild(yeniAttribute);
-                    yeniAttribute.innerHTML = i;
-                    yeniAttribute.id = '1';
-                    yeniAttribute.className = 'liste';
-                }
-            }
-            // router.get('/api/data/limit/:limit?/page-number/:pagenumber?/:danger?',apiController.getData);
-            // router.get('/api/data/limit/:limit/field/:field/page-number/:pagenumber/:danger?',apiController.getDataByField);
-            // router.get('/api/data/limit/:limit/field/:field/id/:id/page-number/:pagenumber/:danger?',apiController.getDatabyId);
+                            })
+                    } else {
+                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] +
+                                '/page-number/'+inputText[2]+'/'+
+                                inputText[1])
+                            .then(response => response.json())
+                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
+                                console.log(sonuc);
+                                table = document.querySelector(".table");
 
-            const getText = (e) => {
-                let secilenListe;
-                e.preventDefault();
-                let x = document.getElementById("sel1");
-                for (let i = 0; i < x.options.length; i++) {
-                    if (x.options[i].selected == true) {
-                        secilenListe = x.options[i].value;
+                                let satirlarisilme = document.querySelectorAll(
+                                    ".satir"); //satirların hepsini alma
+                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
+                                    .remove(); // satirlari silme
+                                for (let i = 0; i < sonuc.length - 1; i++) {
+                                    let tr = document.createElement('tr'); // satır ekleme
+                                    let th = document.createElement('th'); // numaralandırma ekleme
+                                    tbody = document.getElementById('tablogov');
+                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
+                                    tr.appendChild(th);
+                                    th.innerHTML = i + 1;
+                                    let td = document.createElement('td'); // satıra eleman ekleme
+                                    tr.appendChild(td);
+                                    let td1 = document.createElement('td');
+                                    tr.appendChild(td1);
+                                    let td2 = document.createElement('td');
+                                    tr.appendChild(td2);
+                                    let td3 = document.createElement('td');
+                                    tr.appendChild(td3);
+                                    let td4 = document.createElement('td');
+                                    tr.appendChild(td4);
+                                    // classlarını bir dahakinde silmek için belirliyoruz
+                                    th.className = "satir";
+                                    td.className = "satir";
+                                    td1.className = "satir";
+                                    td2.className = "satir";
+                                    td3.className = "satir";
+                                    td4.className = "satir";
+                                    // verileri bastırma
+                                    td.innerHTML = sonuc[i].sensor_id[0];
+                                    td1.innerHTML = sonuc[i].sensor_id[1];
+                                    td2.innerHTML = sonuc[i].flame;
+                                    td3.innerHTML = sonuc[i].voltage;
+                                    td4.innerHTML = sonuc[i].date;
+                                }
+
+                            })
                     }
                 }
-                let inputText = document.getElementById('input-text').value;
-                inputText = inputText.split("@");
-                console.log(inputText);
-                if (inputText[0]) {
-                    if (inputText[0].length == 1) {
-                        if(inputText[1]){
-                            fetch('http://localhost:3000/api/data/limit/10/field/'+inputText[0]+'/page-number/' + secilenListe+'/'+inputText[1])
+            } else {
+                if (inputText[1] == 'yangin' || inputText[1] == 'pil' || inputText[1] == 'yangin+pil' || inputText[
+                        1] ==
+                    'pil+yangin') {
+                    // let danger = inputText[1].split("+");
+                    if (inputText[0][1]) {
+                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] + '/id/' +
+                                inputText[0][1] +
+                                '/page-number/0/' + inputText[1])
                             .then(response => response.json())
-                            .then(sonuc => {
-                                listeyiGetirme(sonuc);
-                                verileriBastir(sonuc)
+                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
+                                console.log(sonuc);
+                                table = document.querySelector(".table");
+
+                                let satirlarisilme = document.querySelectorAll(
+                                    ".satir"); //satirların hepsini alma
+                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
+                                    .remove(); // satirlari silme
+                                for (let i = 0; i < sonuc.length - 1; i++) {
+                                    let tr = document.createElement('tr'); // satır ekleme
+                                    let th = document.createElement('th'); // numaralandırma ekleme
+                                    tbody = document.getElementById('tablogov');
+                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
+                                    tr.appendChild(th);
+                                    th.innerHTML = i + 1;
+                                    let td = document.createElement('td'); // satıra eleman ekleme
+                                    tr.appendChild(td);
+                                    let td1 = document.createElement('td');
+                                    tr.appendChild(td1);
+                                    let td2 = document.createElement('td');
+                                    tr.appendChild(td2);
+                                    let td3 = document.createElement('td');
+                                    tr.appendChild(td3);
+                                    let td4 = document.createElement('td');
+                                    tr.appendChild(td4);
+                                    // classlarını bir dahakinde silmek için belirliyoruz
+                                    th.className = "satir";
+                                    td.className = "satir";
+                                    td1.className = "satir";
+                                    td2.className = "satir";
+                                    td3.className = "satir";
+                                    td4.className = "satir";
+                                    // verileri bastırma
+                                    td.innerHTML = sonuc[i].sensor_id[0];
+                                    td1.innerHTML = sonuc[i].sensor_id[1];
+                                    td2.innerHTML = sonuc[i].flame;
+                                    td3.innerHTML = sonuc[i].voltage;
+                                    td4.innerHTML = sonuc[i].date;
+                                }
+
                             })
-                        }
-                        else{
-                            fetch('http://localhost:3000/api/data/limit/10/field/'+inputText[0]+'/page-number/' + secilenListe)
+                    } else {
+                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] +
+                                '/page-number/0' +
+                                inputText[1])
                             .then(response => response.json())
-                            .then(sonuc => {
-                                listeyiGetirme(sonuc);
-                                verileriBastir(sonuc)
+                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
+                                console.log(sonuc);
+                                table = document.querySelector(".table");
+
+                                let satirlarisilme = document.querySelectorAll(
+                                    ".satir"); //satirların hepsini alma
+                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
+                                    .remove(); // satirlari silme
+                                for (let i = 0; i < sonuc.length - 1; i++) {
+                                    let tr = document.createElement('tr'); // satır ekleme
+                                    let th = document.createElement('th'); // numaralandırma ekleme
+                                    tbody = document.getElementById('tablogov');
+                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
+                                    tr.appendChild(th);
+                                    th.innerHTML = i + 1;
+                                    let td = document.createElement('td'); // satıra eleman ekleme
+                                    tr.appendChild(td);
+                                    let td1 = document.createElement('td');
+                                    tr.appendChild(td1);
+                                    let td2 = document.createElement('td');
+                                    tr.appendChild(td2);
+                                    let td3 = document.createElement('td');
+                                    tr.appendChild(td3);
+                                    let td4 = document.createElement('td');
+                                    tr.appendChild(td4);
+                                    // classlarını bir dahakinde silmek için belirliyoruz
+                                    th.className = "satir";
+                                    td.className = "satir";
+                                    td1.className = "satir";
+                                    td2.className = "satir";
+                                    td3.className = "satir";
+                                    td4.className = "satir";
+                                    // verileri bastırma
+                                    td.innerHTML = sonuc[i].sensor_id[0];
+                                    td1.innerHTML = sonuc[i].sensor_id[1];
+                                    td2.innerHTML = sonuc[i].flame;
+                                    td3.innerHTML = sonuc[i].voltage;
+                                    td4.innerHTML = sonuc[i].date;
+                                }
+
                             })
-                        }
-                    } else if (inputText[0].length == 2) {
-                        if(inputText[1]){
-                            fetch('http://localhost:3000/api/data/limit/10/field/'+inputText[0][0] +'/id/'+inputText[0][1]+'/page-number/' + secilenListe+'/'+inputText[1])
+                    }
+                } else if (inputText[1]) {
+                    if (inputText[0][1]) {
+                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] + '/id/' +
+                                inputText[0][1] +
+                                '/page-number/' + inputText)
                             .then(response => response.json())
-                            .then(sonuc => {
-                                listeyiGetirme(sonuc);
-                                verileriBastir(sonuc)
+                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
+                                console.log(sonuc);
+                                table = document.querySelector(".table");
+
+                                let satirlarisilme = document.querySelectorAll(
+                                    ".satir"); //satirların hepsini alma
+                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
+                                    .remove(); // satirlari silme
+                                for (let i = 0; i < sonuc.length - 1; i++) {
+                                    let tr = document.createElement('tr'); // satır ekleme
+                                    let th = document.createElement('th'); // numaralandırma ekleme
+                                    tbody = document.getElementById('tablogov');
+                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
+                                    tr.appendChild(th);
+                                    th.innerHTML = i + 1;
+                                    let td = document.createElement('td'); // satıra eleman ekleme
+                                    tr.appendChild(td);
+                                    let td1 = document.createElement('td');
+                                    tr.appendChild(td1);
+                                    let td2 = document.createElement('td');
+                                    tr.appendChild(td2);
+                                    let td3 = document.createElement('td');
+                                    tr.appendChild(td3);
+                                    let td4 = document.createElement('td');
+                                    tr.appendChild(td4);
+                                    // classlarını bir dahakinde silmek için belirliyoruz
+                                    th.className = "satir";
+                                    td.className = "satir";
+                                    td1.className = "satir";
+                                    td2.className = "satir";
+                                    td3.className = "satir";
+                                    td4.className = "satir";
+                                    // verileri bastırma
+                                    td.innerHTML = sonuc[i].sensor_id[0];
+                                    td1.innerHTML = sonuc[i].sensor_id[1];
+                                    td2.innerHTML = sonuc[i].flame;
+                                    td3.innerHTML = sonuc[i].voltage;
+                                    td4.innerHTML = sonuc[i].date;
+                                }
+
                             })
-                        }
-                        else{
-                            fetch('http://localhost:3000/api/data/limit/10/field/'+inputText[0][0] +'/id/'+inputText[0][1]+'/page-number/' + secilenListe)
+                    } else {
+                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] +
+                                '/page-number/' + inputText)
                             .then(response => response.json())
-                            .then(sonuc => {
-                                listeyiGetirme(sonuc);
-                                verileriBastir(sonuc)
-                            })
-                        }
-                    } else if (inputText[0] == 'yangin' || inputText[0] == 'pil' || inputText[0] == 'yangin+pil' ||inputText[0] =='pil+yangin') {
-                        fetch('http://localhost:3000/api/data/limit/10/page-number/' + secilenListe + '/' +
-                                inputText[0])
-                            .then(response => response.json())
-                            .then(sonuc => {
-                                listeyiGetirme(sonuc);
-                                verileriBastir(sonuc)
+                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
+                                console.log(sonuc);
+                                table = document.querySelector(".table");
+
+                                let satirlarisilme = document.querySelectorAll(
+                                    ".satir"); //satirların hepsini alma
+                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
+                                    .remove(); // satirlari silme
+                                for (let i = 0; i < sonuc.length - 1; i++) {
+                                    let tr = document.createElement('tr'); // satır ekleme
+                                    let th = document.createElement('th'); // numaralandırma ekleme
+                                    tbody = document.getElementById('tablogov');
+                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
+                                    tr.appendChild(th);
+                                    th.innerHTML = i + 1;
+                                    let td = document.createElement('td'); // satıra eleman ekleme
+                                    tr.appendChild(td);
+                                    let td1 = document.createElement('td');
+                                    tr.appendChild(td1);
+                                    let td2 = document.createElement('td');
+                                    tr.appendChild(td2);
+                                    let td3 = document.createElement('td');
+                                    tr.appendChild(td3);
+                                    let td4 = document.createElement('td');
+                                    tr.appendChild(td4);
+                                    // classlarını bir dahakinde silmek için belirliyoruz
+                                    th.className = "satir";
+                                    td.className = "satir";
+                                    td1.className = "satir";
+                                    td2.className = "satir";
+                                    td3.className = "satir";
+                                    td4.className = "satir";
+                                    // verileri bastırma
+                                    td.innerHTML = sonuc[i].sensor_id[0];
+                                    td1.innerHTML = sonuc[i].sensor_id[1];
+                                    td2.innerHTML = sonuc[i].flame;
+                                    td3.innerHTML = sonuc[i].voltage;
+                                    td4.innerHTML = sonuc[i].date;
+                                }
+
                             })
                     }
                 } else {
-                    fetch('http://localhost:3000/api/data/limit/10/page-number/' + secilenListe)
-                        .then(response => response.json())
-                        .then(sonuc => {
-                            listeyiGetirme(sonuc);
-                            verileriBastir(sonuc)
-                        })
+                    if (inputText[0][1]) {
+                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] + '/id/' +
+                                inputText[0][1] +
+                                '/page-number/0/')
+                            .then(response => response.json())
+                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
+                                console.log(sonuc);
+                                table = document.querySelector(".table");
+
+                                let satirlarisilme = document.querySelectorAll(
+                                    ".satir"); //satirların hepsini alma
+                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
+                                    .remove(); // satirlari silme
+                                for (let i = 0; i < sonuc.length - 1; i++) {
+                                    let tr = document.createElement('tr'); // satır ekleme
+                                    let th = document.createElement('th'); // numaralandırma ekleme
+                                    tbody = document.getElementById('tablogov');
+                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
+                                    tr.appendChild(th);
+                                    th.innerHTML = i + 1;
+                                    let td = document.createElement('td'); // satıra eleman ekleme
+                                    tr.appendChild(td);
+                                    let td1 = document.createElement('td');
+                                    tr.appendChild(td1);
+                                    let td2 = document.createElement('td');
+                                    tr.appendChild(td2);
+                                    let td3 = document.createElement('td');
+                                    tr.appendChild(td3);
+                                    let td4 = document.createElement('td');
+                                    tr.appendChild(td4);
+                                    // classlarını bir dahakinde silmek için belirliyoruz
+                                    th.className = "satir";
+                                    td.className = "satir";
+                                    td1.className = "satir";
+                                    td2.className = "satir";
+                                    td3.className = "satir";
+                                    td4.className = "satir";
+                                    // verileri bastırma
+                                    td.innerHTML = sonuc[i].sensor_id[0];
+                                    td1.innerHTML = sonuc[i].sensor_id[1];
+                                    td2.innerHTML = sonuc[i].flame;
+                                    td3.innerHTML = sonuc[i].voltage;
+                                    td4.innerHTML = sonuc[i].date;
+                                }
+
+                            })
+                    } else {
+                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] +
+                                '/page-number/0')
+                            .then(response => response.json())
+                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
+                                console.log(sonuc);
+                                table = document.querySelector(".table");
+
+                                let satirlarisilme = document.querySelectorAll(
+                                    ".satir"); //satirların hepsini alma
+                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
+                                    .remove(); // satirlari silme
+                                for (let i = 0; i < sonuc.length - 1; i++) {
+                                    let tr = document.createElement('tr'); // satır ekleme
+                                    let th = document.createElement('th'); // numaralandırma ekleme
+                                    tbody = document.getElementById('tablogov');
+                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
+                                    tr.appendChild(th);
+                                    th.innerHTML = i + 1;
+                                    let td = document.createElement('td'); // satıra eleman ekleme
+                                    tr.appendChild(td);
+                                    let td1 = document.createElement('td');
+                                    tr.appendChild(td1);
+                                    let td2 = document.createElement('td');
+                                    tr.appendChild(td2);
+                                    let td3 = document.createElement('td');
+                                    tr.appendChild(td3);
+                                    let td4 = document.createElement('td');
+                                    tr.appendChild(td4);
+                                    // classlarını bir dahakinde silmek için belirliyoruz
+                                    th.className = "satir";
+                                    td.className = "satir";
+                                    td1.className = "satir";
+                                    td2.className = "satir";
+                                    td3.className = "satir";
+                                    td4.className = "satir";
+                                    // verileri bastırma
+                                    td.innerHTML = sonuc[i].sensor_id[0];
+                                    td1.innerHTML = sonuc[i].sensor_id[1];
+                                    td2.innerHTML = sonuc[i].flame;
+                                    td3.innerHTML = sonuc[i].voltage;
+                                    td4.innerHTML = sonuc[i].date;
+                                }
+
+                            })
+                    }
                 }
             }
 
-            const ilkAcilis = () => {
-                fetch('http://localhost:3000/api/data/limit/10/page-number/0')
-                    .then(response => response.json())
-                    .then((sonuc) => {
-                        listeyiGetirme(sonuc);
-                        verileriBastir(sonuc)
-                    })
-            }
+        }
+        $('ul.pagination li a').on('click', getText);
 
-
-            ilkAcilis();
-
-            const btnTextGetir = document.getElementById('filter-button');
-            btnTextGetir.addEventListener('click', getText);
-        </script>
+        const btnTextGetir = document.getElementById('filter-button');
+        btnTextGetir.addEventListener('click', getText);
+    </script>
 </body>
 
 </html>
-
-
-<!-- if (inputText[2]) {
-    if (inputText[1] == 'yangin' || inputText[1] == 'pil' || inputText[1] == 'yangin+pil' ||
-        inputText[
-            1] ==
-        'pil+yangin') {
-        // let danger = inputText[1].split("+");
-        if (inputText[0][1]) {
-            fetch('http://localhost:3000/api/data/limit/10/field/' + inputText[0][0] +
-                    '/id/' +
-                    inputText[0][1] +
-                    '/page-number/' + inputText[2] + '/' + inputText[1])
-                .then(response => response.json())
-                .then(sonuc => {
-                    listeyiGetirme(sonuc);
-                    verileriBastir(sonuc)
-                })
-        }
-    }
-} else {
-    if (inputText[1] == 'yangin' || inputText[1] == 'pil' || inputText[1] == 'yangin+pil' ||
-        inputText[
-            1] ==
-        'pil+yangin') {
-        // let danger = inputText[1].split("+");
-        if (inputText[0][1]) {
-            fetch('http://localhost:3000/api/data/limit/10/field/' + inputText[0][0] +
-                    '/id/' +
-                    inputText[0][1] +
-                    '/page-number/0/' + secilenListe)
-                .then(response => response.json())
-                .then(sonuc => {
-                    listeyiGetirme(sonuc);
-                    verileriBastir(sonuc)
-                })
-        } else {
-            fetch('http://localhost:3000/api/data/limit/10/field/' + inputText[0][0] +
-                    '/page-number/0' +
-                    inputText[1])
-                .then(response => response.json())
-                .then(sonuc => {
-                    listeyiGetirme(sonuc);
-                    verileriBastir(sonuc)
-                })
-        }
-    } else if (inputText[1]) {
-        if (inputText[0][1]) {
-            fetch('http://localhost:3000/api/data/limit/10/field/' + inputText[0][0] +
-                    '/id/' +
-                    inputText[0][1] +
-                    '/page-number/' + inputText)
-                .then(response => response.json())
-                .then(sonuc => {
-                    listeyiGetirme(sonuc);
-                    verileriBastir(sonuc)
-                })
-        } else {
-            fetch('http://localhost:3000/api/data/limit/10/field/' + inputText[0][0] +
-                    '/page-number/' + inputText)
-                .then(response => response.json())
-                .then(sonuc => {
-                    listeyiGetirme(sonuc);
-                    verileriBastir(sonuc)
-                })
-        }
-    } else {
-        if (inputText[0][1]) {
-            fetch('http://localhost:3000/api/data/limit/10/field/' + inputText[0][0] +
-                    '/id/' +
-                    inputText[0][1] +
-                    '/page-number/0/')
-                .then(response => response.json())
-                .then(sonuc => {
-                    listeyiGetirme(sonuc);
-                    verileriBastir(sonuc)
-                })
-        } else {
-            fetch('http://localhost:3000/api/data/limit/10/field/' + inputText[0][0] +
-                    '/page-number/0')
-                .then(response => response.json())
-                .then(sonuc => {
-                    listeyiGetirme(sonuc);
-                    verileriBastir(sonuc)
-                })
-        }
-    }
-} -->
