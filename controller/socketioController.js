@@ -1,7 +1,11 @@
 const socketio = require('socket.io');
 
 module.exports.listen = function(app){
-    io = socketio(app);
+    io = socketio(app,{
+        cors: {
+          origin: "http://www.ieeeiot.live",
+          methods: ["GET", "POST"]
+        }});
     io.on('connection', (socket) => {
         console.log('yeni baglanti');
         socket.on('send message', (data) => {

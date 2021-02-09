@@ -74,6 +74,12 @@ height: 350px;
 	background-color: rgb(180, 12, 12);
 	color:white;
 }
+#modalcontentpil{
+	height: 350px;
+		
+		background-color: rgb(26, 25, 25);
+		color:rgb(255, 255, 255);
+	}
 .percent.number h2{
 	color: #fff;
 	font-weight: 700;
