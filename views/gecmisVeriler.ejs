@@ -44,6 +44,7 @@
         .input-group {
             float: right;
         }
+       
     </style>
 
 
@@ -58,7 +59,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">IEEE IUC IOT</a>
+        <a class="navbar-brand" href="#">IEEE IUC IOT</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -283,11 +284,6 @@
                 })
         }
 
-        // router.get('/api/data/limit/:limit?/page-number/:pagenumber?/:danger?',apiController.getData);
-        // router.get('/api/data/limit/:limit/field/:field/page-number/:pagenumber/:danger?',apiController.getDataByField);
-        // router.get('/api/data/limit/:limit/field/:field/id/:id/page-number/:pagenumber/:danger?',apiController.getDatabyId);
-        let secilenListe;
-        const getText = (e) => {
 
         ilkAcilis();
 
@@ -444,41 +440,8 @@
         </footer>
         <!-- Footer -->
 
-                    <div class=" col-xs-12 about-company ">
 
-                        <div class=" align-items-center">
-                            <img src="../public/img/ieeiücbeyaz.png" class=" mw-100 ">
-                        </div>
-                    </div>
 
-                </div>
-                <!-- Grid column -->
-
-                <hr class="clearfix w-100 d-md-none">
-
-                <!-- Grid column -->
-                <div class="col-lg-3 col-xs-12 location ;">
-
-                    <!-- Links -->
-                    <h4 class="mt-lg-0 mt-sm-4 pt-2">Bilgilendirme</h4>
-
-                    <ul class="list-unstyled pt-2">
-                        <li>
-                            <a href="https://www.ieeeiuc.com/sb/tr">Anasayfa</a>
-                        </li>
-                        <li class="pt-1">
-                            <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
-                        </li>
-                        <li class="pt-1">
-                            <a href="#!">Ekip</a>
-                        </li>
-                        <li class="pt-1">
-                            <a href="https://www.ieeeiuc.com/sb/tr/sikca-sorulan-sorular">S.S.S</a>
-                        </li>
-                        <li class="pt-1">
-                            <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
-                        </li>
-                    </ul>
 
 
     
@@ -513,6 +476,14 @@ crossorigin="anonymous">-->
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            //Apply the datatables plugin to your table
+            $('#myTable').DataTable();
+
+        });
     </script>
 
 

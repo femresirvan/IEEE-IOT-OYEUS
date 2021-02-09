@@ -13,7 +13,7 @@ const denemeController = require('../controller/denemeController')
 router.get('/',aktifVeriler.aktifVeriler);
 router.get('/gecmis-veriler', historyController.renderHistory);
 router.get('/hakkimizda',iletisimController.renderIletisim);
-router.get('/deneme',denemeController.renderDeneme);
+router.get('/harita',denemeController.renderDeneme);
 router.get('/api/data',apiController.filtresizData);
 router.get('/api/data/limit/:limit?/page-number/:pagenumber?/:danger?',apiController.getData);
 router.get('/api/data/limit/:limit/field/:field/page-number/:pagenumber/:danger?',apiController.getDataByField);
