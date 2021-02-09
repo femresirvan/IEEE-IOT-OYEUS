@@ -40,14 +40,15 @@
 
 
     <style>
-        .yanipsonme {
-            background-color: white;
-            color: black;
-        }
-        
+   
         .yanginyp {
             background-color: white;
             color: red;
+        }
+    
+        .dusukpill {
+            background-color: rgb(255, 255, 255);
+            color: rgb(26, 25, 25);
         }
     </style>
 
@@ -167,10 +168,10 @@
                 <div class="percent">
                     <svg>
 				<circle cx="70" cy="70" r="70"></circle>
-				<circle id="circle4" cx="70" cy="70" r="70"></circle>
+				<circle id="circle3" cx="70" cy="70" r="70"></circle>
 			</svg>
                     <div class="number">
-                        <h2 id="h2id4">0<span>%</span></h2>
+                        <h2 id="h2id3">0<span>%</span></h2>
                     </div>
                 </div>
                 <h2 class="text" id="a4">Voltage</h2>
@@ -181,10 +182,10 @@
                 <div class="percent">
                     <svg>
 				<circle cx="70" cy="70" r="70"></circle>
-				<circle id="circle5" cx="70" cy="70" r="70"></circle>
+				<circle id="circle4" cx="70" cy="70" r="70"></circle>
 			</svg>
                     <div class="number">
-                        <h2 id="h2id5">0<span>%</span></h2>
+                        <h2 id="h2id4">0<span>%</span></h2>
                     </div>
                 </div>
                 <h2 class="text" id="a5">Flame</h2>
@@ -207,10 +208,10 @@
                 <div class="percent">
                     <svg>
 			<circle cx="70" cy="70" r="70"></circle>
-			<circle id="circle7" cx="70" cy="70" r="70"></circle>
+			<circle id="circle5" cx="70" cy="70" r="70"></circle>
 		</svg>
                     <div class="number">
-                        <h2 id="h2id7">0<span>%</span></h2>
+                        <h2 id="h2id5">0<span>%</span></h2>
                     </div>
                 </div>
                 <h2 class="text" id="a7">Voltage</h2>
@@ -221,10 +222,10 @@
                 <div class="percent">
                     <svg>
 			<circle cx="70" cy="70" r="70"></circle>
-			<circle id="circle8" cx="70" cy="70" r="70"></circle>
+			<circle id="circle6" cx="70" cy="70" r="70"></circle>
 		</svg>
                     <div class="number">
-                        <h2 id="h2id8">0<span>%</span></h2>
+                        <h2 id="h2id6">0<span>%</span></h2>
                     </div>
                 </div>
                 <h2 class="text" id="a8">Flame</h2>
@@ -435,6 +436,21 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="modal fade" id="modalpil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div id="modalcontentpil" class="modal-content justify-content-center">
+
+                <div id="pill" style="font-size: 50px;" class="modal-body text-center ">
+                    DÜŞÜK PİL
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="buton" class="btn btn-warning" data-dismiss="modal">TAMAM</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
         <script>
             setInterval(function() {
                 // toggle the class every five second
@@ -442,6 +458,16 @@
                 setTimeout(function() {
                     // toggle back after 1 second
                     $('#yangin').toggleClass('yanginyp');
+                }, 500)
+
+            }, 1000);
+
+            setInterval(function() {
+                // toggle the class every five second
+                $('#pill').toggleClass('dusukpill');
+                setTimeout(function() {
+                    // toggle back after 1 second
+                    $('#pill').toggleClass('dusukpill');
                 }, 500)
 
             }, 1000);
@@ -500,7 +526,7 @@ crossorigin="anonymous">-->
             for (let i = 0; i < bolgeler.length; i++) {
                 if (msg.sensor_id == bolgeler[i]) {
                     if (msg.flame >= 40) {
-                        $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Yangın')
+                        $('#yangin').text(bolgeler[i].toLocaleUpperCase() + ' Bölgesinde Yangın')
                         $('#exampleModalCenter').modal('show');
                         audio.play();
                         $('#exampleModalCenter').on('hidden.bs.modal', () => {
@@ -508,10 +534,10 @@ crossorigin="anonymous">-->
                         })
                     }
                     if (msg.voltage <= 10) {
-                        $('#modal-content').text(bolgeler[i].toLocaleUpperCase + ' Bölgesinde Düşük Pil')
-                        $('#exampleModalCenter').modal('show');
+                        $('#pill').text(bolgeler[i].toLocaleUpperCase() + ' Bölgesinde Düşük Pil')
+                        $('#modalpil').modal('show');
                         audio.play();
-                        $('#exampleModalCenter').on('hidden.bs.modal', () => {
+                        $('#modalpil').on('hidden.bs.modal', () => {
                             audio.pause();
                         })
                     }
@@ -523,6 +549,7 @@ crossorigin="anonymous">-->
                     document.getElementById(contents[i].c2).style.strokeDashoffset = (440 - (440 * msg.flame) / 100);
                 }
             }
+           
         </script>
 
 
