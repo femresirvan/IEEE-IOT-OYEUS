@@ -59,7 +59,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">IEEE IUC IOT</a>
+        <a class="navbar-brand" href="/">IEEE IUC IOT</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -67,19 +67,31 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="/aktif-veriler">Ana Sayfa <span
+                    <a class="nav-link" href="/">Ana Sayfa <span
                             class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/harita">Harita</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/gecmis-veriler">Geçmiş Veriler</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Hakkımızda</a>
+                    <a class="nav-link" href="/hakkimizda">Hakkımızda</a>
                 </li>
             </ul>
             <span class="navbar-text">
-                Bize ulaşın
-            </span>
+				Bize ulaşın <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';"
+					class="btn btn-social-icon btn-outline-facebook"> <i class="fa fa-facebook"></i> </button>
+				<button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"
+					class="btn btn-social-icon btn-outline-twitter"> <i class="fa fa-twitter"></i> </button>
+				<button type="button"
+					onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"
+					class="btn btn-social-icon btn-outline-linkedin"> <i class="fa fa-linkedin"></i> </button>
+				<button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"
+					class="btn btn-social-icon btn-outline-instagram"> <i class="fa fa-instagram"></i> </button>
+
+			</span>
         </div>
     </nav>
 
@@ -89,7 +101,7 @@
 
     <!-- Filtreleme button + input -->
     <div class=" d-flex justify-content-center input-group mb-3 ">
-        <input type="text" class="form-control col-2  " id="input-text" placeholder="örn:a1@yangin"
+        <input type="text" class="form-control col-2  " id="input-text" placeholder="örn:a@yangin"
             aria-label="Recipient's username" aria-describedby="basic-addon2" value="">
         <div class="input-group-append ">
             <button class="btn btn-outline-secondary " id="filter-button" type="button">Arama</button>
