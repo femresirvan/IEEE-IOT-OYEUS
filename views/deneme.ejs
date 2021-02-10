@@ -1,470 +1,399 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset='utf-8' />
+  <title></title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="../public/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../public/css/animate.css">
+  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="../public/css/media-queries.css">
 
-    <title>Hello, world!</title>
-    <style>
-        .pagination {
-            float: right;
-        }
+  <!-- Favicon and touch icons -->
+  <link rel="shortcut icon" href="../public/ico/iotbb.PNG">
 
-        .table {
-            text-align: center;
-        }
-    </style>
+
+
+  <!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.js"></script>
+  <script src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+  <script src="https://mottie.github.io/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../public/css/aktif.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+
+
+      height: 90%;
+      width: 100%;
+    }
+
+    .marker {
+      /* background-image: url('../public/img/c_min.png'); */
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+
+    .mapboxgl-popup {
+      max-width: 200px;
+    }
+
+    .mapboxgl-popup-content {
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- filtreleme button + input -->
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" id="input-text" placeholder="Filtrele" aria-label="Recipient's username"
-            aria-describedby="basic-addon2" value="">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" id="filter-button" type="button">Button</button>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">IEEE IUC IOT</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Ana Sayfa <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/harita">Harita</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/gecmis-veriler">Geçmiş Veriler</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/hakkimizda">Hakkımızda</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Bize ulaşın <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';"
+          class="btn btn-social-icon btn-outline-facebook"> <i class="fa fa-facebook"></i> </button>
+        <button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"
+          class="btn btn-social-icon btn-outline-twitter"> <i class="fa fa-twitter"></i> </button>
+        <button type="button"
+          onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"
+          class="btn btn-social-icon btn-outline-linkedin"> <i class="fa fa-linkedin"></i> </button>
+        <button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"
+          class="btn btn-social-icon btn-outline-instagram"> <i class="fa fa-instagram"></i> </button>
+
+      </span>
     </div>
-    <!-- tablo başlangıç -->
-    <div class="table-responsive-sm">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Bölge</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">Duman Yüzdesi</th>
-                    <th scope="col">Pil Durumu</th>
-                    <th scope="col">Tarih</th>
-                </tr>
-            </thead>
-            <tbody id="tablogov">
-            </tbody>
-        </table>
-    </div>
-    <!-- sayfalama -->
-    <nav aria-label="...">
-        <ul class="pagination pagination-sm">
-            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" id="1">1</a></li>
-            <li class="page-item"><a class="page-link" href="#" id="2">2</a></li>
-            <li class="page-item"><a class="page-link" href="#" id="3">3</a></li>
-        </ul>
-    </nav>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-    </script>
-    <script>
-        // router.get('/api/data/limit/:limit/field/:field/page-number/:pagenumber/:danger?',apiController.getDataByField);
-        // router.get('/api/data/limit/:limit/field/:field/id/:id/page-number/:pagenumber/:danger?',apiController.getDatabyId);
-        const getText = (e) => {
-            e.preventDefault();
-            let inputText = document.getElementById('input-text').value;
-            inputText = inputText.split("@");
-            console.log(inputText);
-            if (inputText[2]) {
-                if (inputText[1] == 'yangin' || inputText[1] == 'pil' || inputText[1] == 'yangin+pil' || inputText[
-                        1] ==
-                    'pil+yangin') {
-                    // let danger = inputText[1].split("+");
-                    if (inputText[0][1]) {
-                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] + '/id/' +
-                                inputText[0][1] +
-                                '/page-number/'+inputText[2]+'/' + inputText[1])
-                            .then(response => response.json())
-                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
-                                console.log(sonuc);
-                                table = document.querySelector(".table");
+  </nav>
+  <div id='map'></div>
 
-                                let satirlarisilme = document.querySelectorAll(
-                                    ".satir"); //satirların hepsini alma
-                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
-                                    .remove(); // satirlari silme
-                                for (let i = 0; i < sonuc.length - 1; i++) {
-                                    let tr = document.createElement('tr'); // satır ekleme
-                                    let th = document.createElement('th'); // numaralandırma ekleme
-                                    tbody = document.getElementById('tablogov');
-                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
-                                    tr.appendChild(th);
-                                    th.innerHTML = i + 1;
-                                    let td = document.createElement('td'); // satıra eleman ekleme
-                                    tr.appendChild(td);
-                                    let td1 = document.createElement('td');
-                                    tr.appendChild(td1);
-                                    let td2 = document.createElement('td');
-                                    tr.appendChild(td2);
-                                    let td3 = document.createElement('td');
-                                    tr.appendChild(td3);
-                                    let td4 = document.createElement('td');
-                                    tr.appendChild(td4);
-                                    // classlarını bir dahakinde silmek için belirliyoruz
-                                    th.className = "satir";
-                                    td.className = "satir";
-                                    td1.className = "satir";
-                                    td2.className = "satir";
-                                    td3.className = "satir";
-                                    td4.className = "satir";
-                                    // verileri bastırma
-                                    td.innerHTML = sonuc[i].sensor_id[0];
-                                    td1.innerHTML = sonuc[i].sensor_id[1];
-                                    td2.innerHTML = sonuc[i].flame;
-                                    td3.innerHTML = sonuc[i].voltage;
-                                    td4.innerHTML = sonuc[i].date;
-                                }
+  <script>
+    mapboxgl.accessToken =
+      'pk.eyJ1IjoidmVsaW1iIiwiYSI6ImNra3phNzB3bjBhYWMydnBlbDhjNWlveTIifQ.lwp6jVURY5etL3DMDEJ54Q';
 
-                            })
-                    } else {
-                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] +
-                                '/page-number/'+inputText[2]+'/'+
-                                inputText[1])
-                            .then(response => response.json())
-                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
-                                console.log(sonuc);
-                                table = document.querySelector(".table");
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [28.72668698520813, 40.99040323229422],
+      zoom: 13
+    });
 
-                                let satirlarisilme = document.querySelectorAll(
-                                    ".satir"); //satirların hepsini alma
-                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
-                                    .remove(); // satirlari silme
-                                for (let i = 0; i < sonuc.length - 1; i++) {
-                                    let tr = document.createElement('tr'); // satır ekleme
-                                    let th = document.createElement('th'); // numaralandırma ekleme
-                                    tbody = document.getElementById('tablogov');
-                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
-                                    tr.appendChild(th);
-                                    th.innerHTML = i + 1;
-                                    let td = document.createElement('td'); // satıra eleman ekleme
-                                    tr.appendChild(td);
-                                    let td1 = document.createElement('td');
-                                    tr.appendChild(td1);
-                                    let td2 = document.createElement('td');
-                                    tr.appendChild(td2);
-                                    let td3 = document.createElement('td');
-                                    tr.appendChild(td3);
-                                    let td4 = document.createElement('td');
-                                    tr.appendChild(td4);
-                                    // classlarını bir dahakinde silmek için belirliyoruz
-                                    th.className = "satir";
-                                    td.className = "satir";
-                                    td1.className = "satir";
-                                    td2.className = "satir";
-                                    td3.className = "satir";
-                                    td4.className = "satir";
-                                    // verileri bastırma
-                                    td.innerHTML = sonuc[i].sensor_id[0];
-                                    td1.innerHTML = sonuc[i].sensor_id[1];
-                                    td2.innerHTML = sonuc[i].flame;
-                                    td3.innerHTML = sonuc[i].voltage;
-                                    td4.innerHTML = sonuc[i].date;
-                                }
+    var geojson = {
 
-                            })
-                    }
-                }
-            } else {
-                if (inputText[1] == 'yangin' || inputText[1] == 'pil' || inputText[1] == 'yangin+pil' || inputText[
-                        1] ==
-                    'pil+yangin') {
-                    // let danger = inputText[1].split("+");
-                    if (inputText[0][1]) {
-                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] + '/id/' +
-                                inputText[0][1] +
-                                '/page-number/0/' + inputText[1])
-                            .then(response => response.json())
-                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
-                                console.log(sonuc);
-                                table = document.querySelector(".table");
+      type: 'FeatureCollection',
 
-                                let satirlarisilme = document.querySelectorAll(
-                                    ".satir"); //satirların hepsini alma
-                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
-                                    .remove(); // satirlari silme
-                                for (let i = 0; i < sonuc.length - 1; i++) {
-                                    let tr = document.createElement('tr'); // satır ekleme
-                                    let th = document.createElement('th'); // numaralandırma ekleme
-                                    tbody = document.getElementById('tablogov');
-                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
-                                    tr.appendChild(th);
-                                    th.innerHTML = i + 1;
-                                    let td = document.createElement('td'); // satıra eleman ekleme
-                                    tr.appendChild(td);
-                                    let td1 = document.createElement('td');
-                                    tr.appendChild(td1);
-                                    let td2 = document.createElement('td');
-                                    tr.appendChild(td2);
-                                    let td3 = document.createElement('td');
-                                    tr.appendChild(td3);
-                                    let td4 = document.createElement('td');
-                                    tr.appendChild(td4);
-                                    // classlarını bir dahakinde silmek için belirliyoruz
-                                    th.className = "satir";
-                                    td.className = "satir";
-                                    td1.className = "satir";
-                                    td2.className = "satir";
-                                    td3.className = "satir";
-                                    td4.className = "satir";
-                                    // verileri bastırma
-                                    td.innerHTML = sonuc[i].sensor_id[0];
-                                    td1.innerHTML = sonuc[i].sensor_id[1];
-                                    td2.innerHTML = sonuc[i].flame;
-                                    td3.innerHTML = sonuc[i].voltage;
-                                    td4.innerHTML = sonuc[i].date;
-                                }
+      features: [{
 
-                            })
-                    } else {
-                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] +
-                                '/page-number/0' +
-                                inputText[1])
-                            .then(response => response.json())
-                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
-                                console.log(sonuc);
-                                table = document.querySelector(".table");
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [28.73268698520813, 40.99040323229422]
+          },
+          properties: {
+            message:'A',
+            title: 'A bölgesi, Avcılar',
+            description: ' '
+          }
+        },
+        {
+          type: 'Feature',
 
-                                let satirlarisilme = document.querySelectorAll(
-                                    ".satir"); //satirların hepsini alma
-                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
-                                    .remove(); // satirlari silme
-                                for (let i = 0; i < sonuc.length - 1; i++) {
-                                    let tr = document.createElement('tr'); // satır ekleme
-                                    let th = document.createElement('th'); // numaralandırma ekleme
-                                    tbody = document.getElementById('tablogov');
-                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
-                                    tr.appendChild(th);
-                                    th.innerHTML = i + 1;
-                                    let td = document.createElement('td'); // satıra eleman ekleme
-                                    tr.appendChild(td);
-                                    let td1 = document.createElement('td');
-                                    tr.appendChild(td1);
-                                    let td2 = document.createElement('td');
-                                    tr.appendChild(td2);
-                                    let td3 = document.createElement('td');
-                                    tr.appendChild(td3);
-                                    let td4 = document.createElement('td');
-                                    tr.appendChild(td4);
-                                    // classlarını bir dahakinde silmek için belirliyoruz
-                                    th.className = "satir";
-                                    td.className = "satir";
-                                    td1.className = "satir";
-                                    td2.className = "satir";
-                                    td3.className = "satir";
-                                    td4.className = "satir";
-                                    // verileri bastırma
-                                    td.innerHTML = sonuc[i].sensor_id[0];
-                                    td1.innerHTML = sonuc[i].sensor_id[1];
-                                    td2.innerHTML = sonuc[i].flame;
-                                    td3.innerHTML = sonuc[i].voltage;
-                                    td4.innerHTML = sonuc[i].date;
-                                }
+          geometry: {
+            type: 'Point',
+            coordinates: [28.72568698520813, 40.99240323229422]
+          },
+          properties: {
+            message:'B',
+            title: 'B bölgesi, Avcılar',
+            description: ' '
+          }
+        },
+        {
+          type: 'Feature',
+          symbol: {
 
-                            })
-                    }
-                } else if (inputText[1]) {
-                    if (inputText[0][1]) {
-                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] + '/id/' +
-                                inputText[0][1] +
-                                '/page-number/' + inputText)
-                            .then(response => response.json())
-                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
-                                console.log(sonuc);
-                                table = document.querySelector(".table");
-
-                                let satirlarisilme = document.querySelectorAll(
-                                    ".satir"); //satirların hepsini alma
-                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
-                                    .remove(); // satirlari silme
-                                for (let i = 0; i < sonuc.length - 1; i++) {
-                                    let tr = document.createElement('tr'); // satır ekleme
-                                    let th = document.createElement('th'); // numaralandırma ekleme
-                                    tbody = document.getElementById('tablogov');
-                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
-                                    tr.appendChild(th);
-                                    th.innerHTML = i + 1;
-                                    let td = document.createElement('td'); // satıra eleman ekleme
-                                    tr.appendChild(td);
-                                    let td1 = document.createElement('td');
-                                    tr.appendChild(td1);
-                                    let td2 = document.createElement('td');
-                                    tr.appendChild(td2);
-                                    let td3 = document.createElement('td');
-                                    tr.appendChild(td3);
-                                    let td4 = document.createElement('td');
-                                    tr.appendChild(td4);
-                                    // classlarını bir dahakinde silmek için belirliyoruz
-                                    th.className = "satir";
-                                    td.className = "satir";
-                                    td1.className = "satir";
-                                    td2.className = "satir";
-                                    td3.className = "satir";
-                                    td4.className = "satir";
-                                    // verileri bastırma
-                                    td.innerHTML = sonuc[i].sensor_id[0];
-                                    td1.innerHTML = sonuc[i].sensor_id[1];
-                                    td2.innerHTML = sonuc[i].flame;
-                                    td3.innerHTML = sonuc[i].voltage;
-                                    td4.innerHTML = sonuc[i].date;
-                                }
-
-                            })
-                    } else {
-                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] +
-                                '/page-number/' + inputText)
-                            .then(response => response.json())
-                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
-                                console.log(sonuc);
-                                table = document.querySelector(".table");
-
-                                let satirlarisilme = document.querySelectorAll(
-                                    ".satir"); //satirların hepsini alma
-                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
-                                    .remove(); // satirlari silme
-                                for (let i = 0; i < sonuc.length - 1; i++) {
-                                    let tr = document.createElement('tr'); // satır ekleme
-                                    let th = document.createElement('th'); // numaralandırma ekleme
-                                    tbody = document.getElementById('tablogov');
-                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
-                                    tr.appendChild(th);
-                                    th.innerHTML = i + 1;
-                                    let td = document.createElement('td'); // satıra eleman ekleme
-                                    tr.appendChild(td);
-                                    let td1 = document.createElement('td');
-                                    tr.appendChild(td1);
-                                    let td2 = document.createElement('td');
-                                    tr.appendChild(td2);
-                                    let td3 = document.createElement('td');
-                                    tr.appendChild(td3);
-                                    let td4 = document.createElement('td');
-                                    tr.appendChild(td4);
-                                    // classlarını bir dahakinde silmek için belirliyoruz
-                                    th.className = "satir";
-                                    td.className = "satir";
-                                    td1.className = "satir";
-                                    td2.className = "satir";
-                                    td3.className = "satir";
-                                    td4.className = "satir";
-                                    // verileri bastırma
-                                    td.innerHTML = sonuc[i].sensor_id[0];
-                                    td1.innerHTML = sonuc[i].sensor_id[1];
-                                    td2.innerHTML = sonuc[i].flame;
-                                    td3.innerHTML = sonuc[i].voltage;
-                                    td4.innerHTML = sonuc[i].date;
-                                }
-
-                            })
-                    }
-                } else {
-                    if (inputText[0][1]) {
-                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] + '/id/' +
-                                inputText[0][1] +
-                                '/page-number/0/')
-                            .then(response => response.json())
-                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
-                                console.log(sonuc);
-                                table = document.querySelector(".table");
-
-                                let satirlarisilme = document.querySelectorAll(
-                                    ".satir"); //satirların hepsini alma
-                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
-                                    .remove(); // satirlari silme
-                                for (let i = 0; i < sonuc.length - 1; i++) {
-                                    let tr = document.createElement('tr'); // satır ekleme
-                                    let th = document.createElement('th'); // numaralandırma ekleme
-                                    tbody = document.getElementById('tablogov');
-                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
-                                    tr.appendChild(th);
-                                    th.innerHTML = i + 1;
-                                    let td = document.createElement('td'); // satıra eleman ekleme
-                                    tr.appendChild(td);
-                                    let td1 = document.createElement('td');
-                                    tr.appendChild(td1);
-                                    let td2 = document.createElement('td');
-                                    tr.appendChild(td2);
-                                    let td3 = document.createElement('td');
-                                    tr.appendChild(td3);
-                                    let td4 = document.createElement('td');
-                                    tr.appendChild(td4);
-                                    // classlarını bir dahakinde silmek için belirliyoruz
-                                    th.className = "satir";
-                                    td.className = "satir";
-                                    td1.className = "satir";
-                                    td2.className = "satir";
-                                    td3.className = "satir";
-                                    td4.className = "satir";
-                                    // verileri bastırma
-                                    td.innerHTML = sonuc[i].sensor_id[0];
-                                    td1.innerHTML = sonuc[i].sensor_id[1];
-                                    td2.innerHTML = sonuc[i].flame;
-                                    td3.innerHTML = sonuc[i].voltage;
-                                    td4.innerHTML = sonuc[i].date;
-                                }
-
-                            })
-                    } else {
-                        fetch('http://20.188.61.211:3000/api/data/limit/10/field/' + inputText[0][0] +
-                                '/page-number/0')
-                            .then(response => response.json())
-                            .then((sonuc) => { //TABLOYU EKRANA BASTIRMA
-                                console.log(sonuc);
-                                table = document.querySelector(".table");
-
-                                let satirlarisilme = document.querySelectorAll(
-                                    ".satir"); //satirların hepsini alma
-                                for (let i = 0; i < satirlarisilme.length; i++) satirlarisilme[i]
-                                    .remove(); // satirlari silme
-                                for (let i = 0; i < sonuc.length - 1; i++) {
-                                    let tr = document.createElement('tr'); // satır ekleme
-                                    let th = document.createElement('th'); // numaralandırma ekleme
-                                    tbody = document.getElementById('tablogov');
-                                    tbody.appendChild(tr); //parent child ilişkisi ayarlama
-                                    tr.appendChild(th);
-                                    th.innerHTML = i + 1;
-                                    let td = document.createElement('td'); // satıra eleman ekleme
-                                    tr.appendChild(td);
-                                    let td1 = document.createElement('td');
-                                    tr.appendChild(td1);
-                                    let td2 = document.createElement('td');
-                                    tr.appendChild(td2);
-                                    let td3 = document.createElement('td');
-                                    tr.appendChild(td3);
-                                    let td4 = document.createElement('td');
-                                    tr.appendChild(td4);
-                                    // classlarını bir dahakinde silmek için belirliyoruz
-                                    th.className = "satir";
-                                    td.className = "satir";
-                                    td1.className = "satir";
-                                    td2.className = "satir";
-                                    td3.className = "satir";
-                                    td4.className = "satir";
-                                    // verileri bastırma
-                                    td.innerHTML = sonuc[i].sensor_id[0];
-                                    td1.innerHTML = sonuc[i].sensor_id[1];
-                                    td2.innerHTML = sonuc[i].flame;
-                                    td3.innerHTML = sonuc[i].voltage;
-                                    td4.innerHTML = sonuc[i].date;
-                                }
-
-                            })
-                    }
-                }
-            }
-
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: [28.72568698520813, 40.99840323229422]
+          },
+          properties: {
+            message:'C',
+            title: 'C bölgesi, Avcılar',
+            description: ''
+          }
         }
-        $('ul.pagination li a').on('click', getText);
+      ]
+    };
+    const socket = io('ws://40.89.138.206:80');
+    socket.on('veriler', (msg) => {
+      for (let i = 0; i < geojson.features.length; i++) {
+        if (msg.sensor_id == geojson.features[i].properties.title[i].toLocaleLowerCase()) {
+          geojson.features[i].properties.description = `Yangın Durumu: ${msg.flame}<br>Pil Durumu: ${msg.voltage}`;
+          // add markers to map
+          geojson.features.forEach(function (marker) {
 
-        const btnTextGetir = document.getElementById('filter-button');
-        btnTextGetir.addEventListener('click', getText);
-    </script>
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker';
+
+
+            el.style.backgroundImage =
+            'url(../public/img/'+marker.properties.message+'.png)';
+
+            console.log(marker)
+
+
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el)
+
+              .setLngLat(marker.geometry.coordinates)
+              .setPopup(new mapboxgl.Popup({
+                  offset: 25
+                }) // add popups
+                .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>')
+                )
+              .addTo(map);
+          });
+        }
+      }
+    });
+    // add markers to map
+    geojson.features.forEach(function (marker) {
+
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker';
+
+
+      el.style.backgroundImage =
+            'url(../public/img/'+marker.properties.message+'.png)';
+
+      console.log(marker)
+
+
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(new mapboxgl.Popup({
+            offset: 25
+          }) // add popups
+          .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+        .addTo(map);
+    });
+  </script>
+  <!-- Footer -->
+  <footer style="background-color: #04505f;
+" class="page-footer  font-small stylish-color-dark pt-4">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left" style="background-color: #04505f;
+	color:white">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mx-auto d-flex   flex-row  align-items-center ">
+
+          <!-- Content -->
+
+          <div class=" col-xs-12 about-company ">
+
+            <div class=" align-items-center">
+              <img src="../public/img/ieeiücbeyaz.png" class=" mw-100 ">
+            </div>
+          </div>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="col-lg-3 col-xs-12 location ;">
+
+          <!-- Links -->
+          <h4 class="mt-lg-0 mt-sm-4 pt-2">Bilgilendirme</h4>
+
+          <ul class="list-unstyled pt-2">
+            <li>
+              <a href="https://www.ieeeiuc.com/sb/tr">Anasayfa</a>
+            </li>
+            <li class="pt-1">
+              <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
+            </li>
+            <li class="pt-1">
+              <a href="#!">Ekip</a>
+            </li>
+            <li class="pt-1">
+              <a href="https://www.ieeeiuc.com/sb/tr/sikca-sorulan-sorular">S.S.S</a>
+            </li>
+            <li class="pt-1">
+              <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <div class="col-lg-3 col-xs-12 location">
+          <h4 class="mt-lg-0 mt-sm-4 pt-2">İletişim</h4>
+
+          <p class="pt-2">İstanbul Üniversitesi Cerrahpaşa Avcılar Kampüsü Mühendislik Fakültesi</p>
+          <p>34320 Avcılar/ İstanbul TR</p>
+
+          <p class="mb-0"><i class=""></i>
+          </p>
+          <p>
+
+            ieeeiüciot@gmail.com
+
+        </div>
+
+
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+
+    </div>
+
+
+    <!-- sosyal medya -->
+
+
+    <div class="page-content page-container text-center text-left  py-3 " id="page-content"
+      style="background-color:#04505f; ">
+      <div class="d-flex justify-content-center  ">
+        <div class="row     ">
+          <div class="col-6-center grid-margin stretch-card  ">
+            <div class="card align-self-center">
+              <div class="card-body  " style="background:#04505f; ">
+                <div class="template-demo">
+                  <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';"
+                    class="btn btn-social-icon btn-outline-facebook"> <i class="fa fa-facebook"></i> </button>
+                  <button type="button"
+                    onclick="window.location.href='https://www.youtube.com/channel/UCeyBtBFEsycQNxCpvC5lzPA';"
+                    class="btn btn-social-icon btn-outline-youtube"> <i class="fa fa-youtube"></i> </button>
+                  <button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';"
+                    class="btn btn-social-icon btn-outline-twitter"> <i class="fa fa-twitter"></i> </button>
+                  <button type="button"
+                    onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"
+                    class="btn btn-social-icon btn-outline-linkedin"> <i class="fa fa-linkedin"></i> </button>
+                  <button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"
+                    class="btn btn-social-icon btn-outline-instagram"> <i class="fa fa-instagram"></i> </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sosyal medya -->
+
+
+
+
+
+
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="background-color:#062e36; color:white">© 2021
+      Copyright:
+      <a href="https://www.ieeeiuc.com/sb/tr"> IEEEIUC.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+  </script>
+
+  <!-- Javascript -->
+  <script src="../public/js/jquery-3.3.1.min.js"></script>
+  <!-- <script src="../public/js/jquery-migrate-3.0.0.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <!-- <script src="../public/js/jquery.backstretch.min.js"></script> -->
+  <script src="../public/js/wow.min.js"></script>
+  <!-- <script src="../public/js/jquery.waypoints.min.js"></script> -->
+  <!-- <script src="../public/js/jquery.mCustomScrollbar.concat.min.js"></script> -->
+  <script src="../public/js/scripts.js"></script>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  
+integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+crossorigin="anonymous">-->
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+
 </body>
 
 </html>
