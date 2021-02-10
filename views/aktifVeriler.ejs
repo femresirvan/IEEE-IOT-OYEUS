@@ -500,7 +500,7 @@ crossorigin="anonymous">-->
         <script>
             var audio = new Audio('../public/img/alarm.mp3');
 
-            var socket = io('ws://40.89.138.206:80');
+            const socket = io('ws://40.89.138.206:80');
             socket.on('veriler',(msg) => {
 
             
