@@ -17,22 +17,14 @@ client.on("error", function (error) {
 })
 // console.log(options);
 let veriIntervali = new Array();
-
+let tempString = "abcde";
 for (let i = 0; i < 5; i++) {
     veriIntervali.push({
-        sensor_id: new Array(),
-        count: new Array()
+        sensor_id: new String(),
+        count: new Number()
     })
-    veriIntervali[i].sensor_id[0] = `a${i+1}`;
-    veriIntervali[i].sensor_id[1] = `b${i+1}`;
-    veriIntervali[i].sensor_id[2] = `c${i+1}`;
-    veriIntervali[i].sensor_id[3] = `d${i+1}`;
-    veriIntervali[i].sensor_id[4] = `e${i+1}`;
-    veriIntervali[i].count[0] = 0;
-    veriIntervali[i].count[1] = 0;
-    veriIntervali[i].count[2] = 0;
-    veriIntervali[i].count[3] = 0;
-    veriIntervali[i].count[4] = 0;
+    veriIntervali[i].sensor_id = tempString.charAt(i);
+    veriIntervali[i].count = 0;
 }
 // console.log(veriIntervali);
 let msg;
@@ -90,7 +82,7 @@ const ahmet = (msg) => {
         voltage: msg.voltage,
         flame: msg.flame,
     }).save().then(() => {
-        // console.log("Kayit Edildi.");
+        console.log("Kayit Edildi.");
     }).catch(() => {
         console.log("Kayit Hatasi");
     });
@@ -100,26 +92,21 @@ client.on('message', (topicgelenler, message, packet) => {
     // console.log(JSON.parse(message));
     msg = JSON.parse(message);
     msg.date = Date.now();
-    let flame = Number(msg.flame);
-    let voltage = Number(msg.voltage);
-    // if(flame>40) console.log(flame);
-    // console.log(voltage+5);
+
     for (let i = 0; i < veriIntervali.length; i++) {
-        for (let j = 0; j < veriIntervali.length; j++) {
-            if (veriIntervali[i].sensor_id[j] == msg.sensor_id) {
-                if (veriIntervali[i].count[j] > 100) {
-                    ahmet(msg);
-                    veriIntervali[i].count[j] = 0;
-                }
-                else if (flame >= 40 || voltage <= 10) {
-                    ahmet(msg);
-                    veriIntervali[i].count[j] = 0;
-                } else if (veriIntervali[i].count[j] == null) veriIntervali[i].count[j] = 0;
-                else if (flame < 40 || voltage > 10) veriIntervali[i].count[j]++;
-            }
+        if (veriIntervali[i].sensor_id == msg.sensor_id) {
+            if (veriIntervali[i].count > 100) {
+                ahmet(msg);
+                veriIntervali[i].count = 0;
+            } else if (msg.flame >= 40 || msg.voltage <= 10) {
+                ahmet(msg);
+                veriIntervali[i].count = 0;
+            } else if (veriIntervali[i].count == null) veriIntervali[i].count = 0;
+            else if (msg.flame < 40 || msg.voltage > 10) 
+            console.log(veriIntervali[i].count);
+            veriIntervali[i].count++;
         }
     }
     console.log(msg);
-
     io.emit('veriler', msg);
 });
