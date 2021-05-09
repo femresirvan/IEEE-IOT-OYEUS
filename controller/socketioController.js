@@ -3,7 +3,7 @@ const socketio = require('socket.io');
 module.exports.listen = function(app) {
     io = socketio(app, {
         cors: {
-            //origin: "http://www.ieeeiot.live",
+            origin: "https://www.ieeeoyeus.com",
             methods: ["GET", "POST"]
         }
     });
