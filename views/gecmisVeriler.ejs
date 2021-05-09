@@ -228,7 +228,7 @@
             if (inputText[0]) {
                 if (inputText[0].length == 1) {
                     if (inputText[1]) {
-                        fetch('http://www.ieeeiot.live/api/data/limit/10/field/' + inputText[0] + '/page-number/' +
+                        fetch('https://www.ieeeoyeus.com/api/data/limit/10/field/' + inputText[0] + '/page-number/' +
                                 secilenListe + '/' + inputText[1])
                             .then(response => response.json())
                             .then(sonuc => {
@@ -236,7 +236,7 @@
                                 verileriBastir(sonuc)
                             })
                     } else {
-                        fetch('http://www.ieeeiot.live/api/data/limit/10/field/' + inputText[0] + '/page-number/' +
+                        fetch('https://www.ieeeoyeus.com/api/data/limit/10/field/' + inputText[0] + '/page-number/' +
                                 secilenListe)
                             .then(response => response.json())
                             .then(sonuc => {
@@ -246,7 +246,7 @@
                     }
                 } else if (inputText[0] == 'yangin' || inputText[0] == 'pil' || inputText[0] == 'yangin+pil' ||
                     inputText[0] == 'pil+yangin') {
-                    fetch('http://www.ieeeiot.live/api/data/limit/10/page-number/' + secilenListe + '/' +
+                    fetch('https://www.ieeeoyeus.com/api/data/limit/10/page-number/' + secilenListe + '/' +
                             inputText[0])
                         .then(response => response.json())
                         .then(sonuc => {
@@ -255,7 +255,7 @@
                         })
                 }
             } else {
-                fetch('http://www.ieeeiot.live/api/data/limit/10/page-number/' + secilenListe)
+                fetch('https://www.ieeeoyeus.com/api/data/limit/10/page-number/' + secilenListe)
                     .then(response => response.json())
                     .then(sonuc => {
                         listeyiGetirme(sonuc);
@@ -283,7 +283,7 @@
             }
         }
         const ilkAcilis = () => {
-            fetch('http://www.ieeeiot.live/api/data/limit/10/page-number/0')
+            fetch('https://www.ieeeoyeus.com/api/data/limit/10/page-number/0')
                 .then(response => response.json())
                 .then((sonuc) => {
                     listeyiGetirme(sonuc);
