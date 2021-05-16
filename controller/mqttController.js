@@ -12,10 +12,10 @@ var options = {
     password: '$6$PXETOwfI/T5Om8gB$CbGJ+s3eaHyI64YWf5otgYvxpf/8RHDlK8BuA/GhYHIBHzEsaGjb28mmTKOdx/veJgUhrFndU9FMIwtw0tCDNw==',
     username: 'alici'
 };
-client.on("error", function (error) {
-    console.log("Can't connect" + error);
-})
-// console.log(options);
+client.on("error", function(error) {
+        console.log("Can't connect" + error);
+    })
+    // console.log(options);
 let veriIntervali = new Array();
 let tempString = "abcde";
 for (let i = 0; i < 5; i++) {
@@ -102,8 +102,8 @@ client.on('message', (topicgelenler, message, packet) => {
                 ahmet(msg);
                 veriIntervali[i].count = 0;
             } else if (veriIntervali[i].count == null) veriIntervali[i].count = 0;
-            else if (msg.flame < 40 || msg.voltage > 10) 
-            console.log(veriIntervali[i].count);
+            else if (msg.flame < 40 || msg.voltage > 10)
+                console.log(veriIntervali[i].count);
             veriIntervali[i].count++;
         }
     }

@@ -10,8 +10,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="../public/css/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="../public/css/animate.css">
     <link rel="stylesheet" href="../public/css/style.css">
@@ -35,15 +34,14 @@
         .dataTable table tr {
             border: solid 1px black;
         }
-
+        
         .form-group {
             float: right;
         }
-
+        
         .input-group {
             float: right;
         }
-       
     </style>
 
 
@@ -58,9 +56,8 @@
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">IEEE IUC IOT</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">IEEE IUC IOT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
@@ -100,8 +97,7 @@
 
     <!-- Filtreleme button + input -->
     <div class=" d-flex justify-content-center input-group mb-3 ">
-        <input type="text" class="form-control col-2  " id="input-text" placeholder="örn:a1@yangin"
-            aria-label="Recipient's username" aria-describedby="basic-addon2" value="">
+        <input type="text" class="form-control col-2  " id="input-text" placeholder="örn:a1@yangin" aria-label="Recipient's username" aria-describedby="basic-addon2" value="">
         <div class="input-group-append ">
             <button class="btn btn-outline-secondary " id="filter-button" type="button">Arama</button>
         </div>
@@ -113,7 +109,7 @@
                 <tr>
                     <th scope="col">Sıra</th>
                     <th scope="col">Bölge</th>
-                   
+
                     <th scope="col">Duman Yüzdesi</th>
                     <th scope="col">Pil Durumu</th>
                     <th scope="col">Tarih</th>
@@ -123,7 +119,7 @@
                 <tr>
                     <th scope="col">Sıra</th>
                     <th scope="col">Bölge</th>
-                    
+
                     <th scope="col">Duman Yüzdesi</th>
                     <th scope="col">Pil Durumu</th>
                     <th scope="col">Tarih</th>
@@ -133,23 +129,23 @@
             </tbody>
         </table>
     </div>
-    
 
 
-            <div class="form-group col-md-1"  id="sayfa">
-                <h3 for="sel1">Sayfa </h3>
-                <select class="form-control  col-6" id="sel1" name="sellist1">
+
+    <div class="form-group col-md-1" id="sayfa">
+        <h3 for="sel1">Sayfa </h3>
+        <select class="form-control  col-6" id="sel1" name="sellist1">
 
                 </select>
-                </form>
-            </div>
+        </form>
+    </div>
 
 
 
-    
 
-        <!-- SCRİPT -->
-         <!-- SCRİPT -->
+
+    <!-- SCRİPT -->
+    <!-- SCRİPT -->
     <script>
         const verileriBastir = (sonuc) => {
             console.log(sonuc);
@@ -180,7 +176,7 @@
                 }
                 let td = document.createElement('td'); // satıra eleman ekleme
                 tr.appendChild(td);
-                
+
                 let td2 = document.createElement('td');
                 tr.appendChild(td2);
                 let td3 = document.createElement('td');
@@ -190,17 +186,17 @@
                 // classlarını bir dahakinde silmek için belirliyoruz
                 th.className = "satir";
                 td.className = "satir";
-                
+
                 td2.className = "satir";
                 td3.className = "satir";
                 td4.className = "satir";
                 // verileri bastırma
                 td.innerHTML = sonuc[i].sensor_id[0].toUpperCase() + ' Bölgesi';
-                
+
                 td2.innerHTML = '%' + sonuc[i].flame;
                 td3.innerHTML = '%' + sonuc[i].voltage;
                 sonuc[i].date = new Date(sonuc[i].date)
-                // sonuc[i].date.setHours(sonuc[i].date.getHours()+1); duruma göre 1 saat ileri alma veya daha farklı miktarda saat değiştirme
+                    // sonuc[i].date.setHours(sonuc[i].date.getHours()+1); duruma göre 1 saat ileri alma veya daha farklı miktarda saat değiştirme
                 td4.innerHTML = sonuc[i].date.getFullYear() + '/' + sonuc[i].date.getMonth() + '/' + sonuc[i].date
                     .getDate() + ' ' + sonuc[i].date.getHours() + ':' + sonuc[i].date.getMinutes() + ':' + sonuc[i]
                     .date.getSeconds();
@@ -230,7 +226,7 @@
             if (inputText[0]) {
                 if (inputText[0].length == 1) {
                     if (inputText[1]) {
-                        fetch('http://www.ieeeiot.live/api/data/limit/10/field/' + inputText[0] + '/page-number/' +
+                        fetch('https://www.ieeeoyeus.com/api/data/limit/10/field/' + inputText[0] + '/page-number/' +
                                 secilenListe + '/' + inputText[1])
                             .then(response => response.json())
                             .then(sonuc => {
@@ -238,7 +234,7 @@
                                 verileriBastir(sonuc)
                             })
                     } else {
-                        fetch('http://www.ieeeiot.live/api/data/limit/10/field/' + inputText[0] + '/page-number/' +
+                        fetch('https://www.ieeeoyeus.com/api/data/limit/10/field/' + inputText[0] + '/page-number/' +
                                 secilenListe)
                             .then(response => response.json())
                             .then(sonuc => {
@@ -248,7 +244,7 @@
                     }
                 } else if (inputText[0] == 'yangin' || inputText[0] == 'pil' || inputText[0] == 'yangin+pil' ||
                     inputText[0] == 'pil+yangin') {
-                    fetch('http://www.ieeeiot.live/api/data/limit/10/page-number/' + secilenListe + '/' +
+                    fetch('https://www.ieeeoyeus.com/api/data/limit/10/page-number/' + secilenListe + '/' +
                             inputText[0])
                         .then(response => response.json())
                         .then(sonuc => {
@@ -257,7 +253,7 @@
                         })
                 }
             } else {
-                fetch('http://www.ieeeiot.live/api/data/limit/10/page-number/' + secilenListe)
+                fetch('https://www.ieeeoyeus.com/api/data/limit/10/page-number/' + secilenListe)
                     .then(response => response.json())
                     .then(sonuc => {
                         listeyiGetirme(sonuc);
@@ -285,7 +281,7 @@
             }
         }
         const ilkAcilis = () => {
-            fetch('http://www.ieeeiot.live/api/data/limit/10/page-number/0')
+            fetch('https://www.ieeeoyeus.com/api/data/limit/10/page-number/0')
                 .then(response => response.json())
                 .then((sonuc) => {
                     listeyiGetirme(sonuc);
@@ -299,161 +295,148 @@
         const btnTextGetir = document.getElementById('filter-button');
         btnTextGetir.addEventListener('click', getText);
     </script>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    
-        <!-- Footer -->
-        <footer style="background-color: #354F52;
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- Footer -->
+    <footer style="background-color: #354F52;
 " class="page-footer  font-small stylish-color-dark pt-4">
 
-            <!-- Footer Links -->
-            <div class="container text-center text-md-left" style="background-color: #354F52;
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left" style="background-color: #354F52;
 	color:white">
 
-                <!-- Grid row -->
-                <div class="row">
+            <!-- Grid row -->
+            <div class="row">
 
-                    <!-- Grid column -->
-                    <div class="col-md-6 mx-auto d-flex   flex-row  align-items-center ">
+                <!-- Grid column -->
+                <div class="col-md-6 mx-auto d-flex   flex-row  align-items-center ">
 
-                        <!-- Content -->
+                    <!-- Content -->
 
-                        <div class=" col-xs-12 about-company ">
+                    <div class=" col-xs-12 about-company ">
 
-                            <div class=" align-items-center">
-                                <img src="../public/img/ieeiücbeyaz.png" class=" mw-100 ">
-                            </div>
+                        <div class=" align-items-center">
+                            <img src="../public/img/ieeiücbeyaz.png" class=" mw-100 ">
                         </div>
-
                     </div>
-                    <!-- Grid column -->
-
-                    <hr class="clearfix w-100 d-md-none">
-
-                    <!-- Grid column -->
-                    <div class="col-lg-3 col-xs-12 location ;">
-
-                        <!-- Links -->
-                        <h4 class="mt-lg-0 mt-sm-4 pt-2">Bilgilendirme</h4>
-
-                        <ul class="list-unstyled pt-2">
-                            <li>
-                                <a href="https://www.ieeeiuc.com/sb/tr">Anasayfa</a>
-                            </li>
-                            <li class="pt-1">
-                                <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
-                            </li>
-                            <li class="pt-1">
-                                <a href="#!">Ekip</a>
-                            </li>
-                            <li class="pt-1">
-                                <a href="https://www.ieeeiuc.com/sb/tr/sikca-sorulan-sorular">S.S.S</a>
-                            </li>
-                            <li class="pt-1">
-                                <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <div class="col-lg-3 col-xs-12 location">
-                        <h4 class="mt-lg-0 mt-sm-4 pt-2">İletişim</h4>
-
-                        <p class="pt-2">İstanbul Üniversitesi Cerrahpaşa Avcılar Kampüsü Mühendislik Fakültesi</p>
-                        <p>34320 Avcılar/ İstanbul TR</p>
-
-                        <p class="mb-0"><i class=""></i>
-                        </p>
-                        <p>
-
-                            ieeeiüciot@gmail.com
-
-                    </div>
-
-
-                    <!-- Grid column -->
 
                 </div>
-                <!-- Grid row -->
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-lg-3 col-xs-12 location ;">
+
+                    <!-- Links -->
+                    <h4 class="mt-lg-0 mt-sm-4 pt-2">Bilgilendirme</h4>
+
+                    <ul class="list-unstyled pt-2">
+                        <li>
+                            <a href="https://www.ieeeiuc.com/sb/tr">Anasayfa</a>
+                        </li>
+                        <li class="pt-1">
+                            <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
+                        </li>
+                        <li class="pt-1">
+                            <a href="#!">Ekip</a>
+                        </li>
+                        <li class="pt-1">
+                            <a href="https://www.ieeeiuc.com/sb/tr/sikca-sorulan-sorular">S.S.S</a>
+                        </li>
+                        <li class="pt-1">
+                            <a href="https://www.ieeeiuc.com/sb/tr/projeler/iot">Projeler</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <div class="col-lg-3 col-xs-12 location">
+                    <h4 class="mt-lg-0 mt-sm-4 pt-2">İletişim</h4>
+
+                    <p class="pt-2">İstanbul Üniversitesi Cerrahpaşa Avcılar Kampüsü Mühendislik Fakültesi</p>
+                    <p>34320 Avcılar/ İstanbul TR</p>
+
+                    <p class="mb-0"><i class=""></i>
+                    </p>
+                    <p>
+
+                        ieeeiüciot@gmail.com
+
+                </div>
+
+
+                <!-- Grid column -->
 
             </div>
-            <!-- Footer Links -->
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
 
 
         </div>
 
 
-            <!-- sosyal medya -->
+        <!-- sosyal medya -->
 
 
-            <div class="page-content page-container text-center text-left  py-3 " id="page-content"
-                style="background-color:#354F52; ">
-                <div class="d-flex justify-content-center  ">
-                    <div class="row     ">
-                        <div class="col-6-center grid-margin stretch-card  ">
-                            <div class="card align-self-center">
-                                <div class="card-body  " style="background:#354F52; ">
-                                    <div class="template-demo">
-                                        <button type="button"
-                                            onclick="window.location.href='https://www.facebook.com/ieeeiu/';"
-                                            class="btn btn-social-icon btn-outline-facebook"> <i
+        <div class="page-content page-container text-center text-left  py-3 " id="page-content" style="background-color:#04505f; ">
+            <div class="d-flex justify-content-center  ">
+                <div class="row     ">
+                    <div class="col-6-center grid-margin stretch-card  ">
+                        <div class="card align-self-center">
+                            <div class="card-body  " style="background:#04505f; ">
+                                <div class="template-demo">
+                                    <button type="button" onclick="window.location.href='https://www.facebook.com/ieeeiu/';" class="btn btn-social-icon btn-outline-facebook"> <i
                                                 class="fa fa-facebook"></i> </button>
-                                        <button type="button"
-                                            onclick="window.location.href='https://www.youtube.com/channel/UCeyBtBFEsycQNxCpvC5lzPA';"
-                                            class="btn btn-social-icon btn-outline-youtube"> <i
+                                    <button type="button" onclick="window.location.href='https://www.youtube.com/channel/UCeyBtBFEsycQNxCpvC5lzPA';" class="btn btn-social-icon btn-outline-youtube"> <i
                                                 class="fa fa-youtube"></i> </button>
-                                        <button type="button"
-                                            onclick="window.location.href='https://twitter.com/ieeeorg';"
-                                            class="btn btn-social-icon btn-outline-twitter"> <i
+                                    <button type="button" onclick="window.location.href='https://twitter.com/ieeeorg';" class="btn btn-social-icon btn-outline-twitter"> <i
                                                 class="fa fa-twitter"></i> </button>
-                                        <button type="button"
-                                            onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';"
-                                            class="btn btn-social-icon btn-outline-linkedin"> <i
+                                    <button type="button" onclick="window.location.href='https://www.linkedin.com/company/ieee-i%CC%87stanbul-%C3%BCni%CC%87versi%CC%87tesi%CC%87-cerrahpa%C5%9Fa/mycompany/';" class="btn btn-social-icon btn-outline-linkedin"> <i
                                                 class="fa fa-linkedin"></i> </button>
-                                        <button type="button"
-                                            onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';"
-                                            class="btn btn-social-icon btn-outline-instagram"> <i
+                                    <button type="button" onclick="window.location.href='https://www.instagram.com/ieeeiuc/?hl=tr';" class="btn btn-social-icon btn-outline-instagram"> <i
                                                 class="fa fa-instagram"></i> </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- sosyal medya -->
-
-
-
-
-
-
-
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3" style="background-color:#2F3E46; color:white">© 2021
-                Copyright:
-                <a href="https://www.ieeeiuc.com/sb/tr"> IEEEIUC.com</a>
-            </div>
-            <!-- Copyright -->
-        
-        </footer>
-        <!-- Footer -->
+        <!-- sosyal medya -->
 
 
 
 
 
-    
+
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="background-color:#2F3E46; color:white">© 2021 Copyright:
+            <a href="https://www.ieeeiuc.com/sb/tr"> IEEEIUC.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+
+
+
 
 
 
@@ -466,8 +449,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     
     <script src="../public/js/wow.min.js"></script>
@@ -478,11 +460,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
 
             //Apply the datatables plugin to your table
             $('#myTable').DataTable();
