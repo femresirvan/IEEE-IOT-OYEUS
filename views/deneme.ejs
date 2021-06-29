@@ -47,37 +47,18 @@
 
 
   <style>
-    body {
-      margin: 0;
-      padding: 0;
+    
+    #map{
+        height:400px;
+        width:1000px;
     }
 
-    #map {
+</style>
 
-
-      height: 90%;
-      width: 100%;
-    }
-
-    .marker {
-      /* background-image: url('../public/img/c_min.png'); */
-      background-size: cover;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-
-    .mapboxgl-popup {
-      max-width: 200px;
-    }
-
-    .mapboxgl-popup-content {
-      text-align: center;
-      font-family: 'Open Sans', sans-serif;
-    }
-  </style>
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5C0XB2nisaTgPaqeHzvwlzrN8gl19Hq4&callback=initMap&libraries=&v=weekly"
+async
+></script>
 </head>
 
 <body>
@@ -118,122 +99,72 @@
   </nav>
   <div id='map'></div>
 
+  
   <script>
-    mapboxgl.accessToken =
-      'pk.eyJ1IjoidmVsaW1iIiwiYSI6ImNra3phNzB3bjBhYWMydnBlbDhjNWlveTIifQ.lwp6jVURY5etL3DMDEJ54Q';
-
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [28.72668698520813, 40.99040323229422],
-      zoom: 13
-    });
-
-    var geojson = {
-
-      type: 'FeatureCollection',
-
-      features: [{
-
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [28.73268698520813, 40.99040323229422]
-          },
-          properties: {
-            message:'A',
-            title: 'A bölgesi, Avcılar',
-            description: ' '
-          }
-        },
-        {
-          type: 'Feature',
-
-          geometry: {
-            type: 'Point',
-            coordinates: [28.72568698520813, 40.99240323229422]
-          },
-          properties: {
-            message:'B',
-            title: 'B bölgesi, Avcılar',
-            description: ' '
-          }
-        },
-        {
-          type: 'Feature',
-          symbol: {
-
-          },
-          geometry: {
-            type: 'Point',
-            coordinates: [28.72568698520813, 40.99840323229422]
-          },
-          properties: {
-            message:'C',
-            title: 'C bölgesi, Avcılar',
-            description: ''
-          }
+    
+    let x =Math.floor((Math.random() * 100) + 1);
+    setInterval(() => {
+      x=Math.floor((Math.random() * 100) + 1);
+    }, 1000);
+    function initMap(){
+        const mapOptions = {
+            zoom: 8,
+            center:{lat:41.015137 , lng:28.979530}
         }
+        const map = new google.maps.Map(document.getElementById('map'),mapOptions);
+        
+        const fireImageUrl = "http://maps.google.com/mapfiles/kml/pal3/icon42.png"
+
+        const locationInfo = [
+          {
+            location: "A",
+            coordinates: {lat:41.015137 , lng:28.979530},
+            duman: x,
+            pil:34
+          },
+          {
+            location: "B",
+            coordinates: {lat:41.015137 , lng:27.979530},
+            duman: x,
+            pil:23
+          },
       ]
-    };
-    const socket = io('ws://40.89.138.206:80');
-    socket.on('veriler', (msg) => {
-      for (let i = 0; i < geojson.features.length; i++) {
-        if (msg.sensor_id == geojson.features[i].properties.title[i].toLocaleLowerCase()) {
-          geojson.features[i].properties.description = `Yangın Durumu: ${msg.flame}<br>Pil Durumu: ${msg.voltage}`;
-          // add markers to map
-          geojson.features.forEach(function (marker) {
 
-            // create a HTML element for each feature
-            var el = document.createElement('div');
-            el.className = 'marker';
+          locationInfo.forEach(info => {
+            AddMarker({
+              options: info
+            });
+          })
+            
+        function AddMarker({options}){
 
+            const marker = new google.maps.Marker(
+            {
+                position: options.coordinates,
+                map:map,
+            })
 
-            el.style.backgroundImage =
-            'url(../public/img/'+marker.properties.message+'.png)';
+            if(options.duman >50){
+              marker.setIcon(fireImageUrl);
+            }
 
-            console.log(marker)
+            
 
-
-            // make a marker for each feature and add to the map
-            new mapboxgl.Marker(el)
-
-              .setLngLat(marker.geometry.coordinates)
-              .setPopup(new mapboxgl.Popup({
-                  offset: 25
-                }) // add popups
-                .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>')
-                )
-              .addTo(map);
-          });
-        }
-      }
-    });
-    // add markers to map
-    geojson.features.forEach(function (marker) {
-
-      // create a HTML element for each feature
-      var el = document.createElement('div');
-      el.className = 'marker';
-
-
-      el.style.backgroundImage =
-            'url(../public/img/'+marker.properties.message+'.png)';
-
-      console.log(marker)
-
-
-      // make a marker for each feature and add to the map
-      new mapboxgl.Marker(el)
-
-        .setLngLat(marker.geometry.coordinates)
-        .setPopup(new mapboxgl.Popup({
-            offset: 25
-          }) // add popups
-          .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
-        .addTo(map);
-    });
-  </script>
+             //infoWindow
+             const { location, duman, pil } = options
+            const InfoWindow= new google.maps.InfoWindow({
+              content: `<h3> ${location} bölgesi</h3> <span>Duman yüzdesi:${duman}</span> <br>
+              <span>Duman yüzdesi:${pil}</span>`
+            });
+            //click
+            marker.addListener('click',function(){
+              InfoWindow.open(map,marker);
+            });
+          
+            }
+        
+    }
+</script>
   <!-- Footer -->
   <footer style="background-color: #04505f;
 " class="page-footer  font-small stylish-color-dark pt-4">
