@@ -10,7 +10,7 @@
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
   <!-- CSS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -102,68 +102,128 @@ async
   
   <script>
     
-    let x =Math.floor((Math.random() * 100) + 1);
-    setInterval(() => {
-      x=Math.floor((Math.random() * 100) + 1);
-    }, 1000);
-    function initMap(){
-        const mapOptions = {
-            zoom: 8,
-            center:{lat:41.015137 , lng:28.979530}
-        }
-        const map = new google.maps.Map(document.getElementById('map'),mapOptions);
-        
-        const fireImageUrl = "http://maps.google.com/mapfiles/kml/pal3/icon42.png"
+    let x = Math.floor((Math.random() * 100) + 1);
+   setInterval(() => {
+            x = Math.floor((Math.random() * 100) + 1);
+        }, 1000);
 
-        const locationInfo = [
-          {
-            location: "A",
-            coordinates: {lat:41.015137 , lng:28.979530},
-            duman: x,
-            pil:34
-          },
-          {
-            location: "B",
-            coordinates: {lat:41.015137 , lng:27.979530},
-            duman: x,
-            pil:23
-          },
-      ]
+        function initMap(){
+            let options={
+                zoom:6,
+                center:{lat:39.925533,lng:32.866287}
+            };
 
-          locationInfo.forEach(info => {
-            AddMarker({
-              options: info
+            let map=new google.maps.Map(document.getElementById('map'),options);
+
+         //marker
+            let marker=new google.maps.Marker({
+                position:{lat:41.015137,lng:28.979530},
+                map:map
             });
-          })
-            
-        function AddMarker({options}){
-
-            const marker = new google.maps.Marker(
-            {
-                position: options.coordinates,
-                map:map,
-            })
-
-            if(options.duman >50){
-              marker.setIcon(fireImageUrl);
-            }
-
-            
-
-             //infoWindow
-             const { location, duman, pil } = options
-            const InfoWindow= new google.maps.InfoWindow({
-              content: `<h3> ${location} bölgesi</h3> <span>Duman yüzdesi:${duman}</span> <br>
-              <span>Duman yüzdesi:${pil}</span>`
+            let InfoWindow= new google.maps.InfoWindow({
+                content: `Sensorid: a\nVoltage: 0\nFlame: 0`
             });
-            //click
+
+            // marker.addListener('click',function(){
+            //     InfoWindow.setContent(`yazı ${x}`);
+            // });
+
             marker.addListener('click',function(){
-              InfoWindow.open(map,marker);
+                InfoWindow.open(map,marker);
             });
-          
-            }
+
+        //     setInterval(() => {
+        //     x = Math.floor((Math.random() * 100) + 1);
+        //     InfoWindow.setContent(`yazı ${x}`);
+        // }, 1000); 
+
         
-    }
+
+        
+      //marker1
+
+        let marker1=new google.maps.Marker({ 
+        position:{lat:41.515137,lng:28.979530},
+    map:map
+        });
+        let InfoWindow1= new google.maps.InfoWindow({
+    content: `Sensorid: b\nVoltage: 0\nFlame: 0`       
+        });
+
+        marker1.addListener('click',function(){
+    InfoWindow1.open(map,marker1);
+});
+
+    //     setInterval(() => {
+    // x = Math.floor((Math.random() * 100) + 1);
+    // InfoWindow1.setContent(`yazı ${x}`);
+    // }, 1000); 
+
+    //marker2
+
+    let marker2=new google.maps.Marker({ 
+        position:{lat:41.315137,lng:28.979530},
+    map:map
+        });
+        let InfoWindow2= new google.maps.InfoWindow({
+    content: `Sensorid: c\nVoltage: 0\nFlame: 0`      
+        });
+
+        marker2.addListener('click',function(){
+    InfoWindow2.open(map,marker2);
+});
+
+    //     setInterval(() => {
+    // x = Math.floor((Math.random() * 100) + 1);
+    // InfoWindow2.setContent(`yazı ${x}`);
+    // }, 1000); 
+
+
+        
+
+       
+          
+            const socket = io();
+            socket.on('veriler', (msg) => {
+            const bolgeler = ['a', 'b', 'c'];
+            // const contents = ['marker1','marker2','marker3']
+            for (let i = 0; i < bolgeler.length; i++) { //modallar eklenicek
+                if (msg.sensor_id == bolgeler[i]) {
+                    if (msg.flame >= 40) {
+                        $('#yangin').text(bolgeler[i].toLocaleUpperCase() + ' Bölgesinde Yangın')
+                        $('#exampleModalCenter').modal('show');
+                        audio.play();
+                        $('#exampleModalCenter').on('hidden.bs.modal', () => {
+                            audio.pause();
+                        })
+                    }
+                    if (msg.voltage <= 10) {
+                        $('#pill').text(bolgeler[i].toLocaleUpperCase() + ' Bölgesinde Düşük Pil')
+                        $('#modalpil').modal('show');
+                        audio.play();
+                        $('#modalpil').on('hidden.bs.modal', () => {
+                            audio.pause();
+                        })
+                    }
+                    
+                    
+                }
+            }
+            if(msg.sensor_id == 'a'){
+                      InfoWindow.setContent(`Sensorid: ${msg.sensor_id}\nVoltage: ${msg.voltage}\nFlame: ${msg.flame}`);
+    
+                    }
+                    if(msg.sensor_id == 'b'){
+                      InfoWindow1.setContent(`Sensorid: ${msg.sensor_id}\nVoltage: ${msg.voltage}\nFlame: ${msg.flame}`);
+                    }
+                    if(msg.sensor_id == 'c'){
+                      InfoWindow2.setContent(`Sensorid: ${msg.sensor_id}\nVoltage: ${msg.voltage}\nFlame: ${msg.flame}`);
+                    }
+                    console.log(msg.sensor_id,msg.voltage,msg.flame)
+        })
+             
+ }
+            
 </script>
   <!-- Footer -->
   <footer style="background-color: #04505f;
